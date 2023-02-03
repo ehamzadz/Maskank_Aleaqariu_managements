@@ -1,0 +1,14 @@
+program Maskank_Aleaqariu_managements;
+
+uses
+  System.StartUpCopy,
+  FMX.Forms,
+  uLogin in 'uLogin.pas' {frm_login};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.CreateForm(Tfrm_login, frm_login);
+  Application.Run;
+end.

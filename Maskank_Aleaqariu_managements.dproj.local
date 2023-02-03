@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2023/01/14 22:04:13.000.100,=C:\Users\eHamzaDZ\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2023/01/20 13:53:45.000.572,=C:\Users\eHamzaDZ\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2023/02/01 20:51:07.000.177,=C:\Users\eHamzaDZ\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2023/02/01 20:57:10.000.684,=C:\Users\eHamzaDZ\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2023/02/02 21:16:14.000.089,=C:\Users\eHamzaDZ\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2023/02/02 21:17:09.000.574,C:\Users\eHamzaDZ\Documents\Embarcadero\Studio\Projects\Unit1.pas=Z:\Projects\مسكنك العقاري\uLogin.pas</Transaction>
+    <Transaction>2023/02/02 21:17:09.000.574,C:\Users\eHamzaDZ\Documents\Embarcadero\Studio\Projects\Unit1.fmx=Z:\Projects\مسكنك العقاري\uLogin.fmx</Transaction>
+    <Transaction>2023/02/02 21:18:12.000.005,C:\Users\eHamzaDZ\Documents\Embarcadero\Studio\Projects\Project1.dproj=Z:\Projects\مسكنك العقاري\Maskank_Aleaqariu_managements.dproj</Transaction>
+    <Transaction>2023/02/02 22:19:35.000.339,=Z:\Projects\مسكنك العقاري\Unit1.pas</Transaction>
+    <Transaction>2023/02/02 22:19:46.000.183,Z:\Projects\مسكنك العقاري\Unit1.pas=Z:\Projects\مسكنك العقاري\uMain.pas</Transaction>
+    <Transaction>2023/02/02 22:19:46.000.183,Z:\Projects\مسكنك العقاري\Unit1.fmx=Z:\Projects\مسكنك العقاري\uMain.fmx</Transaction>
+    <Transaction>2023/02/03 15:41:38.196,=Z:\Projects\مسكنك العقاري\Unit1.pas</Transaction>
+    <Transaction>2023/02/03 15:41:50.332,Z:\Projects\مسكنك العقاري\DM.pas=Z:\Projects\مسكنك العقاري\Unit1.pas</Transaction>
+    <Transaction>2023/02/03 15:41:50.333,Z:\Projects\مسكنك العقاري\DM.dfm=Z:\Projects\مسكنك العقاري\Unit1.dfm</Transaction>
+  </Transactions>
+</BorlandProject>

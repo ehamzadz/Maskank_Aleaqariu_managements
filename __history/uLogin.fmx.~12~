@@ -1,0 +1,1390 @@
+object frm_login: Tfrm_login
+  Left = 0
+  Top = 0
+  ActiveControl = tab_login
+  BorderStyle = None
+  ClientHeight = 733
+  ClientWidth = 469
+  Position = DesktopCenter
+  StyleBook = StyleBook1
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  DesignerMasterStyle = 0
+  object Brush1: TBrushObject
+    StyleName = 'Brush1'
+    Brush.Color = xFFD2D2D2
+  end
+  object Gradient_Dark_Blue: TBrushObject
+    StyleName = 'Gradient_Dark_Blue'
+    Brush.Kind = Gradient
+    Brush.Gradient.Points = <
+      item
+        Color = xFF304A6E
+        Offset = 0.000000000000000000
+      end
+      item
+        Color = xFF28374C
+        Offset = 1.000000000000000000
+      end>
+    Brush.Gradient.StartPosition.Y = 0.500000000000000000
+    Brush.Gradient.StopPosition.X = 1.000000000000000000
+    Brush.Gradient.StopPosition.Y = 0.500000000000000000
+    Left = 8
+    Top = 8
+  end
+  object green: TBrushObject
+    StyleName = 'green'
+    Brush.Color = xFF10A19D
+    Left = 16
+    Top = 16
+  end
+  object pink: TBrushObject
+    StyleName = 'pink'
+    Brush.Color = xFFF7559A
+    Left = 24
+    Top = 24
+  end
+  object StyleBook1: TStyleBook
+    Styles = <
+      item
+      end
+      item
+        Platform = 'Windows 10 Desktop'
+        ResourcesBin = {
+          464D585F5354594C4520322E35010609456469747374796C6503A00906144564
+          69747374796C654C6162656C5374796C6531030F01060F436865636B426F7831
+          5374796C653103E90B005450463007544C61796F757400095374796C654E616D
+          650609456469747374796C6505416C69676E070643656E7465720A53697A652E
+          576964746805000000000000808607400B53697A652E48656967687405000000
+          00000000B004401453697A652E506C6174666F726D44656661756C7408075669
+          7369626C6508085461624F72646572020B0012544163746976655374796C654F
+          626A65637400095374796C654E616D65060A6261636B67726F756E6405416C69
+          676E0708436F6E74656E74730C536F757263654C6F6F6B7570061B57696E646F
+          7773203130204465736B746F707374796C652E706E670A53697A652E57696474
+          6805000000000000808607400B53697A652E4865696768740500000000000000
+          B004401453697A652E506C6174666F726D44656661756C74080756697369626C
+          65080D416374697665547269676765720707466F63757365640A416374697665
+          4C696E6B0E010E436170496E736574732E4C6566740500000000000000E00140
+          0D436170496E736574732E546F700500000000000000E001400F436170496E73
+          6574732E52696768740500000000000000E0014010436170496E736574732E42
+          6F74746F6D0500000000000000E001400F536F75726365526563742E4C656674
+          05000000000000008507400E536F75726365526563742E546F70050000000000
+          0000A2054010536F75726365526563742E526967687405000000000000809807
+          4011536F75726365526563742E426F74746F6D0500000000000000DC05400001
+          0E436170496E736574732E4C6566740500000000000000A002400D436170496E
+          736574732E546F700500000000000000A002400F436170496E736574732E5269
+          6768740500000000000000A0024010436170496E736574732E426F74746F6D05
+          00000000000000A00240055363616C650500000000000000C0FF3F0F536F7572
+          6365526563742E4C6566740500000000000080C707400E536F75726365526563
+          742E546F700500000000000000F2054010536F75726365526563742E52696768
+          740500000000000080E4074011536F75726365526563742E426F74746F6D0500
+          000000000000A5064000010E436170496E736574732E4C656674050000000000
+          0000E002400D436170496E736574732E546F700500000000000000E002400F43
+          6170496E736574732E52696768740500000000000000E0024010436170496E73
+          6574732E426F74746F6D0500000000000000E00240055363616C650500000000
+          0000008000400F536F75726365526563742E4C65667405000000000000008508
+          400E536F75726365526563742E546F700500000000000000A2064010536F7572
+          6365526563742E5269676874050000000000008098084011536F757263655265
+          63742E426F74746F6D0500000000000000DC064000000A536F757263654C696E
+          6B0E010E436170496E736574732E4C6566740500000000000000E001400D4361
+          70496E736574732E546F700500000000000000E001400F436170496E73657473
+          2E52696768740500000000000000E0014010436170496E736574732E426F7474
+          6F6D0500000000000000E001400F536F75726365526563742E4C656674050000
+          0000000000E106400E536F75726365526563742E546F700500000000000000A2
+          054010536F75726365526563742E526967687405000000000000008407401153
+          6F75726365526563742E426F74746F6D0500000000000000DC054000010E4361
+          70496E736574732E4C6566740500000000000000A002400D436170496E736574
+          732E546F700500000000000000A002400F436170496E736574732E5269676874
+          0500000000000000A0024010436170496E736574732E426F74746F6D05000000
+          00000000A00240055363616C650500000000000000C0FF3F0F536F7572636552
+          6563742E4C6566740500000000000080A807400E536F75726365526563742E54
+          6F700500000000000000F2054010536F75726365526563742E52696768740500
+          000000000000C6074011536F75726365526563742E426F74746F6D0500000000
+          000000A5064000010E436170496E736574732E4C6566740500000000000000E0
+          02400D436170496E736574732E546F700500000000000000E002400F43617049
+          6E736574732E52696768740500000000000000E0024010436170496E73657473
+          2E426F74746F6D0500000000000000E00240055363616C650500000000000000
+          8000400F536F75726365526563742E4C6566740500000000000000E107400E53
+          6F75726365526563742E546F700500000000000000A2064010536F7572636552
+          6563742E5269676874050000000000000084084011536F75726365526563742E
+          426F74746F6D0500000000000000DC0640000013546F756368416E696D617469
+          6F6E2E4C696E6B0E00000007544C61796F757400095374796C654E616D650607
+          636F6E74656E7405416C69676E0706436C69656E74064C6F636B6564090C4D61
+          7267696E732E4C6566740500000000000000C000400B4D617267696E732E546F
+          700500000000000000C000400D4D617267696E732E5269676874050000000000
+          0000C000400E4D617267696E732E426F74746F6D0500000000000000C000400A
+          53697A652E576964746805000000000000808207400B53697A652E4865696768
+          7405000000000000009804401453697A652E506C6174666F726D44656661756C
+          7408000007544C61796F757400095374796C654E616D650607627574746F6E73
+          05416C69676E07055269676874064C6F636B6564090B4D617267696E732E546F
+          7005000000000000008000400D4D617267696E732E5269676874050000000000
+          00008000400E4D617267696E732E426F74746F6D05000000000000008000400A
+          506F736974696F6E2E5805000000000000808507400A506F736974696F6E2E59
+          05000000000000008000400A53697A652E576964746805000000000000000000
+          000B53697A652E4865696768740500000000000000A004401453697A652E506C
+          6174666F726D44656661756C740800000C5442727573684F626A656374000953
+          74796C654E616D65060A666F726567726F756E640B42727573682E436F6C6F72
+          0708636C61426C61636B00000C5442727573684F626A65637400095374796C65
+          4E616D65060973656C656374696F6E0B42727573682E436F6C6F720709783746
+          32413936464600000B54466F6E744F626A65637400095374796C654E616D6506
+          04666F6E74000006544C6162656C00095374796C654E616D65060670726F6D70
+          74064C6F636B656409074F706163697479050000000000000080FE3F0B537479
+          6C654C6F6F6B75700614456469747374796C654C6162656C5374796C65310756
+          697369626C65080000005450463007544C61796F757400095374796C654E616D
+          650614456469747374796C654C6162656C5374796C653105416C69676E070643
+          656E7465720A53697A652E576964746805000000000000808607400B53697A65
+          2E4865696768740500000000000000B004401453697A652E506C6174666F726D
+          44656661756C74080756697369626C6508085461624F72646572020300055454
+          65787400095374796C654E616D6506047465787405416C69676E0706436C6965
+          6E74064C6F636B6564090748697454657374080A53697A652E57696474680500
+          0000000000808607400B53697A652E4865696768740500000000000000B00440
+          1453697A652E506C6174666F726D44656661756C74080000005450463007544C
+          61796F757400095374796C654E616D65060F436865636B426F78315374796C65
+          3105416C69676E070643656E7465720A53697A652E5769647468050000000000
+          00808607400B53697A652E48656967687405000000000000009803401453697A
+          652E506C6174666F726D44656661756C7408085461624F726465720212000754
+          4C61796F75740005416C69676E070552696768740A506F736974696F6E2E5805
+          00000000000000FB06400A53697A652E57696474680500000000000000900340
+          0B53697A652E48656967687405000000000000009803401453697A652E506C61
+          74666F726D44656661756C7408001154436865636B5374796C654F626A656374
+          00095374796C654E616D65060A6261636B67726F756E6405416C69676E070643
+          656E746572074361704D6F6465070454696C65064C6F636B6564090C536F7572
+          63654C6F6F6B7570061B57696E646F7773203130204465736B746F707374796C
+          652E706E670A53697A652E57696474680500000000000000D002400B53697A65
+          2E4865696768740500000000000000D002401453697A652E506C6174666F726D
+          44656661756C740808577261704D6F6465070643656E7465720D416374697665
+          547269676765720707436865636B65640A4163746976654C696E6B0E010F536F
+          75726365526563742E4C6566740500000000000000F803400E536F7572636552
+          6563742E546F70050000000000000092064010536F75726365526563742E5269
+          6768740500000000000000B0044011536F75726365526563742E426F74746F6D
+          05000000000000009F06400001055363616C650500000000000000C0FF3F0F53
+          6F75726365526563742E4C6566740500000000000000B804400E536F75726365
+          526563742E546F700500000000000000DB064010536F75726365526563742E52
+          69676874050000000000000082054011536F75726365526563742E426F74746F
+          6D0500000000000000EE06400001055363616C6505000000000000008000400F
+          536F75726365526563742E4C6566740500000000000000F804400E536F757263
+          65526563742E546F70050000000000000092074010536F75726365526563742E
+          52696768740500000000000000B0054011536F75726365526563742E426F7474
+          6F6D05000000000000009F074000000A536F757263654C696E6B0E010F536F75
+          726365526563742E4C6566740500000000000000C000400E536F757263655265
+          63742E546F70050000000000000092064010536F75726365526563742E526967
+          6874050000000000000080034011536F75726365526563742E426F74746F6D05
+          000000000000009F06400001055363616C650500000000000000C0FF3F0F536F
+          75726365526563742E4C65667405000000000000008001400E536F7572636552
+          6563742E546F700500000000000000DB064010536F75726365526563742E5269
+          6768740500000000000000B8034011536F75726365526563742E426F74746F6D
+          0500000000000000EE06400001055363616C6505000000000000008000400F53
+          6F75726365526563742E4C6566740500000000000000C001400E536F75726365
+          526563742E546F70050000000000000092074010536F75726365526563742E52
+          69676874050000000000000080044011536F75726365526563742E426F74746F
+          6D05000000000000009F0740000007486F744C696E6B0E010F536F7572636552
+          6563742E4C65667405000000000000008803400E536F75726365526563742E54
+          6F70050000000000000092064010536F75726365526563742E52696768740500
+          000000000000F0034011536F75726365526563742E426F74746F6D0500000000
+          0000009F06400001055363616C650500000000000000C0FF3F0F536F75726365
+          526563742E4C6566740500000000000000C803400E536F75726365526563742E
+          546F700500000000000000DB064010536F75726365526563742E526967687405
+          00000000000000B0044011536F75726365526563742E426F74746F6D05000000
+          00000000EE06400001055363616C6505000000000000008000400F536F757263
+          65526563742E4C65667405000000000000008804400E536F7572636552656374
+          2E546F70050000000000000092074010536F75726365526563742E5269676874
+          0500000000000000F0044011536F75726365526563742E426F74746F6D050000
+          00000000009F074000000D416374697665486F744C696E6B0E010F536F757263
+          65526563742E4C6566740500000000000000B404400E536F7572636552656374
+          2E546F70050000000000000092064010536F75726365526563742E5269676874
+          0500000000000000E8044011536F75726365526563742E426F74746F6D050000
+          00000000009F06400001055363616C650500000000000000C0FF3F0F536F7572
+          6365526563742E4C65667405000000000000008605400E536F75726365526563
+          742E546F700500000000000000DB064010536F75726365526563742E52696768
+          740500000000000000AC054011536F75726365526563742E426F74746F6D0500
+          000000000000EE06400001055363616C6505000000000000008000400F536F75
+          726365526563742E4C6566740500000000000000B405400E536F757263655265
+          63742E546F70050000000000000092074010536F75726365526563742E526967
+          68740500000000000000E8054011536F75726365526563742E426F74746F6D05
+          000000000000009F074000000B466F63757365644C696E6B0E010F536F757263
+          65526563742E4C65667405000000000000008803400E536F7572636552656374
+          2E546F70050000000000000092064010536F75726365526563742E5269676874
+          0500000000000000F0034011536F75726365526563742E426F74746F6D050000
+          00000000009F06400001055363616C650500000000000000C0FF3F0F536F7572
+          6365526563742E4C6566740500000000000000C803400E536F75726365526563
+          742E546F700500000000000000DB064010536F75726365526563742E52696768
+          740500000000000000B0044011536F75726365526563742E426F74746F6D0500
+          000000000000EE06400001055363616C6505000000000000008000400F536F75
+          726365526563742E4C65667405000000000000008804400E536F757263655265
+          63742E546F70050000000000000092074010536F75726365526563742E526967
+          68740500000000000000F0044011536F75726365526563742E426F74746F6D05
+          000000000000009F0740000011416374697665466F63757365644C696E6B0E01
+          0F536F75726365526563742E4C6566740500000000000000B404400E536F7572
+          6365526563742E546F70050000000000000092064010536F7572636552656374
+          2E52696768740500000000000000E8044011536F75726365526563742E426F74
+          746F6D05000000000000009F06400001055363616C650500000000000000C0FF
+          3F0F536F75726365526563742E4C65667405000000000000008605400E536F75
+          726365526563742E546F700500000000000000DB064010536F75726365526563
+          742E52696768740500000000000000AC054011536F75726365526563742E426F
+          74746F6D0500000000000000EE06400001055363616C65050000000000000080
+          00400F536F75726365526563742E4C6566740500000000000000B405400E536F
+          75726365526563742E546F70050000000000000092074010536F757263655265
+          63742E52696768740500000000000000E8054011536F75726365526563742E42
+          6F74746F6D05000000000000009F074000000000001654427574746F6E537479
+          6C65546578744F626A65637400095374796C654E616D6506047465787405416C
+          69676E0706436C69656E74064C6F636B6564090C4D617267696E732E4C656674
+          0500000000000000C000400A53697A652E57696474680500000000000000F806
+          400B53697A652E48656967687405000000000000009803401453697A652E506C
+          6174666F726D44656661756C740804546578740604546578740D536861646F77
+          56697369626C650808486F74436F6C6F720708636C61426C61636B0C466F6375
+          736564436F6C6F720708636C61426C61636B0B4E6F726D616C436F6C6F720708
+          636C61426C61636B0C50726573736564436F6C6F720708636C61426C61636B00
+          0000}
+      end>
+    Left = 32
+    Top = 32
+  end
+  object TabControl1: TTabControl
+    Align = Contents
+    Size.Width = 469.000000000000000000
+    Size.Height = 733.000000000000000000
+    Size.PlatformDefault = False
+    TabIndex = 1
+    TabOrder = 0
+    TabPosition = None
+    Sizes = (
+      469s
+      733s
+      469s
+      733s
+      469s
+      733s)
+    object tab_login: TTabItem
+      CustomIcon = <
+        item
+        end>
+      IsSelected = False
+      Size.Width = 8.000000000000000000
+      Size.Height = 8.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = ''
+      TabOrder = 0
+      ExplicitSize.cx = 8.000000000000000000
+      ExplicitSize.cy = 8.000000000000000000
+      object Rectangle1: TRectangle
+        Anchors = [akTop, akRight]
+        Cursor = crHandPoint
+        Fill.Color = x00D2BFBF
+        Margins.Left = 3.000000000000000000
+        Margins.Top = 3.000000000000000000
+        Margins.Right = 3.000000000000000000
+        Margins.Bottom = 3.000000000000000000
+        Position.X = 441.000000000000000000
+        Position.Y = 8.000000000000000000
+        Size.Width = 28.000000000000000000
+        Size.Height = 33.000000000000000000
+        Size.PlatformDefault = False
+        Stroke.Kind = None
+        object Text1: TText
+          Align = Center
+          HitTest = False
+          Size.Width = 29.000000000000000000
+          Size.Height = 43.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'X'
+          TextSettings.Font.Family = 'Tajawal'
+          TextSettings.Font.Size = 20.000000000000000000
+          TextSettings.Font.StyleExt = {00090000000000000004000000}
+          TextSettings.FontColor = claWhite
+        end
+        object ColorAnimation1: TColorAnimation
+          Duration = 0.200000002980232200
+          PropertyName = 'Fill.Color'
+          StartValue = x00D2BFBF
+          StopValue = xFFEE4343
+          Trigger = 'IsMouseOver=true'
+          TriggerInverse = 'IsMouseOver=false'
+        end
+      end
+      object Rectangle2: TRectangle
+        Align = Client
+        Fill.Color = claWhite
+        Size.Width = 469.000000000000000000
+        Size.Height = 733.000000000000000000
+        Size.PlatformDefault = False
+        Stroke.Kind = None
+        XRadius = 20.000000000000000000
+        YRadius = 20.000000000000000000
+        OnMouseDown = Rectangle2MouseDown
+        object Rectangle3: TRectangle
+          Align = Client
+          Corners = [TopRight, BottomRight]
+          Fill.Kind = Gradient
+          Fill.Gradient.Points = <
+            item
+              Color = xFF304A6E
+              Offset = 0.000000000000000000
+            end
+            item
+              Color = xFF28374C
+              Offset = 1.000000000000000000
+            end>
+          Fill.Gradient.StartPosition.Y = 0.500000000000000000
+          Fill.Gradient.StopPosition.X = 1.000000000000000000
+          Fill.Gradient.StopPosition.Y = 0.500000000000000000
+          HitTest = False
+          Size.Width = 469.000000000000000000
+          Size.Height = 733.000000000000000000
+          Size.PlatformDefault = False
+          Stroke.Kind = None
+          object Rectangle4: TRectangle
+            Align = Top
+            Fill.Kind = None
+            HitTest = False
+            Padding.Left = 30.000000000000000000
+            Padding.Top = 30.000000000000000000
+            Padding.Right = 30.000000000000000000
+            Padding.Bottom = 30.000000000000000000
+            Size.Width = 469.000000000000000000
+            Size.Height = 139.000000000000000000
+            Size.PlatformDefault = False
+            Stroke.Kind = None
+            object Text2: TText
+              Align = Top
+              HitTest = False
+              Position.X = 30.000000000000000000
+              Position.Y = 30.000000000000000000
+              Size.Width = 409.000000000000000000
+              Size.Height = 49.000000000000000000
+              Size.PlatformDefault = False
+              Text = #1575#1604#1587#1604#1575#1605' '#1593#1604#1610#1603#1605
+              TextSettings.Font.Family = 'rpt'
+              TextSettings.Font.Size = 27.000000000000000000
+              TextSettings.Font.StyleExt = {00070000000000000004000000}
+              TextSettings.FontColor = claWhite
+              TextSettings.HorzAlign = Trailing
+            end
+            object Text3: TText
+              Align = Top
+              HitTest = False
+              Position.X = 30.000000000000000000
+              Position.Y = 79.000000000000000000
+              Size.Width = 409.000000000000000000
+              Size.Height = 50.000000000000000000
+              Size.PlatformDefault = False
+              Text = #1605#1587#1603#1606#1603' '#1575#1604#1593#1602#1575#1585#1610
+              TextSettings.Font.Family = 'rpt'
+              TextSettings.Font.Size = 36.000000000000000000
+              TextSettings.Font.StyleExt = {00070000000000000004000000}
+              TextSettings.FontColor = xDCFFFFFF
+              TextSettings.HorzAlign = Trailing
+              TextSettings.VertAlign = Trailing
+            end
+            object Text4: TText
+              Align = Top
+              HitTest = False
+              Position.X = 30.000000000000000000
+              Position.Y = 129.000000000000000000
+              Size.Width = 409.000000000000000000
+              Size.Height = 23.000000000000000000
+              Size.PlatformDefault = False
+              Text = 'Maskank Aleaqariu'
+              TextSettings.Font.Family = 'rpt'
+              TextSettings.Font.Size = 16.000000000000000000
+              TextSettings.Font.StyleExt = {00070000000000000004000000}
+              TextSettings.FontColor = xDCFFFFFF
+              TextSettings.HorzAlign = Trailing
+            end
+            object btn_go_to_register_form: TRectangle
+              Cursor = crHandPoint
+              Fill.Color = xFFF7559A
+              Position.X = 30.000000000000000000
+              Position.Y = 100.000000000000000000
+              Size.Width = 155.000000000000000000
+              Size.Height = 50.000000000000000000
+              Size.PlatformDefault = False
+              Stroke.Kind = None
+              XRadius = 25.000000000000000000
+              YRadius = 25.000000000000000000
+              OnClick = btn_go_to_register_formClick
+              object Text5: TText
+                Align = Center
+                HitTest = False
+                Margins.Bottom = 7.000000000000000000
+                Size.Width = 145.000000000000000000
+                Size.Height = 26.000000000000000000
+                Size.PlatformDefault = False
+                Text = #1578#1587#1580#1610#1604' '#1580#1587#1575#1576' '#1580#1583#1610#1583
+                TextSettings.Font.Family = 'rpt'
+                TextSettings.Font.Size = 18.000000000000000000
+                TextSettings.Font.StyleExt = {00070000000000000004000000}
+                TextSettings.FontColor = xDCFFFFFF
+              end
+              object ColorAnimation2: TColorAnimation
+                Duration = 0.200000002980232200
+                PropertyName = 'Fill.Color'
+                StartValue = xFFF7559A
+                StopValue = xFFDA0861
+                Trigger = 'IsMouseOver=true'
+                TriggerInverse = 'IsMouseOver=false'
+              end
+            end
+          end
+          object Line1: TLine
+            Align = Bottom
+            LineType = Bottom
+            Margins.Right = 949.000000000000000000
+            Margins.Bottom = 3.000000000000000000
+            Position.Y = 147.000000000000000000
+            Size.Width = 0.000000000000000000
+            Size.Height = 9.000000000000000000
+            Size.PlatformDefault = False
+            Stroke.Color = xFF10A19D
+            Stroke.Thickness = 3.000000000000000000
+            object FloatAnimation1: TFloatAnimation
+              Duration = 2.000000000000000000
+              Interpolation = Exponential
+              PropertyName = 'Margins.Right'
+              StartValue = 949.000000000000000000
+              StopValue = 0.000000000000000000
+            end
+          end
+          object Rectangle7: TRectangle
+            Align = Bottom
+            Fill.Color = claWhite
+            HitTest = False
+            Margins.Left = 30.000000000000000000
+            Margins.Top = 30.000000000000000000
+            Margins.Right = 30.000000000000000000
+            Margins.Bottom = 30.000000000000000000
+            Position.X = 30.000000000000000000
+            Position.Y = 189.000000000000000000
+            Size.Width = 409.000000000000000000
+            Size.Height = 514.000000000000000000
+            Size.PlatformDefault = False
+            Stroke.Kind = None
+            XRadius = 30.000000000000000000
+            YRadius = 30.000000000000000000
+            object FloatAnimation2: TFloatAnimation
+              Duration = 0.200000002980232200
+              Interpolation = Circular
+              PropertyName = 'Width'
+              StartValue = 369.000000000000000000
+              StopValue = 0.000000000000000000
+            end
+            object Rectangle29: TRectangle
+              Align = Center
+              Fill.Kind = None
+              HitTest = False
+              Padding.Left = 50.000000000000000000
+              Padding.Top = 20.000000000000000000
+              Padding.Right = 50.000000000000000000
+              Padding.Bottom = 30.000000000000000000
+              Size.Width = 369.000000000000000000
+              Size.Height = 505.000000000000000000
+              Size.PlatformDefault = False
+              Stroke.Kind = None
+              object Rectangle30: TRectangle
+                Align = Top
+                Cursor = crHandPoint
+                Fill.Color = xFF10A19D
+                Margins.Top = 20.000000000000000000
+                Position.X = 50.000000000000000000
+                Position.Y = 384.000000000000000000
+                Size.Width = 269.000000000000000000
+                Size.Height = 50.000000000000000000
+                Size.PlatformDefault = False
+                Stroke.Kind = None
+                XRadius = 25.000000000000000000
+                YRadius = 25.000000000000000000
+                object Text29: TText
+                  Align = Center
+                  HitTest = False
+                  Size.Width = 145.000000000000000000
+                  Size.Height = 26.000000000000000000
+                  Size.PlatformDefault = False
+                  Text = #1605#1578#1575#1576#1593#1577
+                  TextSettings.Font.Family = 'Tajawal'
+                  TextSettings.Font.Size = 18.000000000000000000
+                  TextSettings.Font.StyleExt = {00050000000000000004000000}
+                  TextSettings.FontColor = xDCFFFFFF
+                end
+                object ColorAnimation8: TColorAnimation
+                  Duration = 0.200000002980232200
+                  PropertyName = 'Fill.Color'
+                  StartValue = xFF10A19D
+                  StopValue = xFF097B78
+                  Trigger = 'IsMouseOver=true'
+                  TriggerInverse = 'IsMouseOver=false'
+                end
+              end
+              object CheckBox1: TCheckBox
+                Align = Top
+                StyledSettings = [Style]
+                Margins.Top = 20.000000000000000000
+                Position.X = 50.000000000000000000
+                Position.Y = 345.000000000000000000
+                Size.Width = 269.000000000000000000
+                Size.Height = 19.000000000000000000
+                Size.PlatformDefault = False
+                StyleLookup = 'CheckBox1Style1'
+                TabOrder = 4
+                Text = #1578#1584#1603#1585' '#1603#1604#1605#1577' '#1575#1604#1587#1585' '
+                TextSettings.Font.Family = 'Tajawal'
+                TextSettings.Font.Size = 14.000000000000000000
+                TextSettings.FontColor = xFF5E5E5E
+                TextSettings.HorzAlign = Trailing
+              end
+              object Rectangle31: TRectangle
+                Align = Top
+                Fill.Kind = None
+                Margins.Top = 10.000000000000000000
+                Position.X = 50.000000000000000000
+                Position.Y = 177.000000000000000000
+                Size.Width = 269.000000000000000000
+                Size.Height = 50.000000000000000000
+                Size.PlatformDefault = False
+                Stroke.Color = xFFD2D2D2
+                XRadius = 7.000000000000000000
+                YRadius = 7.000000000000000000
+                object Edit7: TEdit
+                  Touch.InteractiveGestures = [LongTap, DoubleTap]
+                  Align = Client
+                  TabOrder = 0
+                  TextSettings.Font.Family = 'Tajawal'
+                  TextSettings.Font.Size = 14.000000000000000000
+                  Size.Width = 269.000000000000000000
+                  Size.Height = 50.000000000000000000
+                  Size.PlatformDefault = False
+                  StyledSettings = [Style, FontColor]
+                end
+              end
+              object Rectangle32: TRectangle
+                Align = Top
+                Fill.Kind = None
+                Margins.Top = 10.000000000000000000
+                Position.X = 50.000000000000000000
+                Position.Y = 275.000000000000000000
+                Size.Width = 269.000000000000000000
+                Size.Height = 50.000000000000000000
+                Size.PlatformDefault = False
+                Stroke.Color = xFFD2D2D2
+                XRadius = 7.000000000000000000
+                YRadius = 7.000000000000000000
+                object Edit8: TEdit
+                  Touch.InteractiveGestures = [LongTap, DoubleTap]
+                  Align = Client
+                  StyleLookup = 'Edit8Style1'
+                  TabOrder = 0
+                  Password = True
+                  TextSettings.Font.Family = 'Tajawal'
+                  TextSettings.Font.Size = 14.000000000000000000
+                  TextSettings.HorzAlign = Trailing
+                  Size.Width = 269.000000000000000000
+                  Size.Height = 50.000000000000000000
+                  Size.PlatformDefault = False
+                  StyledSettings = [Style, FontColor]
+                  object PasswordEditButton6: TPasswordEditButton
+                    CanFocus = False
+                    Cursor = crHandPoint
+                    Size.Width = 28.000000000000000000
+                    Size.Height = 46.000000000000000000
+                    Size.PlatformDefault = False
+                    StyleLookup = 'PasswordEditButton6Style1'
+                    TabOrder = 0
+                  end
+                end
+              end
+              object Text30: TText
+                Align = Top
+                HitTest = False
+                Margins.Top = 50.000000000000000000
+                Position.X = 50.000000000000000000
+                Position.Y = 70.000000000000000000
+                Size.Width = 269.000000000000000000
+                Size.Height = 49.000000000000000000
+                Size.PlatformDefault = False
+                Text = #1578#1587#1580#1610#1604' '#1575#1604#1583#1582#1608#1604
+                TextSettings.Font.Family = 'Tajawal'
+                TextSettings.Font.Size = 28.000000000000000000
+                TextSettings.Font.StyleExt = {00070000000000000004000000}
+                TextSettings.HorzAlign = Trailing
+              end
+              object Text31: TText
+                Align = Top
+                HitTest = False
+                Opacity = 0.800000011920929000
+                Margins.Top = 30.000000000000000000
+                Position.X = 50.000000000000000000
+                Position.Y = 149.000000000000000000
+                Size.Width = 269.000000000000000000
+                Size.Height = 18.000000000000000000
+                Size.PlatformDefault = False
+                Text = #1573#1587#1605' '#1575#1604#1605#1587#1578#1582#1583#1605
+                TextSettings.Font.Family = 'Tajawal'
+                TextSettings.Font.Size = 16.000000000000000000
+                TextSettings.FontColor = xFF303030
+                TextSettings.HorzAlign = Trailing
+              end
+              object Text32: TText
+                Align = Top
+                HitTest = False
+                Opacity = 0.800000011920929000
+                Margins.Top = 20.000000000000000000
+                Position.X = 50.000000000000000000
+                Position.Y = 247.000000000000000000
+                Size.Width = 269.000000000000000000
+                Size.Height = 18.000000000000000000
+                Size.PlatformDefault = False
+                Text = #1603#1604#1605#1577' '#1575#1604#1587#1585
+                TextSettings.Font.Family = 'Tajawal'
+                TextSettings.Font.Size = 16.000000000000000000
+                TextSettings.FontColor = xFF303030
+                TextSettings.HorzAlign = Trailing
+              end
+              object Text33: TText
+                Align = Top
+                Position.X = 50.000000000000000000
+                Position.Y = 444.000000000000000000
+                Size.Width = 269.000000000000000000
+                Size.Height = 27.000000000000000000
+                Size.PlatformDefault = False
+                Text = 'Completer tous les champs'
+                TextSettings.FontColor = claTomato
+                Visible = False
+              end
+            end
+          end
+        end
+      end
+    end
+    object tab_register: TTabItem
+      CustomIcon = <
+        item
+        end>
+      IsSelected = True
+      Size.Width = 8.000000000000000000
+      Size.Height = 8.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = ''
+      TabOrder = 0
+      Text = 'tab_register'
+      ExplicitSize.cx = 8.000000000000000000
+      ExplicitSize.cy = 8.000000000000000000
+      object Rectangle5: TRectangle
+        Align = Client
+        Fill.Color = claWhite
+        Size.Width = 469.000000000000000000
+        Size.Height = 733.000000000000000000
+        Size.PlatformDefault = False
+        Stroke.Kind = None
+        XRadius = 20.000000000000000000
+        YRadius = 20.000000000000000000
+        OnMouseDown = Rectangle5MouseDown
+        object Rectangle14: TRectangle
+          Align = Client
+          Corners = [TopRight, BottomRight]
+          Fill.Kind = Gradient
+          Fill.Gradient.Points = <
+            item
+              Color = xFF304A6E
+              Offset = 0.000000000000000000
+            end
+            item
+              Color = xFF28374C
+              Offset = 1.000000000000000000
+            end>
+          Fill.Gradient.StartPosition.Y = 0.500000000000000000
+          Fill.Gradient.StopPosition.X = 1.000000000000000000
+          Fill.Gradient.StopPosition.Y = 0.500000000000000000
+          HitTest = False
+          Size.Width = 469.000000000000000000
+          Size.Height = 733.000000000000000000
+          Size.PlatformDefault = False
+          Stroke.Kind = None
+          object Rectangle15: TRectangle
+            Align = Top
+            Fill.Kind = None
+            HitTest = False
+            Padding.Left = 30.000000000000000000
+            Padding.Top = 30.000000000000000000
+            Padding.Right = 30.000000000000000000
+            Padding.Bottom = 30.000000000000000000
+            Size.Width = 469.000000000000000000
+            Size.Height = 139.000000000000000000
+            Size.PlatformDefault = False
+            Stroke.Kind = None
+            object Text15: TText
+              Align = Top
+              HitTest = False
+              Position.X = 30.000000000000000000
+              Position.Y = 30.000000000000000000
+              Size.Width = 409.000000000000000000
+              Size.Height = 49.000000000000000000
+              Size.PlatformDefault = False
+              Text = #1575#1604#1587#1604#1575#1605' '#1593#1604#1610#1603#1605
+              TextSettings.Font.Family = 'rpt'
+              TextSettings.Font.Size = 27.000000000000000000
+              TextSettings.Font.StyleExt = {00070000000000000004000000}
+              TextSettings.FontColor = claWhite
+              TextSettings.HorzAlign = Trailing
+            end
+            object Text16: TText
+              Align = Top
+              HitTest = False
+              Position.X = 30.000000000000000000
+              Position.Y = 79.000000000000000000
+              Size.Width = 409.000000000000000000
+              Size.Height = 50.000000000000000000
+              Size.PlatformDefault = False
+              Text = #1605#1587#1603#1606#1603' '#1575#1604#1593#1602#1575#1585#1610
+              TextSettings.Font.Family = 'rpt'
+              TextSettings.Font.Size = 36.000000000000000000
+              TextSettings.Font.StyleExt = {00070000000000000004000000}
+              TextSettings.FontColor = xDCFFFFFF
+              TextSettings.HorzAlign = Trailing
+              TextSettings.VertAlign = Trailing
+            end
+            object Text17: TText
+              Align = Top
+              HitTest = False
+              Position.X = 30.000000000000000000
+              Position.Y = 129.000000000000000000
+              Size.Width = 409.000000000000000000
+              Size.Height = 23.000000000000000000
+              Size.PlatformDefault = False
+              Text = 'Maskank Aleaqariu'
+              TextSettings.Font.Family = 'rpt'
+              TextSettings.Font.Size = 16.000000000000000000
+              TextSettings.Font.StyleExt = {00070000000000000004000000}
+              TextSettings.FontColor = xDCFFFFFF
+              TextSettings.HorzAlign = Trailing
+            end
+            object btn_go_to_login_form: TRectangle
+              Cursor = crHandPoint
+              Fill.Color = xFF10A19D
+              Position.X = 30.000000000000000000
+              Position.Y = 100.000000000000000000
+              Size.Width = 129.000000000000000000
+              Size.Height = 50.000000000000000000
+              Size.PlatformDefault = False
+              Stroke.Kind = None
+              XRadius = 25.000000000000000000
+              YRadius = 25.000000000000000000
+              OnClick = btn_go_to_login_formClick
+              object Text14: TText
+                Align = Center
+                HitTest = False
+                Margins.Bottom = 7.000000000000000000
+                Size.Width = 109.000000000000000000
+                Size.Height = 26.000000000000000000
+                Size.PlatformDefault = False
+                Text = #1578#1587#1580#1610#1604' '#1575#1604#1583#1582#1608#1604
+                TextSettings.Font.Family = 'rpt'
+                TextSettings.Font.Size = 18.000000000000000000
+                TextSettings.Font.StyleExt = {00070000000000000004000000}
+                TextSettings.FontColor = xDCFFFFFF
+              end
+              object ColorAnimation3: TColorAnimation
+                Duration = 0.200000002980232200
+                PropertyName = 'Fill.Color'
+                StartValue = xFF10A19D
+                StopValue = xFF097B78
+                Trigger = 'IsMouseOver=true'
+                TriggerInverse = 'IsMouseOver=false'
+              end
+            end
+          end
+          object Line2: TLine
+            Align = Bottom
+            LineType = Bottom
+            Margins.Right = 949.000000000000000000
+            Margins.Bottom = 3.000000000000000000
+            Position.Y = 147.000000000000000000
+            Size.Width = 0.000000000000000000
+            Size.Height = 9.000000000000000000
+            Size.PlatformDefault = False
+            Stroke.Color = xFF10A19D
+            Stroke.Thickness = 3.000000000000000000
+            object FloatAnimation4: TFloatAnimation
+              Duration = 2.000000000000000000
+              Interpolation = Exponential
+              PropertyName = 'Margins.Right'
+              StartValue = 949.000000000000000000
+              StopValue = 0.000000000000000000
+            end
+          end
+          object Rectangle9: TRectangle
+            Align = Bottom
+            Fill.Color = claWhite
+            HitTest = False
+            Margins.Left = 30.000000000000000000
+            Margins.Top = 30.000000000000000000
+            Margins.Right = 30.000000000000000000
+            Margins.Bottom = 30.000000000000000000
+            Position.X = 30.000000000000000000
+            Position.Y = 189.000000000000000000
+            Size.Width = 409.000000000000000000
+            Size.Height = 514.000000000000000000
+            Size.PlatformDefault = False
+            Stroke.Kind = None
+            XRadius = 30.000000000000000000
+            YRadius = 30.000000000000000000
+            object Rectangle10: TRectangle
+              Align = Center
+              Fill.Kind = None
+              HitTest = False
+              Padding.Left = 50.000000000000000000
+              Padding.Top = 10.000000000000000000
+              Padding.Right = 50.000000000000000000
+              Padding.Bottom = 30.000000000000000000
+              Size.Width = 369.000000000000000000
+              Size.Height = 532.000000000000000000
+              Size.PlatformDefault = False
+              Stroke.Kind = None
+              object btn_register: TRectangle
+                Align = Top
+                Cursor = crHandPoint
+                Fill.Color = xFFF7559A
+                Margins.Top = 15.000000000000000000
+                Position.X = 50.000000000000000000
+                Position.Y = 446.000000000000000000
+                Size.Width = 269.000000000000000000
+                Size.Height = 50.000000000000000000
+                Size.PlatformDefault = False
+                Stroke.Kind = None
+                XRadius = 25.000000000000000000
+                YRadius = 25.000000000000000000
+                object Text9: TText
+                  Align = Center
+                  HitTest = False
+                  Size.Width = 145.000000000000000000
+                  Size.Height = 26.000000000000000000
+                  Size.PlatformDefault = False
+                  Text = #1605#1578#1575#1576#1593#1577
+                  TextSettings.Font.Family = 'Tajawal'
+                  TextSettings.Font.Size = 18.000000000000000000
+                  TextSettings.Font.StyleExt = {00050000000000000004000000}
+                  TextSettings.FontColor = xDCFFFFFF
+                end
+                object ColorAnimation4: TColorAnimation
+                  Duration = 0.200000002980232200
+                  PropertyName = 'Fill.Color'
+                  StartValue = xFFF7559A
+                  StopValue = xFFDA0861
+                  Trigger = 'IsMouseOver=true'
+                  TriggerInverse = 'IsMouseOver=false'
+                end
+              end
+              object Rectangle12: TRectangle
+                Align = Top
+                Fill.Kind = None
+                Margins.Top = 10.000000000000000000
+                Position.X = 50.000000000000000000
+                Position.Y = 97.000000000000000000
+                Size.Width = 269.000000000000000000
+                Size.Height = 50.000000000000000000
+                Size.PlatformDefault = False
+                Stroke.Color = xFFD2D2D2
+                XRadius = 7.000000000000000000
+                YRadius = 7.000000000000000000
+                object edit_fullName: TEdit
+                  Touch.InteractiveGestures = [LongTap, DoubleTap]
+                  Align = Client
+                  TabOrder = 0
+                  TextSettings.Font.Family = 'Tajawal'
+                  TextSettings.Font.Size = 14.000000000000000000
+                  Size.Width = 269.000000000000000000
+                  Size.Height = 50.000000000000000000
+                  Size.PlatformDefault = False
+                  StyledSettings = [Style, FontColor]
+                end
+              end
+              object Rectangle13: TRectangle
+                Align = Top
+                Fill.Kind = None
+                Margins.Top = 10.000000000000000000
+                Position.X = 50.000000000000000000
+                Position.Y = 283.000000000000000000
+                Size.Width = 269.000000000000000000
+                Size.Height = 50.000000000000000000
+                Size.PlatformDefault = False
+                Stroke.Color = xFFD2D2D2
+                XRadius = 7.000000000000000000
+                YRadius = 7.000000000000000000
+                object edit_pass2: TEdit
+                  Touch.InteractiveGestures = [LongTap, DoubleTap]
+                  Align = Client
+                  TabOrder = 0
+                  Password = True
+                  TextSettings.Font.Family = 'Tajawal'
+                  TextSettings.Font.Size = 14.000000000000000000
+                  Size.Width = 269.000000000000000000
+                  Size.Height = 50.000000000000000000
+                  Size.PlatformDefault = False
+                  StyledSettings = [Style, FontColor]
+                  object PasswordEditButton2: TPasswordEditButton
+                    CanFocus = False
+                    Cursor = crHandPoint
+                    Size.Width = 28.000000000000000000
+                    Size.Height = 46.000000000000000000
+                    Size.PlatformDefault = False
+                    TabOrder = 0
+                  end
+                end
+              end
+              object Text10: TText
+                Align = Top
+                HitTest = False
+                Position.X = 50.000000000000000000
+                Position.Y = 10.000000000000000000
+                Size.Width = 269.000000000000000000
+                Size.Height = 49.000000000000000000
+                Size.PlatformDefault = False
+                Text = #1578#1587#1580#1610#1604' '#1581#1587#1575#1576' '#1580#1583#1610#1583
+                TextSettings.Font.Family = 'Tajawal'
+                TextSettings.Font.Size = 28.000000000000000000
+                TextSettings.Font.StyleExt = {00070000000000000004000000}
+                TextSettings.HorzAlign = Trailing
+              end
+              object Text11: TText
+                Align = Top
+                HitTest = False
+                Opacity = 0.800000011920929000
+                Margins.Top = 10.000000000000000000
+                Position.X = 50.000000000000000000
+                Position.Y = 69.000000000000000000
+                Size.Width = 269.000000000000000000
+                Size.Height = 18.000000000000000000
+                Size.PlatformDefault = False
+                Text = #1575#1604#1573#1587#1605' '#1608#1575#1604#1604#1602#1576
+                TextSettings.Font.Family = 'Tajawal'
+                TextSettings.Font.Size = 16.000000000000000000
+                TextSettings.FontColor = xFF303030
+                TextSettings.HorzAlign = Trailing
+              end
+              object Text12: TText
+                Align = Top
+                HitTest = False
+                Opacity = 0.800000011920929000
+                Margins.Top = 20.000000000000000000
+                Position.X = 50.000000000000000000
+                Position.Y = 255.000000000000000000
+                Size.Width = 269.000000000000000000
+                Size.Height = 18.000000000000000000
+                Size.PlatformDefault = False
+                Text = #1603#1604#1605#1577' '#1575#1604#1587#1585
+                TextSettings.Font.Family = 'Tajawal'
+                TextSettings.Font.Size = 16.000000000000000000
+                TextSettings.FontColor = xFF303030
+                TextSettings.HorzAlign = Trailing
+              end
+              object text_err_msg2: TText
+                Align = Top
+                Position.X = 50.000000000000000000
+                Position.Y = 496.000000000000000000
+                Size.Width = 269.000000000000000000
+                Size.Height = 23.000000000000000000
+                Size.PlatformDefault = False
+                Text = 'Completer tous les champs'
+                TextSettings.FontColor = claTomato
+                Visible = False
+              end
+              object Text18: TText
+                Align = Top
+                HitTest = False
+                Opacity = 0.800000011920929000
+                Margins.Top = 10.000000000000000000
+                Position.X = 50.000000000000000000
+                Position.Y = 157.000000000000000000
+                Size.Width = 269.000000000000000000
+                Size.Height = 18.000000000000000000
+                Size.PlatformDefault = False
+                Text = #1573#1587#1605' '#1575#1604#1605#1587#1578#1582#1583#1605
+                TextSettings.Font.Family = 'Tajawal'
+                TextSettings.Font.Size = 16.000000000000000000
+                TextSettings.FontColor = xFF303030
+                TextSettings.HorzAlign = Trailing
+              end
+              object Rectangle16: TRectangle
+                Align = Top
+                Fill.Kind = None
+                Margins.Top = 10.000000000000000000
+                Position.X = 50.000000000000000000
+                Position.Y = 185.000000000000000000
+                Size.Width = 269.000000000000000000
+                Size.Height = 50.000000000000000000
+                Size.PlatformDefault = False
+                Stroke.Color = xFFD2D2D2
+                XRadius = 7.000000000000000000
+                YRadius = 7.000000000000000000
+                object edit_user2: TEdit
+                  Touch.InteractiveGestures = [LongTap, DoubleTap]
+                  Align = Client
+                  TabOrder = 0
+                  TextSettings.Font.Family = 'Tajawal'
+                  TextSettings.Font.Size = 14.000000000000000000
+                  Size.Width = 269.000000000000000000
+                  Size.Height = 50.000000000000000000
+                  Size.PlatformDefault = False
+                  StyledSettings = [Style, FontColor]
+                end
+              end
+              object Text19: TText
+                Align = Top
+                HitTest = False
+                Opacity = 0.800000011920929000
+                Margins.Top = 20.000000000000000000
+                Position.X = 50.000000000000000000
+                Position.Y = 353.000000000000000000
+                Size.Width = 269.000000000000000000
+                Size.Height = 18.000000000000000000
+                Size.PlatformDefault = False
+                Text = #1573#1593#1575#1583#1577' '#1603#1578#1575#1576#1577' '#1603#1604#1605#1577' '#1575#1604#1587#1585
+                TextSettings.Font.Family = 'Tajawal'
+                TextSettings.Font.Size = 16.000000000000000000
+                TextSettings.FontColor = xFF303030
+                TextSettings.HorzAlign = Trailing
+              end
+              object Rectangle17: TRectangle
+                Align = Top
+                Fill.Kind = None
+                Margins.Top = 10.000000000000000000
+                Position.X = 50.000000000000000000
+                Position.Y = 381.000000000000000000
+                Size.Width = 269.000000000000000000
+                Size.Height = 50.000000000000000000
+                Size.PlatformDefault = False
+                Stroke.Color = xFFD2D2D2
+                XRadius = 7.000000000000000000
+                YRadius = 7.000000000000000000
+                object edit_pass22: TEdit
+                  Touch.InteractiveGestures = [LongTap, DoubleTap]
+                  Align = Client
+                  TabOrder = 0
+                  Password = True
+                  TextSettings.Font.Family = 'Tajawal'
+                  TextSettings.Font.Size = 14.000000000000000000
+                  Size.Width = 269.000000000000000000
+                  Size.Height = 50.000000000000000000
+                  Size.PlatformDefault = False
+                  StyledSettings = [Style, FontColor]
+                  object PasswordEditButton3: TPasswordEditButton
+                    CanFocus = False
+                    Cursor = crHandPoint
+                    Size.Width = 28.000000000000000000
+                    Size.Height = 46.000000000000000000
+                    Size.PlatformDefault = False
+                    TabOrder = 0
+                    Text = '0'
+                  end
+                end
+              end
+            end
+            object FloatAnimation3: TFloatAnimation
+              Duration = 0.200000002980232200
+              Interpolation = Circular
+              PropertyName = 'Width'
+              StartValue = 369.000000000000000000
+              StopValue = 0.000000000000000000
+            end
+          end
+        end
+      end
+    end
+    object tab_load: TTabItem
+      CustomIcon = <
+        item
+        end>
+      IsSelected = False
+      Size.Width = 8.000000000000000000
+      Size.Height = 8.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = ''
+      TabOrder = 0
+      Text = 'tab_load'
+      ExplicitSize.cx = 8.000000000000000000
+      ExplicitSize.cy = 8.000000000000000000
+      object Timer1: TTimer
+        Enabled = False
+        Interval = 3000
+        Left = 320
+        Top = 88
+      end
+      object Rectangle11: TRectangle
+        Align = Client
+        Fill.Kind = None
+        HitTest = False
+        Size.Width = 469.000000000000000000
+        Size.Height = 733.000000000000000000
+        Size.PlatformDefault = False
+        Stroke.Color = claSlategray
+        object Rectangle18: TRectangle
+          Align = Center
+          Fill.Kind = None
+          Margins.Bottom = 10.000000000000000000
+          Size.Width = 318.000000000000000000
+          Size.Height = 249.000000000000000000
+          Size.PlatformDefault = False
+          Stroke.Kind = None
+          XRadius = 11.000000000000000000
+          YRadius = 11.000000000000000000
+          object text_welcome: TText
+            Align = Center
+            Margins.Top = -50.000000000000000000
+            Size.Width = 234.000000000000000000
+            Size.Height = 93.000000000000000000
+            Size.PlatformDefault = False
+            TextSettings.Font.Size = 18.000000000000000000
+            TextSettings.FontColor = xFF6B6B6B
+            object Image1: TImage
+              MultiResBitmap.Height = 900
+              MultiResBitmap.Width = 900
+              MultiResBitmap.LoadSize = 1
+              MultiResBitmap = <
+                item
+                  Width = 234
+                  Height = 21
+                  PNG = {
+                    89504E470D0A1A0A0000000D49484452000000EA000000150806000000485072
+                    82000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
+                    00E549444154785EEDD9410E82301400D1EACD3C1067D03B34DCC793A148BA40
+                    822875C3FCCE4B8C90209B9FB1259C92F0BAAE7B94C3340CC3A5EFFB7B395510
+                    E7F22DA057A0F3481597A14219685B0C15C848DBE3332ACC56A43967E7199483
+                    05F914A981C6E7D617CE48DBE09021D65653236D872BAA0460A850AEA66D71D8
+                    10CBAD6F4DA8E33D6EE57032DEE3ED5CC7E58ADA96EBE223084385DA7A9FBA66
+                    EFF53A164395007C4605A97D4553FB3B1D872B2ADCB72DAD5BDE18FC5785D90A
+                    6FBE4AFE7A9D181C18D03FABA491323934A89A588D94CBC181ED89D548D91C5E
+                    003E8F4697D2134FD653C002093DDD0000000049454E44AE426082}
+                  FileName = 
+                    'D:\Github\Desktop App\Gestion-de-Clinique\assets\loading_logo_gr' +
+                    'ey.png'
+                end>
+              Align = Bottom
+              Margins.Bottom = -30.000000000000000000
+              Position.Y = 102.000000000000000000
+              Size.Width = 234.000000000000000000
+              Size.Height = 21.000000000000000000
+              Size.PlatformDefault = False
+              object FloatAnimation5: TFloatAnimation
+                Enabled = True
+                Duration = 0.300000011920929000
+                Loop = True
+                PropertyName = 'RotationAngle'
+                StartValue = 0.000000000000000000
+                StopValue = 360.000000000000000000
+              end
+            end
+          end
+        end
+      end
+      object Rectangle20: TRectangle
+        Align = Center
+        Fill.Kind = None
+        HitTest = False
+        Padding.Left = 50.000000000000000000
+        Padding.Top = 30.000000000000000000
+        Padding.Right = 50.000000000000000000
+        Padding.Bottom = 30.000000000000000000
+        Size.Width = 369.000000000000000000
+        Size.Height = 505.000000000000000000
+        Size.PlatformDefault = False
+        Stroke.Kind = None
+        object Rectangle21: TRectangle
+          Align = Top
+          Cursor = crHandPoint
+          Fill.Color = xFF10A19D
+          Margins.Top = 20.000000000000000000
+          Position.X = 50.000000000000000000
+          Position.Y = 394.000000000000000000
+          Size.Width = 269.000000000000000000
+          Size.Height = 50.000000000000000000
+          Size.PlatformDefault = False
+          Stroke.Kind = None
+          XRadius = 25.000000000000000000
+          YRadius = 25.000000000000000000
+          object Text21: TText
+            Align = Center
+            HitTest = False
+            Size.Width = 145.000000000000000000
+            Size.Height = 26.000000000000000000
+            Size.PlatformDefault = False
+            Text = 'Se Connecter'
+            TextSettings.Font.Family = 'Tajawal'
+            TextSettings.Font.Size = 18.000000000000000000
+            TextSettings.Font.StyleExt = {00050000000000000004000000}
+            TextSettings.FontColor = xDCFFFFFF
+          end
+          object ColorAnimation7: TColorAnimation
+            Duration = 0.200000002980232200
+            PropertyName = 'Fill.Color'
+            StartValue = xFF10A19D
+            StopValue = xFF097B78
+            Trigger = 'IsMouseOver=true'
+            TriggerInverse = 'IsMouseOver=false'
+          end
+        end
+        object CheckBox2: TCheckBox
+          Align = Top
+          StyledSettings = [Style]
+          Margins.Top = 20.000000000000000000
+          Position.X = 50.000000000000000000
+          Position.Y = 355.000000000000000000
+          Size.Width = 269.000000000000000000
+          Size.Height = 19.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 4
+          Text = 'Se souvenir de moi'
+          TextSettings.Font.Family = 'Tajawal'
+          TextSettings.Font.Size = 14.000000000000000000
+          TextSettings.FontColor = xFF5E5E5E
+        end
+        object Rectangle22: TRectangle
+          Align = Top
+          Fill.Kind = None
+          Margins.Top = 10.000000000000000000
+          Position.X = 50.000000000000000000
+          Position.Y = 187.000000000000000000
+          Size.Width = 269.000000000000000000
+          Size.Height = 50.000000000000000000
+          Size.PlatformDefault = False
+          Stroke.Color = xFFD2D2D2
+          XRadius = 7.000000000000000000
+          YRadius = 7.000000000000000000
+          object Edit1: TEdit
+            Touch.InteractiveGestures = [LongTap, DoubleTap]
+            Align = Client
+            TabOrder = 0
+            TextSettings.Font.Family = 'Tajawal'
+            TextSettings.Font.Size = 14.000000000000000000
+            Size.Width = 269.000000000000000000
+            Size.Height = 50.000000000000000000
+            Size.PlatformDefault = False
+            StyledSettings = [Style, FontColor]
+          end
+        end
+        object Rectangle23: TRectangle
+          Align = Top
+          Fill.Kind = None
+          Margins.Top = 10.000000000000000000
+          Position.X = 50.000000000000000000
+          Position.Y = 285.000000000000000000
+          Size.Width = 269.000000000000000000
+          Size.Height = 50.000000000000000000
+          Size.PlatformDefault = False
+          Stroke.Color = xFFD2D2D2
+          XRadius = 7.000000000000000000
+          YRadius = 7.000000000000000000
+          object Edit2: TEdit
+            Touch.InteractiveGestures = [LongTap, DoubleTap]
+            Align = Client
+            TabOrder = 0
+            Password = True
+            TextSettings.Font.Family = 'Tajawal'
+            TextSettings.Font.Size = 14.000000000000000000
+            Size.Width = 269.000000000000000000
+            Size.Height = 50.000000000000000000
+            Size.PlatformDefault = False
+            StyledSettings = [Style, FontColor]
+            object PasswordEditButton4: TPasswordEditButton
+              CanFocus = False
+              Cursor = crHandPoint
+              Size.Width = 28.000000000000000000
+              Size.Height = 46.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 0
+            end
+          end
+        end
+        object Text22: TText
+          Align = Top
+          HitTest = False
+          Margins.Top = 50.000000000000000000
+          Position.X = 50.000000000000000000
+          Position.Y = 80.000000000000000000
+          Size.Width = 269.000000000000000000
+          Size.Height = 49.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'Se Connecter'
+          TextSettings.Font.Family = 'Tajawal'
+          TextSettings.Font.Size = 28.000000000000000000
+          TextSettings.Font.StyleExt = {00070000000000000004000000}
+          TextSettings.HorzAlign = Leading
+        end
+        object Text23: TText
+          Align = Top
+          HitTest = False
+          Opacity = 0.800000011920929000
+          Margins.Top = 30.000000000000000000
+          Position.X = 50.000000000000000000
+          Position.Y = 159.000000000000000000
+          Size.Width = 269.000000000000000000
+          Size.Height = 18.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'Nom d'#39'utilisateur'
+          TextSettings.Font.Family = 'Tajawal'
+          TextSettings.Font.Size = 16.000000000000000000
+          TextSettings.FontColor = xFF303030
+          TextSettings.HorzAlign = Leading
+        end
+        object Text24: TText
+          Align = Top
+          HitTest = False
+          Opacity = 0.800000011920929000
+          Margins.Top = 20.000000000000000000
+          Position.X = 50.000000000000000000
+          Position.Y = 257.000000000000000000
+          Size.Width = 269.000000000000000000
+          Size.Height = 18.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'Mot de passe'
+          TextSettings.Font.Family = 'Tajawal'
+          TextSettings.Font.Size = 16.000000000000000000
+          TextSettings.FontColor = xFF303030
+          TextSettings.HorzAlign = Leading
+        end
+        object Text25: TText
+          Align = Top
+          Position.X = 50.000000000000000000
+          Position.Y = 444.000000000000000000
+          Size.Width = 269.000000000000000000
+          Size.Height = 27.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'Completer tous les champs'
+          TextSettings.FontColor = claTomato
+          Visible = False
+        end
+      end
+    end
+  end
+  object Rectangle19: TRectangle
+    Anchors = [akTop, akRight]
+    Cursor = crHandPoint
+    Fill.Color = x00D2BFBF
+    Margins.Left = 3.000000000000000000
+    Margins.Top = 3.000000000000000000
+    Margins.Right = 3.000000000000000000
+    Margins.Bottom = 3.000000000000000000
+    Position.X = 441.000000000000000000
+    Size.Width = 28.000000000000000000
+    Size.Height = 33.000000000000000000
+    Size.PlatformDefault = False
+    Stroke.Kind = None
+    object Text20: TText
+      Align = Center
+      HitTest = False
+      Size.Width = 29.000000000000000000
+      Size.Height = 43.000000000000000000
+      Size.PlatformDefault = False
+      Text = 'X'
+      TextSettings.Font.Family = 'Tajawal'
+      TextSettings.Font.Size = 20.000000000000000000
+      TextSettings.Font.StyleExt = {00090000000000000004000000}
+      TextSettings.FontColor = claWhite
+    end
+    object ColorAnimation6: TColorAnimation
+      Duration = 0.200000002980232200
+      PropertyName = 'Fill.Color'
+      StartValue = x00D2BFBF
+      StopValue = xFFEE4343
+      Trigger = 'IsMouseOver=true'
+      TriggerInverse = 'IsMouseOver=false'
+    end
+  end
+end
