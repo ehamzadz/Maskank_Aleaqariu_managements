@@ -100,10 +100,18 @@ type
     Text30: TText;
     Text31: TText;
     Text32: TText;
-    Text33: TText;
+    text_err_msg: TText;
     btn_go_to_register_form: TRectangle;
     Text5: TText;
     ColorAnimation2: TColorAnimation;
+    procedure Rectangle5MouseDown(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Single);
+    procedure Rectangle2MouseDown(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Single);
+    procedure btn_go_to_register_formClick(Sender: TObject);
+    procedure btn_go_to_login_formClick(Sender: TObject);
+    procedure Rectangle30Click(Sender: TObject);
+    procedure Rectangle19Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -116,5 +124,89 @@ var
 implementation
 
 {$R *.fmx}
+
+uses DM, uMain;
+
+procedure Tfrm_login.btn_go_to_login_formClick(Sender: TObject);
+begin
+  tabcontrol1.TabIndex := 0;
+end;
+
+procedure Tfrm_login.btn_go_to_register_formClick(Sender: TObject);
+begin
+  tabcontrol1.TabIndex := 1;
+end;
+
+procedure Tfrm_login.Rectangle19Click(Sender: TObject);
+begin
+  application.Terminate;
+end;
+
+procedure Tfrm_login.Rectangle2MouseDown(Sender: TObject; Button: TMouseButton;
+  Shift: TShiftState; X, Y: Single);
+begin
+  if (Button = TMouseButton.mbLeft) then StartWindowDrag;
+end;
+
+
+procedure Tfrm_login.Rectangle30Click(Sender: TObject);
+
+var
+  i,j : integer;
+  user, pswd :string;
+begin
+
+
+  user := trim(edit7.Text);
+  pswd := trim(edit8.Text);
+
+  if (user='') or (pswd='') then begin
+    text_err_msg.Visible := true;
+    text_err_msg.Text := 'Complete All Fields';
+    text_err_msg.TextSettings.FontColor := TAlphacolorRec.red;
+//    text_err_msg.TextSettings.FontColor := $FF008000;
+  end else begin
+
+    j:=0;
+
+    frm_DM.FDQuery1.SQL.Clear;
+    frm_DM.FDQuery1.SQL.Add('select count(*) from users where [user] = :user and pass = :pswd');
+    frm_DM.FDQuery1.ParamByName('user').asstring := user;
+    frm_DM.FDQuery1.ParamByName('pswd').asstring := pswd;
+    frm_DM.FDQuery1.Open;
+    j := frm_DM.FDQuery1.Fields[0].AsInteger;
+
+    if j=1 then begin
+
+        //ShellExecute(0, nil, 'cmd.exe', 'atrrib +h+s +r USER_SESSIONS.txt', nil, SW_HIDE);
+        text_err_msg.Visible := false;
+
+        //Send username to main form
+        frm_main.USERNAME := user;
+
+
+        Visible := False; // Makes Form1 invisible
+        try
+          frm_main.ShowModal; // Shows the Form
+        finally
+          application.Terminate;
+        end;
+//        showmessage(user+' '+pswd+' '+inttostr(j));
+
+    end else begin
+      text_err_msg.Visible := true;
+      text_err_msg.TextSettings.FontColor := TAlphacolorRec.red;
+      text_err_msg.Text := 'Invalid User/pass !';
+    end;
+  end;
+
+
+end;
+
+procedure Tfrm_login.Rectangle5MouseDown(Sender: TObject; Button: TMouseButton;
+  Shift: TShiftState; X, Y: Single);
+begin
+  if (Button = TMouseButton.mbLeft) then StartWindowDrag;
+end;
 
 end.
