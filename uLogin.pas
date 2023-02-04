@@ -104,6 +104,7 @@ type
     btn_go_to_register_form: TRectangle;
     Text5: TText;
     ColorAnimation2: TColorAnimation;
+    Image2: TImage;
     procedure Rectangle5MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Single);
     procedure Rectangle2MouseDown(Sender: TObject; Button: TMouseButton;

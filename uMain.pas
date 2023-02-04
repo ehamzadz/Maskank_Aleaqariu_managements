@@ -38,7 +38,7 @@ type
     SubMenu_Animation: TFloatAnimation;
     ShadowEffect2: TShadowEffect;
     TabControl1: TTabControl;
-    tab_patients: TTabItem;
+    tab_houses: TTabItem;
     Rectangle1: TRectangle;
     Rectangle3: TRectangle;
     Rectangle7: TRectangle;
