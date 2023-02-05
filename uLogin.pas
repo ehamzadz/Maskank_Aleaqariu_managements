@@ -131,6 +131,7 @@ var
 implementation
 
 {$R *.fmx}
+{$R *.iPhone4in.fmx IOS}
 
 uses DM, uMain;
 

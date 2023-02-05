@@ -1,7 +1,7 @@
 object frm_login: Tfrm_login
   Left = 0
   Top = 0
-  ActiveControl = tab_load
+  ActiveControl = tab_login
   BorderStyle = None
   ClientHeight = 733
   ClientWidth = 469
@@ -245,7 +245,7 @@ object frm_login: Tfrm_login
     Size.Width = 469.000000000000000000
     Size.Height = 733.000000000000000000
     Size.PlatformDefault = False
-    TabIndex = 2
+    TabIndex = 0
     TabOrder = 0
     TabPosition = None
     Sizes = (
@@ -261,7 +261,7 @@ object frm_login: Tfrm_login
       CustomIcon = <
         item
         end>
-      IsSelected = False
+      IsSelected = True
       Size.Width = 8.000000000000000000
       Size.Height = 8.000000000000000000
       Size.PlatformDefault = False
@@ -29131,7 +29131,7 @@ object frm_login: Tfrm_login
       CustomIcon = <
         item
         end>
-      IsSelected = True
+      IsSelected = False
       Size.Width = 8.000000000000000000
       Size.Height = 8.000000000000000000
       Size.PlatformDefault = False

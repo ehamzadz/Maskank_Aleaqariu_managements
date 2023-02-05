@@ -7,7 +7,9 @@ object frm_dm: Tfrm_dm
       'Database=masknk_data'
       'User_Name=hamza'
       'Server=localhost'
+      'Password=Hamza7911-/*'
       'DriverID=MSSQL')
+    Connected = True
     LoginPrompt = False
     Left = 128
     Top = 128
