@@ -59,6 +59,44 @@ type
     StyleBook1: TStyleBook;
     Rectangle2: TRectangle;
     RTLFixer1: TRTLFixer;
+    tab_lands: TTabItem;
+    Rectangle4: TRectangle;
+    Rectangle5: TRectangle;
+    Rectangle6: TRectangle;
+    Edit1: TEdit;
+    Rectangle9: TRectangle;
+    ColorAnimation1: TColorAnimation;
+    Text3: TText;
+    Rectangle13: TRectangle;
+    Edit2: TEdit;
+    Rectangle15: TRectangle;
+    Rectangle16: TRectangle;
+    Rectangle17: TRectangle;
+    Text5: TText;
+    Rectangle18: TRectangle;
+    StringGrid1: TStringGrid;
+    PopupMenu1: TPopupMenu;
+    MenuItem1: TMenuItem;
+    MenuItem2: TMenuItem;
+    tab_sales: TTabItem;
+    Rectangle19: TRectangle;
+    Rectangle20: TRectangle;
+    Rectangle21: TRectangle;
+    Edit3: TEdit;
+    Rectangle22: TRectangle;
+    ColorAnimation2: TColorAnimation;
+    Text6: TText;
+    Rectangle23: TRectangle;
+    Edit4: TEdit;
+    Rectangle24: TRectangle;
+    Rectangle25: TRectangle;
+    Rectangle26: TRectangle;
+    Text7: TText;
+    Rectangle27: TRectangle;
+    StringGrid2: TStringGrid;
+    PopupMenu2: TPopupMenu;
+    MenuItem3: TMenuItem;
+    MenuItem4: TMenuItem;
     procedure Rect_housesClick(Sender: TObject);
     procedure Rect_salesClick(Sender: TObject);
     procedure rect_landsClick(Sender: TObject);
@@ -79,16 +117,19 @@ implementation
 procedure Tfrm_main.Rect_housesClick(Sender: TObject);
 begin
   current_tab.Parent := Rect_houses;
+  tabcontrol1.TabIndex := 1;
 end;
 
 procedure Tfrm_main.rect_landsClick(Sender: TObject);
 begin
   current_tab.Parent := rect_lands;
+  tabcontrol1.TabIndex := 0;
 end;
 
 procedure Tfrm_main.Rect_salesClick(Sender: TObject);
 begin
   current_tab.Parent := Rect_sales;
+  tabcontrol1.TabIndex := 2;
 end;
 
 end.

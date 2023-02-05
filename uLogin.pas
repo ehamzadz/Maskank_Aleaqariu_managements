@@ -5,7 +5,7 @@ interface
 uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.StdCtrls,
-  FMX.Objects, FMX.Ani, FMX.Edit, FMX.Controls.Presentation, FMX.TabControl;
+  FMX.Objects, FMX.Ani, FMX.Edit, FMX.Controls.Presentation, FMX.TabControl, FireDAC.Comp.Client;
 
 type
   Tfrm_login = class(TForm)
@@ -64,12 +64,10 @@ type
     Rectangle21: TRectangle;
     Text21: TText;
     ColorAnimation7: TColorAnimation;
-    CheckBox2: TCheckBox;
     Rectangle22: TRectangle;
     Edit1: TEdit;
     Rectangle23: TRectangle;
     Edit2: TEdit;
-    PasswordEditButton4: TPasswordEditButton;
     Text22: TText;
     Text23: TText;
     Text24: TText;
@@ -105,6 +103,13 @@ type
     Text5: TText;
     ColorAnimation2: TColorAnimation;
     Image2: TImage;
+    TabItem1: TTabItem;
+    Rectangle6: TRectangle;
+    Edit3: TEdit;
+    Text6: TText;
+    Rectangle8: TRectangle;
+    Edit4: TEdit;
+    Text7: TText;
     procedure Rectangle5MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Single);
     procedure Rectangle2MouseDown(Sender: TObject; Button: TMouseButton;
@@ -113,6 +118,7 @@ type
     procedure btn_go_to_login_formClick(Sender: TObject);
     procedure Rectangle30Click(Sender: TObject);
     procedure Rectangle19Click(Sender: TObject);
+    procedure Rectangle21Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -141,6 +147,29 @@ end;
 procedure Tfrm_login.Rectangle19Click(Sender: TObject);
 begin
   application.Terminate;
+end;
+
+procedure Tfrm_login.Rectangle21Click(Sender: TObject);
+var
+  FDConnection2: TFDConnection;
+  SRVR :string;
+begin
+  FDConnection2 := TFDConnection.Create(self);
+  SRVR := edit4.text;
+  try
+    FDConnection2.Params.DriverID := 'MSSQL';
+    FDConnection2.Params.Add('Server='+SRVR);
+    FDConnection2.Params.Database := 'masknk_data';
+    FDConnection2.Params.UserName := 'hamza';
+    FDConnection2.Params.Password := 'Hamza7911-/*';
+    FDConnection2.Connected := True;
+    if FDConnection2.Connected then
+      ShowMessage('Connected!')
+    else
+      ShowMessage('Connection failed.');
+  finally
+    FDConnection2.Free;
+  end;
 end;
 
 procedure Tfrm_login.Rectangle2MouseDown(Sender: TObject; Button: TMouseButton;
