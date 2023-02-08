@@ -119,6 +119,7 @@ type
     procedure Rectangle30Click(Sender: TObject);
     procedure Rectangle19Click(Sender: TObject);
     procedure Rectangle21Click(Sender: TObject);
+    procedure btn_registerClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -143,6 +144,65 @@ end;
 procedure Tfrm_login.btn_go_to_register_formClick(Sender: TObject);
 begin
   tabcontrol1.TabIndex := 1;
+end;
+
+procedure Tfrm_login.btn_registerClick(Sender: TObject);
+var
+  i,j:integer;
+  fullName,user,pass2,pass22, encryptedPassword :string;
+begin
+
+//  showmessage(EncryptThisPassword('123'));
+
+  if (edit_fullName.Text='') OR (edit_user2.Text='') OR (edit_pass2.Text='') OR (edit_pass22.Text='') then begin
+    text_err_msg2.Visible := true;
+    text_err_msg2.TextSettings.FontColor := TAlphacolorRec.red;
+    text_err_msg2.text := ('Complete All Fields!');
+  end else begin
+    fullName := edit_fullName.Text;
+    user := edit_user2.Text;
+    pass2 := edit_pass2.Text;
+    pass22 := edit_pass22.Text;
+
+    if pass2=pass22 then begin
+
+
+      frm_dm.FDQuery1.SQL.Clear;
+      frm_dm.FDQuery1.SQL.Add('select count(*) from users where user=:user');
+      frm_dm.FDQuery1.ParamByName('user').AsWideString := user;
+      frm_dm.FDQuery1.Open;
+
+      i := frm_dm.FDQuery1.Fields[0].AsInteger;
+
+      if i=1 then begin
+        text_err_msg2.Visible := true;
+        text_err_msg2.TextSettings.FontColor := TAlphacolorRec.red;
+        text_err_msg2.Text := 'Invalid User/pass !';
+      end else begin
+        frm_dm.FDQuery1.SQL.Clear;
+        frm_dm.FDQuery1.SQL.Add('INSERT INTO users values (:user,:pass,:fullName,:type)');
+        frm_dm.FDQuery1.ParamByName('user').AsWideString := user;
+        frm_dm.FDQuery1.ParamByName('pass').AsWideString := pass2;
+        frm_dm.FDQuery1.ParamByName('fullName').AsWideString := fullName;
+        frm_dm.FDQuery1.ParamByName('type').AsWideString := 'emp';
+        frm_dm.FDQuery1.Execute;
+        showmessage('Successfully registered');
+
+        edit_user2.text := '';
+        edit_fullName.text :='';
+        edit_pass2.text :='';
+        edit_pass22.text :='';
+        tabcontrol1.TabIndex := 0;
+      end;
+
+    end else begin
+      text_err_msg2.Visible := true;
+      text_err_msg2.TextSettings.FontColor := TAlphacolorRec.red;
+      text_err_msg2.Text := 'Password mismatch!';
+    end;
+
+  end;
+
 end;
 
 procedure Tfrm_login.Rectangle19Click(Sender: TObject);

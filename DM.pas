@@ -14,6 +14,9 @@ type
   Tfrm_dm = class(TDataModule)
     FDConnection1: TFDConnection;
     FDQuery1: TFDQuery;
+    table_users: TFDTable;
+    table_lands: TFDTable;
+    table_houses: TFDTable;
   private
     { Private declarations }
   public

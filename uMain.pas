@@ -8,7 +8,9 @@ uses
   FMX.Ani, FMX.Objects, FMX.Layouts, System.Rtti, FMX.Grid.Style,
   FMX.Memo.Types, FMX.Menus, FMX.StdCtrls, FMX.Memo, FMX.ListBox, FMX.Edit,
   FMX.Controls.Presentation, FMX.ScrollBox, FMX.Grid, FMX.TabControl,
-  RTL.Controls;
+  RTL.Controls, Data.Bind.EngExt, Fmx.Bind.DBEngExt, Fmx.Bind.Grid,
+  System.Bindings.Outputs, Fmx.Bind.Editors, Data.Bind.Components,
+  Data.Bind.Grid, Data.Bind.DBScope,  Winapi.Windows;
 
 type
   Tfrm_main = class(TForm)
@@ -38,7 +40,7 @@ type
     SubMenu_Animation: TFloatAnimation;
     ShadowEffect2: TShadowEffect;
     TabControl1: TTabControl;
-    tab_houses: TTabItem;
+    tab_lands: TTabItem;
     Rectangle1: TRectangle;
     Rectangle3: TRectangle;
     Rectangle7: TRectangle;
@@ -49,17 +51,17 @@ type
     Rectangle10: TRectangle;
     Edit_num_recent_ticket: TEdit;
     Rectangle11: TRectangle;
-    grid_patients: TStringGrid;
+    grid_houses: TStringGrid;
     Rectangle12: TRectangle;
     Rectangle14: TRectangle;
     Text18: TText;
-    PopupMenu_grid_patients: TPopupMenu;
+    PopupMenu_grid_lands: TPopupMenu;
     print_patient_id: TMenuItem;
     add_new_patient: TMenuItem;
     StyleBook1: TStyleBook;
     Rectangle2: TRectangle;
     RTLFixer1: TRTLFixer;
-    tab_lands: TTabItem;
+    tab_houses: TTabItem;
     Rectangle4: TRectangle;
     Rectangle5: TRectangle;
     Rectangle6: TRectangle;
@@ -97,9 +99,72 @@ type
     PopupMenu2: TPopupMenu;
     MenuItem3: TMenuItem;
     MenuItem4: TMenuItem;
+    BindSourceDB1: TBindSourceDB;
+    BindingsList1: TBindingsList;
+    LinkGridToDataSourceBindSourceDB1: TLinkGridToDataSource;
+    popup_add_land: TRectangle;
+    Rectangle29: TRectangle;
+    VertScrollBox2: TVertScrollBox;
+    Rectangle30: TRectangle;
+    Edit5: TEdit;
+    Rectangle32: TRectangle;
+    Text8: TText;
+    Rectangle34: TRectangle;
+    Edit8: TEdit;
+    Rectangle37: TRectangle;
+    Text10: TText;
+    Edit9: TEdit;
+    Rectangle38: TRectangle;
+    Text13: TText;
+    Rectangle39: TRectangle;
+    Edit11: TEdit;
+    Rectangle40: TRectangle;
+    Text16: TText;
+    Edit12: TEdit;
+    Rectangle41: TRectangle;
+    Text17: TText;
+    Rectangle42: TRectangle;
+    Edit13: TEdit;
+    Rectangle43: TRectangle;
+    Text19: TText;
+    Edit14: TEdit;
+    Rectangle44: TRectangle;
+    Text20: TText;
+    Rectangle31: TRectangle;
+    Edit7: TEdit;
+    Rectangle35: TRectangle;
+    Text14: TText;
+    Edit10: TEdit;
+    Rectangle36: TRectangle;
+    Text21: TText;
+    Rectangle45: TRectangle;
+    Edit15: TEdit;
+    Rectangle46: TRectangle;
+    Text22: TText;
+    Edit16: TEdit;
+    Rectangle47: TRectangle;
+    Text23: TText;
+    Rectangle48: TRectangle;
+    Edit17: TEdit;
+    Rectangle49: TRectangle;
+    Text24: TText;
+    Edit18: TEdit;
+    Rectangle50: TRectangle;
+    Text25: TText;
+    Rectangle28: TRectangle;
+    Text9: TText;
+    ColorAnimation3: TColorAnimation;
+    Rectangle33: TRectangle;
+    Text26: TText;
+    ColorAnimation7: TColorAnimation;
+    green: TBrushObject;
+    Text27: TText;
     procedure Rect_housesClick(Sender: TObject);
     procedure Rect_salesClick(Sender: TObject);
     procedure rect_landsClick(Sender: TObject);
+    procedure Rectangle8Click(Sender: TObject);
+    procedure Rectangle33Click(Sender: TObject);
+    procedure Rectangle28Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -113,6 +178,25 @@ var
 implementation
 
 {$R *.fmx}
+
+uses DM;
+
+procedure Tfrm_main.Rectangle28Click(Sender: TObject);
+begin
+  popup_add_land.Visible := false;
+end;
+
+procedure Tfrm_main.Rectangle33Click(Sender: TObject);
+var
+  Handle: THandle;
+begin
+//  Handle := WinExec('python Z:\Projects\Send_whatsapp_msg\main.py', SW_HIDE);
+end;
+
+procedure Tfrm_main.Rectangle8Click(Sender: TObject);
+begin
+  popup_add_land.Visible := true;
+end;
 
 procedure Tfrm_main.Rect_housesClick(Sender: TObject);
 begin
