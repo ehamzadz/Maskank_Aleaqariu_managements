@@ -281,9 +281,6 @@ Coordinates=667,611,70,36
 [tab_houses]
 Coordinates=215,552,81,36
 
-[Edit14]
-Coordinates=152,78,51,58
-
 [Rectangle44]
 Coordinates=99,663,87,36
 
@@ -292,9 +289,6 @@ Coordinates=842,111,87,36
 
 [Text16]
 Coordinates=509,685,54,58
-
-[Edit15]
-Coordinates=627,416,51,58
 
 [Rectangle40]
 Coordinates=842,166,87,36
@@ -308,47 +302,23 @@ Coordinates=413,1,54,58
 [Text20]
 Coordinates=135,435,54,58
 
-[Edit12]
-Coordinates=568,685,51,58
-
 [Rectangle48]
 Coordinates=842,666,87,36
-
-[Edit8]
-Coordinates=244,78,44,58
 
 [Rectangle42]
 Coordinates=842,721,87,36
 
-[Edit17]
-Coordinates=627,493,51,58
-
-[Edit18]
-Coordinates=244,155,51,58
-
 [popup_add_land]
 Coordinates=725,663,110,36
 
-[Edit9]
-Coordinates=460,685,44,58
-
 [Rectangle50]
 Coordinates=842,776,87,36
-
-[Edit13]
-Coordinates=152,232,51,58
-
-[Edit5]
-Coordinates=152,1,44,58
 
 [Rectangle32]
 Coordinates=753,781,87,36
 
 [Rectangle41]
 Coordinates=664,781,87,36
-
-[Edit16]
-Coordinates=0,0,51,58
 
 [Rectangle37]
 Coordinates=575,781,87,36
@@ -358,12 +328,6 @@ Coordinates=486,781,87,36
 
 [Text22]
 Coordinates=413,232,54,58
-
-[Edit11]
-Coordinates=627,666,51,58
-
-[Edit10]
-Coordinates=306,663,51,58
 
 [Text13]
 Coordinates=247,663,54,58
@@ -407,9 +371,6 @@ Coordinates=188,663,54,58
 [Rectangle49]
 Coordinates=1109,221,87,36
 
-[Edit7]
-Coordinates=413,78,44,58
-
 [Rectangle30]
 Coordinates=1109,607,87,36
 
@@ -446,6 +407,45 @@ Coordinates=784,166,47,36
 [ColorAnimation7]
 Coordinates=993,781,110,36
 
-[Rectangle33]
+[edit_land_number]
+Coordinates=152,232,51,58
+
+[edit_type]
+Coordinates=152,78,51,58
+
+[edit_district]
+Coordinates=627,666,51,58
+
+[edit_surface]
+Coordinates=568,685,51,58
+
+[edit_street]
+Coordinates=244,78,44,58
+
+[edit_num_graph]
+Coordinates=460,685,44,58
+
+[edit_num_piece]
+Coordinates=627,493,51,58
+
+[edit_owner_name]
+Coordinates=244,155,51,58
+
+[edit_phone]
+Coordinates=627,416,51,58
+
+[edit_elssom]
+Coordinates=0,0,51,58
+
+[edit_sale]
+Coordinates=413,78,44,58
+
+[edit_lengths]
+Coordinates=306,663,51,58
+
+[edit_note]
+Coordinates=152,1,44,58
+
+[btn_add_lands]
 Coordinates=1020,855,87,36
 

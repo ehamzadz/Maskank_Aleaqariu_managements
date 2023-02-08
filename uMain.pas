@@ -1,4 +1,4 @@
-unit uMain;
+﻿unit uMain;
 
 interface
 
@@ -10,7 +10,7 @@ uses
   FMX.Controls.Presentation, FMX.ScrollBox, FMX.Grid, FMX.TabControl,
   RTL.Controls, Data.Bind.EngExt, Fmx.Bind.DBEngExt, Fmx.Bind.Grid,
   System.Bindings.Outputs, Fmx.Bind.Editors, Data.Bind.Components,
-  Data.Bind.Grid, Data.Bind.DBScope,  Winapi.Windows;
+  Data.Bind.Grid, Data.Bind.DBScope,  Winapi.Windows, System.IOUtils, ShellApi, StrUtils;
 
 type
   Tfrm_main = class(TForm)
@@ -106,64 +106,65 @@ type
     Rectangle29: TRectangle;
     VertScrollBox2: TVertScrollBox;
     Rectangle30: TRectangle;
-    Edit5: TEdit;
+    edit_note: TEdit;
     Rectangle32: TRectangle;
     Text8: TText;
     Rectangle34: TRectangle;
-    Edit8: TEdit;
+    edit_street: TEdit;
     Rectangle37: TRectangle;
     Text10: TText;
-    Edit9: TEdit;
+    edit_num_graph: TEdit;
     Rectangle38: TRectangle;
     Text13: TText;
     Rectangle39: TRectangle;
-    Edit11: TEdit;
+    edit_district: TEdit;
     Rectangle40: TRectangle;
     Text16: TText;
-    Edit12: TEdit;
+    edit_surface: TEdit;
     Rectangle41: TRectangle;
     Text17: TText;
     Rectangle42: TRectangle;
-    Edit13: TEdit;
+    edit_land_number: TEdit;
     Rectangle43: TRectangle;
     Text19: TText;
-    Edit14: TEdit;
+    edit_type: TEdit;
     Rectangle44: TRectangle;
     Text20: TText;
     Rectangle31: TRectangle;
-    Edit7: TEdit;
+    edit_sale: TEdit;
     Rectangle35: TRectangle;
     Text14: TText;
-    Edit10: TEdit;
+    edit_lengths: TEdit;
     Rectangle36: TRectangle;
     Text21: TText;
     Rectangle45: TRectangle;
-    Edit15: TEdit;
+    edit_phone: TEdit;
     Rectangle46: TRectangle;
     Text22: TText;
-    Edit16: TEdit;
+    edit_elssom: TEdit;
     Rectangle47: TRectangle;
     Text23: TText;
     Rectangle48: TRectangle;
-    Edit17: TEdit;
+    edit_num_piece: TEdit;
     Rectangle49: TRectangle;
     Text24: TText;
-    Edit18: TEdit;
+    edit_owner_name: TEdit;
     Rectangle50: TRectangle;
     Text25: TText;
     Rectangle28: TRectangle;
     Text9: TText;
     ColorAnimation3: TColorAnimation;
-    Rectangle33: TRectangle;
+    btn_add_lands: TRectangle;
     Text26: TText;
     ColorAnimation7: TColorAnimation;
     green: TBrushObject;
     Text27: TText;
+    ComboBox1: TComboBox;
     procedure Rect_housesClick(Sender: TObject);
     procedure Rect_salesClick(Sender: TObject);
     procedure rect_landsClick(Sender: TObject);
     procedure Rectangle8Click(Sender: TObject);
-    procedure Rectangle33Click(Sender: TObject);
+    procedure btn_add_landsClick(Sender: TObject);
     procedure Rectangle28Click(Sender: TObject);
   private
     { Private declarations }
@@ -186,11 +187,77 @@ begin
   popup_add_land.Visible := false;
 end;
 
-procedure Tfrm_main.Rectangle33Click(Sender: TObject);
+procedure Tfrm_main.btn_add_landsClick(Sender: TObject);
 var
   Handle: THandle;
+
+  land_number,tp,District,street,num_graph,num_piece,owner_name,phone,elssom,sale,lengths,note :string;
+  surface :real;
+  i :integer;
+
 begin
-//  Handle := WinExec('python Z:\Projects\Send_whatsapp_msg\main.py', SW_HIDE);
+
+
+  if (edit_land_number.Text='') then begin
+    Rectangle43.Stroke.Color := TAlphacolorRec.red;
+    showmessage('رقم الوجه ضروري!');
+  end else begin
+
+    land_number := edit_land_number.text;
+    tp := edit_type.text;
+    District := edit_District.text;
+    street := edit_street.text;
+    num_graph := edit_num_graph.text;
+    num_piece := edit_num_piece.text;
+    owner_name := edit_owner_name.text;
+    phone := edit_phone.text;
+    elssom := edit_elssom.text;
+    sale := edit_sale.text;
+    lengths := edit_lengths.text;
+    note := edit_note.text;
+
+
+      frm_dm.FDQuery1.SQL.Clear;
+      frm_dm.FDQuery1.SQL.Add('select count(*) from lands where land_number=:land_number');
+      frm_dm.FDQuery1.ParamByName('land_number').AsWideString := land_number;
+      frm_dm.FDQuery1.Open;
+
+      i := frm_dm.FDQuery1.Fields[0].AsInteger;
+
+      showmessage(inttostr(i));
+
+//      if i=1 then begin
+//        text_err_msg2.Visible := true;
+//        text_err_msg2.TextSettings.FontColor := TAlphacolorRec.red;
+//        text_err_msg2.Text := 'Invalid User/pass !';
+//      end else begin
+//        frm_dm.FDQuery1.SQL.Clear;
+//        frm_dm.FDQuery1.SQL.Add('INSERT INTO users values (:user,:pass,:fullName,:type)');
+//        frm_dm.FDQuery1.ParamByName('user').AsWideString := user;
+//        frm_dm.FDQuery1.ParamByName('pass').AsWideString := pass2;
+//        frm_dm.FDQuery1.ParamByName('fullName').AsWideString := fullName;
+//        frm_dm.FDQuery1.ParamByName('type').AsWideString := 'emp';
+//        frm_dm.FDQuery1.Execute;
+//        showmessage('Successfully registered');
+//
+//        edit_user2.text := '';
+//        edit_fullName.text :='';
+//        edit_pass2.text :='';
+//        edit_pass22.text :='';
+//        tabcontrol1.TabIndex := 0;
+//      end;
+
+  end;
+
+
+
+
+
+
+
+
+//  getcurrentdir();
+//  Handle := WinExec('python assets/python/sender.py', SW_HIDE);
 end;
 
 procedure Tfrm_main.Rectangle8Click(Sender: TObject);
