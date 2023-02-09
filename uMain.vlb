@@ -1,460 +1,465 @@
 ﻿[TabControl1]
-Coordinates=426,552,85,36
+Coordinates=426,552,74,33
 
 [print_patient_id]
-Coordinates=587,493,103,36
+Coordinates=587,493,91,33
 
 [Rectangle21]
-Coordinates=288,416,87,36
+Coordinates=288,416,75,33
 
 [Rect_sales]
-Coordinates=290,611,78,36
+Coordinates=290,611,68,33
 
 [Rectangle11]
-Coordinates=114,552,87,36
+Coordinates=114,552,75,33
 
 [Rectangle24]
-Coordinates=1090,552,87,36
+Coordinates=1090,552,75,33
 
 [SubMenu_Animation]
-Coordinates=749,1,134,36
+Coordinates=749,1,116,33
 
 [Rectangle2]
-Coordinates=793,552,80,36
+Coordinates=793,552,69,33
 
 [ColorAnimation4]
-Coordinates=562,353,110,36
+Coordinates=562,353,97,33
 
 [Text3]
-Coordinates=489,10,47,58
+Coordinates=489,10,41,51
 
 [Rectangle5]
-Coordinates=111,493,80,36
-
-[Rectangle8]
-Coordinates=1202,493,80,36
+Coordinates=111,493,69,33
 
 [img_logoff]
-Coordinates=1127,339,74,58
+Coordinates=1127,339,66,51
 
 [nav_bar]
-Coordinates=627,552,61,36
+Coordinates=627,552,53,33
 
 [Rectangle19]
-Coordinates=764,611,87,36
+Coordinates=764,611,75,33
 
 [PopupMenu1]
-Coordinates=749,111,90,36
+Coordinates=749,111,79,33
 
 [Rectangle10]
-Coordinates=479,611,87,36
+Coordinates=479,611,75,33
 
 [Edit3]
-Coordinates=318,339,44,58
-
-[Edit1]
-Coordinates=856,10,44,58
+Coordinates=318,339,40,51
 
 [ColorAnimation6]
-Coordinates=749,221,110,36
+Coordinates=749,221,97,33
 
 [Text15]
-Coordinates=916,339,54,58
-
-[edit_search_patients]
-Coordinates=988,10,134,58
+Coordinates=916,339,46,51
 
 [Rect_houses]
-Coordinates=10,552,89,36
+Coordinates=10,552,78,33
 
 [Rectangle22]
-Coordinates=10,611,87,36
+Coordinates=10,611,75,33
 
 [Rectangle27]
-Coordinates=1000,493,87,36
+Coordinates=1000,493,75,33
 
 [Rectangle20]
-Coordinates=10,493,87,36
+Coordinates=10,493,75,33
 
 [StringGrid2]
-Coordinates=622,10,80,58
+Coordinates=622,10,70,51
 
 [ShadowEffect2]
-Coordinates=640,461,101,36
+Coordinates=640,461,88,33
 
 [Text6]
-Coordinates=1130,10,47,58
+Coordinates=1210,0,41,51
 
 [logo]
-Coordinates=556,10,45,58
+Coordinates=556,10,40,51
 
 [MenuItem2]
-Coordinates=194,416,79,36
+Coordinates=194,416,68,33
 
 [Rectangle23]
-Coordinates=704,493,87,36
+Coordinates=704,493,75,33
 
 [img_dashboard]
-Coordinates=10,416,103,58
+Coordinates=10,416,91,51
 
 [Rectangle13]
-Coordinates=392,493,87,36
+Coordinates=392,493,75,33
 
 [ColorAnimation1]
-Coordinates=165,461,110,36
+Coordinates=165,461,97,33
 
 [RTLFixer1]
-Coordinates=86,461,74,36
+Coordinates=86,461,64,33
 Visible=False
 LayerNames=
 
 [Edit2]
-Coordinates=10,339,44,58
+Coordinates=10,339,40,51
 
 [Text12]
-Coordinates=179,339,54,58
+Coordinates=179,339,46,51
 
 [img_patients]
-Coordinates=76,339,88,58
+Coordinates=76,339,77,51
 
 [ColorAnimation9]
-Coordinates=921,56,110,36
+Coordinates=921,56,97,33
 
 [Rectangle3]
-Coordinates=604,416,80,36
+Coordinates=604,416,69,33
 
 [Text5]
-Coordinates=251,339,47,58
+Coordinates=251,339,41,51
 
 [add_new_patient]
-Coordinates=303,552,112,36
+Coordinates=303,552,97,33
 
 [MenuItem4]
-Coordinates=906,493,79,36
+Coordinates=906,493,68,33
 
 [Rectangle12]
-Coordinates=526,552,87,36
+Coordinates=526,552,75,33
 
 [Text1]
-Coordinates=1060,339,47,58
+Coordinates=1060,339,41,51
 
 [rect_lands]
-Coordinates=301,493,74,36
+Coordinates=301,493,65,33
 
 [Rectangle1]
-Coordinates=699,416,80,36
+Coordinates=699,416,69,33
 
 [StyleBook1]
-Coordinates=921,441,80,36
+Coordinates=921,441,70,33
 
 [tab_sales]
-Coordinates=706,552,70,36
+Coordinates=706,552,61,33
 
 [VertScrollBox1]
-Coordinates=389,416,100,36
+Coordinates=389,416,88,33
 
 [ColorAnimation11]
-Coordinates=1123,1,117,36
-
-[StringGrid1]
-Coordinates=820,339,80,58
-
-[Rectangle9]
-Coordinates=206,493,80,36
+Coordinates=1123,1,103,33
 
 [Text11]
-Coordinates=988,339,54,58
+Coordinates=988,339,46,51
 
 [Text4]
-Coordinates=384,339,47,58
+Coordinates=384,339,41,51
 
 [Edit_num_recent_ticket]
-Coordinates=597,339,149,58
+Coordinates=597,339,130,51
 
 [ColorAnimation5]
-Coordinates=694,535,110,36
+Coordinates=694,535,97,33
 
 [Text18]
-Coordinates=740,70,54,58
+Coordinates=740,70,46,51
 
 [Rectangle15]
-Coordinates=805,493,87,36
+Coordinates=805,493,75,33
 
 [img_users]
-Coordinates=1219,339,74,58
+Coordinates=1219,339,65,51
 
 [rect_logo]
-Coordinates=204,611,68,36
+Coordinates=204,611,60,33
 
 [Rect_Exit]
-Coordinates=580,611,70,36
+Coordinates=580,611,61,33
 
 [Rectangle6]
-Coordinates=384,611,80,36
+Coordinates=384,611,69,33
 
 [Text7]
-Coordinates=127,416,47,58
+Coordinates=127,416,41,51
 
 [Rectangle7]
-Coordinates=1187,416,80,36
+Coordinates=1187,416,69,33
 
 [Rectangle4]
-Coordinates=1092,416,80,36
+Coordinates=1092,416,69,33
 
 [Rectangle25]
-Coordinates=989,552,87,36
+Coordinates=989,552,75,33
 
 [current_tab]
-Coordinates=895,416,80,36
+Coordinates=895,416,70,33
 
 [Rectangle17]
-Coordinates=1101,493,87,36
+Coordinates=1101,493,75,33
 
 [PopupMenu2]
-Coordinates=1123,111,90,36
+Coordinates=1123,111,79,33
 
 [btn_logout]
-Coordinates=111,611,75,36
+Coordinates=111,611,67,33
 
 [Rectangle26]
-Coordinates=888,552,87,36
+Coordinates=888,552,75,33
 
 [Rectangle14]
-Coordinates=503,416,87,36
+Coordinates=503,416,75,33
 
 [ColorAnimation2]
-Coordinates=1123,276,110,36
+Coordinates=1123,276,97,33
 
 [MenuItem1]
-Coordinates=493,493,79,36
+Coordinates=493,493,68,33
 
 [Rectangle16]
-Coordinates=794,416,87,36
+Coordinates=794,416,75,33
 
 [Text2]
-Coordinates=753,339,47,58
+Coordinates=753,339,41,51
 
 [Rectangle18]
-Coordinates=991,416,87,36
+Coordinates=991,416,75,33
 
 [MenuItem3]
-Coordinates=1191,552,79,36
+Coordinates=1191,552,68,33
 
 [Edit4]
-Coordinates=922,10,44,58
+Coordinates=1250,10,40,51
 
 []
 Coordinates=364,1,64,33
 
 [frm_dm.table_lands]
-Coordinates=780,40,128,36
+Coordinates=780,40,111,33
 Visible=False
 
 [frm_dm.table_houses]
-Coordinates=451,339,138,300
+Coordinates=850,0,120,33
+Visible=False
 
 [frm_dm.table_users]
-Coordinates=718,10,128,146
+Coordinates=718,10,112,123
 
 [frm_dm.FDQuery1]
-Coordinates=620,50,120,58
+Coordinates=620,50,104,51
 
 [BindSourceDB1]
-Coordinates=10,10,115,366
+Coordinates=10,10,96,303
 
 [BindingsList1]
-Coordinates=938,1,91,36
-
-[grid_houses]
-Coordinates=630,20,85,344
-Visible=True
+Coordinates=938,1,82,33
 
 [PopupMenu_grid_lands]
-Coordinates=921,1,150,36
+Coordinates=921,1,131,33
 
 [Module Settings]
 ModelLayerNames=grid_lands
 
 [tab_lands]
-Coordinates=667,611,70,36
+Coordinates=667,611,62,33
 
 [tab_houses]
-Coordinates=215,552,81,36
+Coordinates=215,552,71,33
 
 [Rectangle44]
-Coordinates=99,663,87,36
+Coordinates=99,663,75,33
 
 [Rectangle38]
-Coordinates=842,111,87,36
+Coordinates=690,130,75,33
 
 [Text16]
-Coordinates=509,685,54,58
+Coordinates=509,685,46,51
 
 [Rectangle40]
-Coordinates=842,166,87,36
+Coordinates=760,170,75,33
 
 [Rectangle46]
-Coordinates=842,276,87,36
+Coordinates=1200,300,75,33
 
 [Text14]
-Coordinates=413,1,54,58
+Coordinates=413,1,46,51
 
 [Text20]
-Coordinates=135,435,54,58
+Coordinates=135,435,46,51
 
 [Rectangle48]
-Coordinates=842,666,87,36
+Coordinates=842,666,75,33
 
 [Rectangle42]
-Coordinates=842,721,87,36
+Coordinates=842,721,75,33
 
 [popup_add_land]
-Coordinates=725,663,110,36
+Coordinates=725,663,96,33
 
 [Rectangle50]
-Coordinates=842,776,87,36
+Coordinates=842,776,75,33
 
 [Rectangle32]
-Coordinates=753,781,87,36
+Coordinates=753,781,75,33
 
 [Rectangle41]
-Coordinates=664,781,87,36
+Coordinates=664,781,75,33
 
 [Rectangle37]
-Coordinates=575,781,87,36
+Coordinates=575,781,75,33
 
 [Rectangle29]
-Coordinates=486,781,87,36
+Coordinates=486,781,75,33
 
 [Text22]
-Coordinates=413,232,54,58
+Coordinates=413,232,46,51
 
 [Text13]
-Coordinates=247,663,54,58
+Coordinates=247,663,46,51
 
 [Text8]
-Coordinates=413,155,47,58
+Coordinates=413,155,41,51
 
 [Text25]
-Coordinates=126,567,54,58
+Coordinates=126,567,46,51
 
 [Rectangle34]
-Coordinates=397,781,87,36
+Coordinates=397,781,75,33
 
 [Text10]
-Coordinates=185,567,54,58
+Coordinates=185,567,46,51
 
 [Rectangle45]
-Coordinates=308,781,87,36
+Coordinates=308,781,75,33
 
 [Text23]
-Coordinates=365,663,54,58
+Coordinates=365,663,46,51
 
 [Rectangle36]
-Coordinates=219,781,87,36
+Coordinates=219,781,75,33
 
 [Rectangle28]
-Coordinates=130,781,87,36
+Coordinates=130,781,75,33
 
 [Rectangle31]
-Coordinates=41,781,87,36
+Coordinates=41,781,75,33
 
 [ColorAnimation3]
-Coordinates=1013,166,110,36
+Coordinates=1013,166,97,33
 
 [Text24]
-Coordinates=244,567,54,58
+Coordinates=244,567,46,51
 
 [Text21]
-Coordinates=188,663,54,58
+Coordinates=188,663,46,51
 
 [Rectangle49]
-Coordinates=1109,221,87,36
+Coordinates=1220,280,75,33
 
 [Rectangle30]
-Coordinates=1109,607,87,36
+Coordinates=1109,607,75,33
 
 [Text9]
-Coordinates=244,232,47,58
+Coordinates=244,232,41,51
 
 [Rectangle39]
-Coordinates=1109,662,87,36
+Coordinates=1109,662,75,33
 
 [Rectangle43]
-Coordinates=1109,717,87,36
+Coordinates=1109,717,75,33
 
 [Text17]
-Coordinates=244,1,54,58
+Coordinates=244,1,46,51
 
 [Rectangle47]
-Coordinates=1109,772,87,36
+Coordinates=1109,772,75,33
 
 [VertScrollBox2]
-Coordinates=527,127,100,36
+Coordinates=527,127,88,33
 
 [Rectangle35]
-Coordinates=1109,827,87,36
+Coordinates=1109,827,75,33
 
 [Text19]
-Coordinates=152,155,54,58
+Coordinates=152,155,46,51
 
 [Text26]
-Coordinates=40,663,54,58
+Coordinates=40,663,46,51
 
 [green]
-Coordinates=784,166,47,36
+Coordinates=784,166,42,33
 
 [ColorAnimation7]
-Coordinates=993,781,110,36
+Coordinates=993,781,97,33
 
 [edit_land_number]
-Coordinates=152,232,117,58
+Coordinates=152,232,103,51
 
 [edit_type]
-Coordinates=152,78,67,58
+Coordinates=152,78,59,51
 
 [edit_district]
-Coordinates=627,666,80,58
+Coordinates=627,666,72,51
 
 [edit_surface]
-Coordinates=568,685,85,58
+Coordinates=568,685,75,51
 
 [edit_street]
-Coordinates=244,78,75,58
+Coordinates=244,78,66,51
 
 [edit_num_graph]
-Coordinates=460,685,107,58
+Coordinates=460,685,94,51
 
 [edit_num_piece]
-Coordinates=627,493,105,58
+Coordinates=627,493,92,51
 
 [edit_owner_name]
-Coordinates=244,155,116,58
+Coordinates=244,155,101,51
 
 [edit_phone]
-Coordinates=627,416,78,58
+Coordinates=627,416,69,51
 
 [edit_elssom]
-Coordinates=0,0,83,58
+Coordinates=0,0,73,51
 
 [edit_sale]
-Coordinates=413,78,66,58
+Coordinates=413,78,58,51
 
 [edit_lengths]
-Coordinates=306,663,84,58
+Coordinates=306,663,74,51
 
 [edit_note]
-Coordinates=152,1,68,58
-
-[btn_add_lands]
-Coordinates=1020,855,99,36
+Coordinates=152,1,60,51
 
 [ComboBox1]
-Coordinates=357,155,101,146
+Coordinates=357,155,84,123
 
 [Text27]
-Coordinates=307,1,54,58
+Coordinates=307,1,46,51
 
 [NotificationCenter1]
-Coordinates=921,221,125,36
+Coordinates=921,221,109,33
+
+[grid_lands]
+Coordinates=630,20,66,285
+Visible=True
+
+[grid_houses]
+Coordinates=1060,20,75,249
+Visible=True
+
+[edit_search_houses]
+Coordinates=1210,0,113,51
+
+[edit_search_lands]
+Coordinates=1210,10,104,51
+
+[BindSourceDB2]
+Coordinates=850,0,105,267
+
+[btn_add_lands]
+Coordinates=1020,855,87,33
+
+[btn_show_add_lands]
+Coordinates=1202,493,69,33
+
+[btn_show_add_houses]
+Coordinates=206,493,69,33
 

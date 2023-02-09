@@ -1,6 +1,10 @@
 import pywhatkit as pwk
 
-contacts = ["+213672138811"]
+import contacts
+import messages
+
+
+# contacts = ["+213672138811"]
 
 message = ""
 message = message + "\n٢٣٦-٢٤٦"
@@ -33,12 +37,12 @@ message = message + "\nhttps://www.dropbox.com/sh/eaf68apj7w8l2lh/AADixr4xUrjgKI
 hh = 15
 mm = 10
 
-for contact in contacts.contacts:
+for num in contacts.nums:
     # using Exception Handling to avoid unexpected errors
     try:
         # sending message in Whatsapp in India so using Indian dial code (+91)
 
-        pwk.sendwhatmsg_instantly(contact, messages.msg, hh, mm)
+        pwk.sendwhatmsg_instantly(num, messages.msg, hh, mm)
         # pwk.sendwhats_image("فلنقرأ - طلب العلم الشرعي", "C:/Users/eHamzaDZ/Desktop/villa.png", "Hi")
 
         print("Message Sent!")  # Prints success message in console

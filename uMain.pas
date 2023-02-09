@@ -11,7 +11,11 @@ uses
   RTL.Controls, Data.Bind.EngExt, Fmx.Bind.DBEngExt, Fmx.Bind.Grid,
   System.Bindings.Outputs, Fmx.Bind.Editors, Data.Bind.Components,
   Data.Bind.Grid, Data.Bind.DBScope,  Winapi.Windows, System.IOUtils, ShellApi, StrUtils,
-  System.Notification, Winapi.MMSystem,  FMX.Media;
+  System.Notification, Winapi.MMSystem,  FMX.Media, FireDAC.Stan.Intf,
+  FireDAC.Stan.Option, FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS,
+  FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
+  Data.DB, FireDAC.Comp.DataSet, FireDAC.Comp.Client, FireDAC.UI.Intf,
+  FireDAC.FMXUI.Wait, FireDAC.Comp.UI, FireDAC.VCLUI.Wait;
 
 type
   Tfrm_main = class(TForm)
@@ -45,14 +49,14 @@ type
     Rectangle1: TRectangle;
     Rectangle3: TRectangle;
     Rectangle7: TRectangle;
-    edit_search_patients: TEdit;
-    Rectangle8: TRectangle;
+    edit_search_lands: TEdit;
+    btn_show_add_lands: TRectangle;
     ColorAnimation4: TColorAnimation;
     Text15: TText;
     Rectangle10: TRectangle;
     Edit_num_recent_ticket: TEdit;
     Rectangle11: TRectangle;
-    grid_houses: TStringGrid;
+    grid_lands: TStringGrid;
     Rectangle12: TRectangle;
     Rectangle14: TRectangle;
     Text18: TText;
@@ -66,8 +70,8 @@ type
     Rectangle4: TRectangle;
     Rectangle5: TRectangle;
     Rectangle6: TRectangle;
-    Edit1: TEdit;
-    Rectangle9: TRectangle;
+    edit_search_houses: TEdit;
+    btn_show_add_houses: TRectangle;
     ColorAnimation1: TColorAnimation;
     Text3: TText;
     Rectangle13: TRectangle;
@@ -77,7 +81,7 @@ type
     Rectangle17: TRectangle;
     Text5: TText;
     Rectangle18: TRectangle;
-    StringGrid1: TStringGrid;
+    grid_houses: TStringGrid;
     PopupMenu1: TPopupMenu;
     MenuItem1: TMenuItem;
     MenuItem2: TMenuItem;
@@ -162,6 +166,59 @@ type
     Text27: TText;
     ComboBox1: TComboBox;
     NotificationCenter1: TNotificationCenter;
+    BindSourceDB2: TBindSourceDB;
+    LinkGridToDataSourceBindSourceDB2: TLinkGridToDataSource;
+    FDGUIxWaitCursor1: TFDGUIxWaitCursor;
+    popup_add_house: TRectangle;
+    Rectangle9: TRectangle;
+    VertScrollBox3: TVertScrollBox;
+    Rectangle33: TRectangle;
+    edit_note2: TEdit;
+    Rectangle51: TRectangle;
+    Text28: TText;
+    Rectangle52: TRectangle;
+    edit_flat2: TEdit;
+    Rectangle53: TRectangle;
+    Text29: TText;
+    edit_owner_name2: TEdit;
+    Rectangle54: TRectangle;
+    Text30: TText;
+    Rectangle55: TRectangle;
+    edit_street2: TEdit;
+    Rectangle56: TRectangle;
+    Text31: TText;
+    edit_surface2: TEdit;
+    Rectangle57: TRectangle;
+    Text32: TText;
+    Rectangle58: TRectangle;
+    edit_house_number: TEdit;
+    Rectangle59: TRectangle;
+    Text33: TText;
+    edit_type2: TEdit;
+    Rectangle60: TRectangle;
+    ComboBox2: TComboBox;
+    Text34: TText;
+    Rectangle61: TRectangle;
+    edit_sale2: TEdit;
+    Rectangle62: TRectangle;
+    Text35: TText;
+    edit_marketer: TEdit;
+    Rectangle63: TRectangle;
+    Text36: TText;
+    Rectangle64: TRectangle;
+    edit_phone2: TEdit;
+    Rectangle65: TRectangle;
+    Text37: TText;
+    edit_elssom2: TEdit;
+    Rectangle66: TRectangle;
+    Text38: TText;
+    Text41: TText;
+    Rectangle70: TRectangle;
+    Text42: TText;
+    ColorAnimation8: TColorAnimation;
+    Rectangle71: TRectangle;
+    Text43: TText;
+    ColorAnimation10: TColorAnimation;
     procedure Rect_housesClick(Sender: TObject);
     procedure Rect_salesClick(Sender: TObject);
     procedure rect_landsClick(Sender: TObject);
@@ -170,6 +227,12 @@ type
     procedure Rectangle28Click(Sender: TObject);
     procedure Push_Notification(Name,Title,AlertBody :string; FireDate: tdatetime);
     procedure ShowNotification(const Title, Message, Link: string);
+    procedure edit_search_landsTyping(Sender: TObject);
+//    procedure scrollToEndHZ(grid :TStringGrid;n:integer);
+    procedure edit_search_housesTyping(Sender: TObject);
+    procedure btn_show_add_landsClick(Sender: TObject);
+    procedure Rectangle71Click(Sender: TObject);
+    procedure btn_show_add_housesClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -185,6 +248,38 @@ implementation
 {$R *.fmx}
 
 uses DM;
+
+
+procedure Tfrm_main.edit_search_housesTyping(Sender: TObject);
+begin
+
+  if (trim(edit_search_houses.text)='') then begin
+    frm_dm.table_lands.Filtered := false;
+  end else begin
+    frm_dm.table_houses.Filtered := false;
+    frm_dm.table_houses.Filter := ' house_num like '''+edit_search_houses.Text+'''';
+    frm_dm.table_houses.Filtered := true;
+  end;
+
+//  scrollToEndHZ(grid_houses,7);
+
+end;
+
+procedure Tfrm_main.edit_search_landsTyping(Sender: TObject);
+
+begin
+
+  if (trim(edit_search_lands.text)='') then begin
+    frm_dm.table_lands.Filtered := false;
+  end else begin
+    frm_dm.table_lands.Filtered := false;
+    frm_dm.table_lands.Filter := ' land_number like '''+edit_search_lands.Text+'''';
+    frm_dm.table_lands.Filtered := true;
+  end;
+
+//  scrollToEndHZ(grid_lands,7);
+
+end;
 
 procedure Tfrm_main.Push_Notification(Name, Title, AlertBody: string;
   FireDate: tdatetime);
@@ -205,9 +300,121 @@ begin
   end;
 end;
 
+procedure Tfrm_main.btn_show_add_housesClick(Sender: TObject);
+begin
+  popup_add_house.Visible := true;
+        edit_house_number.text := '';
+        edit_type2.text := '';
+        edit_street2.text := '';
+        edit_flat2.text := '';
+        edit_owner_name2.text := '';
+        edit_phone2.text := '';
+        edit_elssom2.text := '';
+        edit_sale2.text := '';
+        edit_marketer.text := '';
+        edit_note2.text := '';
+end;
+
+procedure Tfrm_main.btn_show_add_landsClick(Sender: TObject);
+begin
+  popup_add_land.Visible := true;
+        edit_land_number.text := '';
+        edit_type.text := '';
+        edit_District.text := '';
+        edit_street.text := '';
+        edit_num_graph.text := '';
+        edit_num_piece.text := '';
+        edit_owner_name.text := '';
+        edit_phone.text := '';
+        edit_elssom.text := '';
+        edit_sale.text := '';
+        edit_lengths.text := '';
+        edit_note.text := '';
+end;
+
 procedure Tfrm_main.Rectangle28Click(Sender: TObject);
 begin
   popup_add_land.Visible := false;
+end;
+
+procedure Tfrm_main.Rectangle71Click(Sender: TObject);
+var
+  Handle: THandle;
+
+  house_number,tp,street,owner_name,phone,elssom,sale,flat,note,marketer :string;
+  surface :real;
+  i :integer;
+
+begin
+
+
+  if (edit_house_number.Text='') then begin
+    Rectangle59.Stroke.Color := TAlphacolorRec.red;
+    showmessage('رقم الوجه ضروري!');
+  end else begin
+
+    house_number := edit_house_number.text;
+    tp := edit_type2.text;
+    surface := strtofloat(edit_surface2.text);
+    street := edit_street2.text;
+    owner_name := edit_owner_name2.text;
+    phone := edit_phone2.text;
+    elssom := edit_elssom2.text;
+    sale := edit_sale2.text;
+    flat := edit_flat2.text;
+    note := edit_note2.text;
+    marketer := edit_marketer.text;
+
+
+      frm_dm.FDQuery1.SQL.Clear;
+      frm_dm.FDQuery1.SQL.Add('select count(*) from houses where house_num=:house_num');
+      frm_dm.FDQuery1.ParamByName('house_num').AsWideString := house_number;
+      frm_dm.FDQuery1.Open;
+
+      i := frm_dm.FDQuery1.Fields[0].AsInteger;
+
+//      showmessage(inttostr(i));
+
+      if i=1 then begin
+        Rectangle59.Stroke.Color := TAlphacolorRec.red;
+        showmessage('رقم الوجه غير متاح، جرب رقم آخر');
+      end else begin
+        frm_dm.FDQuery1.SQL.Clear;
+        frm_dm.FDQuery1.SQL.Add('INSERT INTO houses values (:house_number,:tp,:street,:surface,:flat,:owner_name,:phone,:elssom,:sale,:marketer,:note)');
+        frm_dm.FDQuery1.ParamByName('house_number').AsWideString := house_number;
+        frm_dm.FDQuery1.ParamByName('tp').AsWideString := tp;
+        frm_dm.FDQuery1.ParamByName('street').AsWideString := street;
+        frm_dm.FDQuery1.ParamByName('surface').AsFloat := surface;
+        frm_dm.FDQuery1.ParamByName('flat').AsWideString := flat;
+        frm_dm.FDQuery1.ParamByName('owner_name').AsWideString := owner_name;
+        frm_dm.FDQuery1.ParamByName('phone').AsWideString := phone;
+        frm_dm.FDQuery1.ParamByName('elssom').AsWideString := elssom;
+        frm_dm.FDQuery1.ParamByName('sale').AsCurrency := StrToCurr(sale);
+        frm_dm.FDQuery1.ParamByName('marketer').AsWideString := marketer;
+        frm_dm.FDQuery1.ParamByName('note').AsWideString := note;
+        frm_dm.FDQuery1.Execute;
+//        showmessage('تم إضافة العرض بنجاح');
+
+        Push_Notification('تم إضافة العرض بنجاح', 'تم إضافة العرض بنجاح', 'لقد تم إضافة عرض جديد في عروض المكتب فلل وأدوار ودبلكسات', now);
+
+
+        edit_house_number.text := '';
+        edit_type2.text := '';
+        edit_street2.text := '';
+        edit_flat2.text := '';
+        edit_owner_name2.text := '';
+        edit_phone2.text := '';
+        edit_elssom2.text := '';
+        edit_sale2.text := '';
+        edit_marketer.text := '';
+        edit_note2.text := '';
+
+        popup_add_house.Visible := false;
+
+        frm_dm.table_houses.Refresh;
+      end;
+  end;
+
 end;
 
 procedure Tfrm_main.btn_add_landsClick(Sender: TObject);
@@ -221,87 +428,78 @@ var
 begin
 
 
-//  if (edit_land_number.Text='') then begin
-//    Rectangle43.Stroke.Color := TAlphacolorRec.red;
-//    showmessage('رقم الوجه ضروري!');
-//  end else begin
-//
-//    land_number := edit_land_number.text;
-//    tp := edit_type.text;
-//    District := edit_District.text;
-//    surface := strtofloat(edit_surface.text);
-//    street := edit_street.text;
-//    num_graph := edit_num_graph.text;
-//    num_piece := edit_num_piece.text;
-//    owner_name := edit_owner_name.text;
-//    phone := edit_phone.text;
-//    elssom := edit_elssom.text;
-//    sale := edit_sale.text;
-//    lengths := edit_lengths.text;
-//    note := edit_note.text;
-//
-//
-//      frm_dm.FDQuery1.SQL.Clear;
-//      frm_dm.FDQuery1.SQL.Add('select count(*) from lands where land_number=:land_number');
-//      frm_dm.FDQuery1.ParamByName('land_number').AsWideString := land_number;
-//      frm_dm.FDQuery1.Open;
-//
-//      i := frm_dm.FDQuery1.Fields[0].AsInteger;
-//
-////      showmessage(inttostr(i));
-//
-//      if i=1 then begin
-//        Rectangle43.Stroke.Color := TAlphacolorRec.red;
-//        showmessage('رقم الوجه غير متاح، جرب رقم آخر');
-//      end else begin
-//        frm_dm.FDQuery1.SQL.Clear;
-//        frm_dm.FDQuery1.SQL.Add('INSERT INTO lands values (:land_number,:tp,:District,:surface,:street,:num_graph,:num_piece,:owner_name,:phone,:elssom,:sale,:lengths,:note)');
-//        frm_dm.FDQuery1.ParamByName('land_number').AsWideString := land_number;
-//        frm_dm.FDQuery1.ParamByName('tp').AsWideString := tp;
-//        frm_dm.FDQuery1.ParamByName('District').AsWideString := District;
-//        frm_dm.FDQuery1.ParamByName('surface').AsFloat := surface;
-//        frm_dm.FDQuery1.ParamByName('street').AsWideString := street;
-//        frm_dm.FDQuery1.ParamByName('num_graph').AsWideString := num_graph;
-//        frm_dm.FDQuery1.ParamByName('num_piece').AsWideString := num_piece;
-//        frm_dm.FDQuery1.ParamByName('owner_name').AsWideString := owner_name;
-//        frm_dm.FDQuery1.ParamByName('phone').AsWideString := phone;
-//        frm_dm.FDQuery1.ParamByName('elssom').AsWideString := elssom;
-//        frm_dm.FDQuery1.ParamByName('sale').AsCurrency := StrToCurr(sale);
-//        frm_dm.FDQuery1.ParamByName('lengths').AsWideString := lengths;
-//        frm_dm.FDQuery1.ParamByName('note').AsWideString := note;
-//        frm_dm.FDQuery1.Execute;
-////        showmessage('تم إضافة العرض بنجاح');
-//
-//        Push_Notification('تم إضافة العرض بنجاح', 'تم إضافة العرض بنجاح', 'لقد تم إضافة عرض جديد في عروض الأراضي ', now);
-//
-//
-//
-//        edit_land_number.text := '';
-//        edit_type.text := '';
-//        edit_District.text := '';
-//        edit_street.text := '';
-//        edit_num_graph.text := '';
-//        edit_num_piece.text := '';
-//        edit_owner_name.text := '';
-//        edit_phone.text := '';
-//        edit_elssom.text := '';
-//        edit_sale.text := '';
-//        edit_lengths.text := '';
-//        edit_note.text := '';
-//
-//        Rectangle28click(nil);
-//
-//
-//
-//        frm_dm.table_lands.Refresh;
-//      end;
-//  end;
+  if (edit_land_number.Text='') then begin
+    Rectangle43.Stroke.Color := TAlphacolorRec.red;
+    showmessage('رقم الوجه ضروري!');
+  end else begin
 
-    ShowNotification('My Title', 'My message', 'http://www.google.com');
+    land_number := edit_land_number.text;
+    tp := edit_type.text;
+    District := edit_District.text;
+    surface := strtofloat(edit_surface.text);
+    street := edit_street.text;
+    num_graph := edit_num_graph.text;
+    num_piece := edit_num_piece.text;
+    owner_name := edit_owner_name.text;
+    phone := edit_phone.text;
+    elssom := edit_elssom.text;
+    sale := edit_sale.text;
+    lengths := edit_lengths.text;
+    note := edit_note.text;
 
 
+      frm_dm.FDQuery1.SQL.Clear;
+      frm_dm.FDQuery1.SQL.Add('select count(*) from lands where land_number=:land_number');
+      frm_dm.FDQuery1.ParamByName('land_number').AsWideString := land_number;
+      frm_dm.FDQuery1.Open;
+
+      i := frm_dm.FDQuery1.Fields[0].AsInteger;
+
+//      showmessage(inttostr(i));
+
+      if i=1 then begin
+        Rectangle43.Stroke.Color := TAlphacolorRec.red;
+        showmessage('رقم الوجه غير متاح، جرب رقم آخر');
+      end else begin
+        frm_dm.FDQuery1.SQL.Clear;
+        frm_dm.FDQuery1.SQL.Add('INSERT INTO lands values (:land_number,:tp,:District,:surface,:street,:num_graph,:num_piece,:owner_name,:phone,:elssom,:sale,:lengths,:note)');
+        frm_dm.FDQuery1.ParamByName('land_number').AsWideString := land_number;
+        frm_dm.FDQuery1.ParamByName('tp').AsWideString := tp;
+        frm_dm.FDQuery1.ParamByName('District').AsWideString := District;
+        frm_dm.FDQuery1.ParamByName('surface').AsFloat := surface;
+        frm_dm.FDQuery1.ParamByName('street').AsWideString := street;
+        frm_dm.FDQuery1.ParamByName('num_graph').AsWideString := num_graph;
+        frm_dm.FDQuery1.ParamByName('num_piece').AsWideString := num_piece;
+        frm_dm.FDQuery1.ParamByName('owner_name').AsWideString := owner_name;
+        frm_dm.FDQuery1.ParamByName('phone').AsWideString := phone;
+        frm_dm.FDQuery1.ParamByName('elssom').AsWideString := elssom;
+        frm_dm.FDQuery1.ParamByName('sale').AsCurrency := StrToCurr(sale);
+        frm_dm.FDQuery1.ParamByName('lengths').AsWideString := lengths;
+        frm_dm.FDQuery1.ParamByName('note').AsWideString := note;
+        frm_dm.FDQuery1.Execute;
+//        showmessage('تم إضافة العرض بنجاح');
+
+        Push_Notification('تم إضافة العرض بنجاح', 'تم إضافة العرض بنجاح', 'لقد تم إضافة عرض جديد في عروض الأراضي ', now);
 
 
+        edit_land_number.text := '';
+        edit_type.text := '';
+        edit_District.text := '';
+        edit_street.text := '';
+        edit_num_graph.text := '';
+        edit_num_piece.text := '';
+        edit_owner_name.text := '';
+        edit_phone.text := '';
+        edit_elssom.text := '';
+        edit_sale.text := '';
+        edit_lengths.text := '';
+        edit_note.text := '';
+
+        popup_add_land.Visible := false;
+
+        frm_dm.table_lands.Refresh;
+      end;
+  end;
 //  getcurrentdir();
 //  Handle := WinExec('python assets/python/sender.py', SW_HIDE);
 end;
@@ -328,6 +526,20 @@ begin
   current_tab.Parent := Rect_sales;
   tabcontrol1.TabIndex := 2;
 end;
+//
+//procedure Tfrm_main.scrollToEndHZ(grid: TStringGrid;n:integer);
+//var
+//  NewColumn: Integer;
+//begin
+//  grid_lands.BeginUpdate;
+//  try
+//    NewColumn := 0;
+//    grid.LeftColumn := n;
+//  finally
+//    grid.EndUpdate;
+//  end;
+//end;
+
 
 procedure Tfrm_main.ShowNotification(const Title, Message, Link: string);
 var

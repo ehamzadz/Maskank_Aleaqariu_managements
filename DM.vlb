@@ -1,0 +1,15 @@
+﻿[table_houses]
+Coordinates=91,10,80,249
+
+[table_users]
+Coordinates=181,10,71,123
+
+[table_lands]
+Coordinates=10,10,71,285
+
+[FDConnection1]
+Coordinates=208,71,90,33
+
+[FDQuery1]
+Coordinates=262,10,63,51
+
