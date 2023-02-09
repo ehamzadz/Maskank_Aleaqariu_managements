@@ -251,16 +251,16 @@ Coordinates=780,40,128,36
 Visible=False
 
 [frm_dm.table_houses]
-Coordinates=451,339,138,58
+Coordinates=451,339,138,300
 
 [frm_dm.table_users]
-Coordinates=718,10,128,58
+Coordinates=718,10,128,146
 
 [frm_dm.FDQuery1]
 Coordinates=620,50,120,58
 
 [BindSourceDB1]
-Coordinates=10,10,123,366
+Coordinates=10,10,115,366
 
 [BindingsList1]
 Coordinates=938,1,91,36
@@ -408,44 +408,53 @@ Coordinates=784,166,47,36
 Coordinates=993,781,110,36
 
 [edit_land_number]
-Coordinates=152,232,51,58
+Coordinates=152,232,117,58
 
 [edit_type]
-Coordinates=152,78,51,58
+Coordinates=152,78,67,58
 
 [edit_district]
-Coordinates=627,666,51,58
+Coordinates=627,666,80,58
 
 [edit_surface]
-Coordinates=568,685,51,58
+Coordinates=568,685,85,58
 
 [edit_street]
-Coordinates=244,78,44,58
+Coordinates=244,78,75,58
 
 [edit_num_graph]
-Coordinates=460,685,44,58
+Coordinates=460,685,107,58
 
 [edit_num_piece]
-Coordinates=627,493,51,58
+Coordinates=627,493,105,58
 
 [edit_owner_name]
-Coordinates=244,155,51,58
+Coordinates=244,155,116,58
 
 [edit_phone]
-Coordinates=627,416,51,58
+Coordinates=627,416,78,58
 
 [edit_elssom]
-Coordinates=0,0,51,58
+Coordinates=0,0,83,58
 
 [edit_sale]
-Coordinates=413,78,44,58
+Coordinates=413,78,66,58
 
 [edit_lengths]
-Coordinates=306,663,51,58
+Coordinates=306,663,84,58
 
 [edit_note]
-Coordinates=152,1,44,58
+Coordinates=152,1,68,58
 
 [btn_add_lands]
-Coordinates=1020,855,87,36
+Coordinates=1020,855,99,36
+
+[ComboBox1]
+Coordinates=357,155,101,146
+
+[Text27]
+Coordinates=307,1,54,58
+
+[NotificationCenter1]
+Coordinates=921,221,125,36
 

@@ -10,7 +10,8 @@ uses
   FMX.Controls.Presentation, FMX.ScrollBox, FMX.Grid, FMX.TabControl,
   RTL.Controls, Data.Bind.EngExt, Fmx.Bind.DBEngExt, Fmx.Bind.Grid,
   System.Bindings.Outputs, Fmx.Bind.Editors, Data.Bind.Components,
-  Data.Bind.Grid, Data.Bind.DBScope,  Winapi.Windows, System.IOUtils, ShellApi, StrUtils;
+  Data.Bind.Grid, Data.Bind.DBScope,  Winapi.Windows, System.IOUtils, ShellApi, StrUtils,
+  System.Notification, Winapi.MMSystem,  FMX.Media;
 
 type
   Tfrm_main = class(TForm)
@@ -160,12 +161,15 @@ type
     green: TBrushObject;
     Text27: TText;
     ComboBox1: TComboBox;
+    NotificationCenter1: TNotificationCenter;
     procedure Rect_housesClick(Sender: TObject);
     procedure Rect_salesClick(Sender: TObject);
     procedure rect_landsClick(Sender: TObject);
     procedure Rectangle8Click(Sender: TObject);
     procedure btn_add_landsClick(Sender: TObject);
     procedure Rectangle28Click(Sender: TObject);
+    procedure Push_Notification(Name,Title,AlertBody :string; FireDate: tdatetime);
+    procedure ShowNotification(const Title, Message, Link: string);
   private
     { Private declarations }
   public
@@ -181,6 +185,25 @@ implementation
 {$R *.fmx}
 
 uses DM;
+
+procedure Tfrm_main.Push_Notification(Name, Title, AlertBody: string;
+  FireDate: tdatetime);
+var
+  MyNotification: TNotification;
+begin
+
+  MyNotification := TNotification.Create;
+  try
+    MyNotification.Name := Name;
+    MyNotification.Title := Title;
+    MyNotification.AlertBody := AlertBody;
+    MyNotification.FireDate := FireDate;
+    MyNotification.Number := 1;
+    NotificationCenter1.PresentNotification(MyNotification);
+  finally
+    MyNotification.Free;
+  end;
+end;
 
 procedure Tfrm_main.Rectangle28Click(Sender: TObject);
 begin
@@ -198,60 +221,83 @@ var
 begin
 
 
-  if (edit_land_number.Text='') then begin
-    Rectangle43.Stroke.Color := TAlphacolorRec.red;
-    showmessage('رقم الوجه ضروري!');
-  end else begin
-
-    land_number := edit_land_number.text;
-    tp := edit_type.text;
-    District := edit_District.text;
-    street := edit_street.text;
-    num_graph := edit_num_graph.text;
-    num_piece := edit_num_piece.text;
-    owner_name := edit_owner_name.text;
-    phone := edit_phone.text;
-    elssom := edit_elssom.text;
-    sale := edit_sale.text;
-    lengths := edit_lengths.text;
-    note := edit_note.text;
-
-
-      frm_dm.FDQuery1.SQL.Clear;
-      frm_dm.FDQuery1.SQL.Add('select count(*) from lands where land_number=:land_number');
-      frm_dm.FDQuery1.ParamByName('land_number').AsWideString := land_number;
-      frm_dm.FDQuery1.Open;
-
-      i := frm_dm.FDQuery1.Fields[0].AsInteger;
-
-      showmessage(inttostr(i));
-
+//  if (edit_land_number.Text='') then begin
+//    Rectangle43.Stroke.Color := TAlphacolorRec.red;
+//    showmessage('رقم الوجه ضروري!');
+//  end else begin
+//
+//    land_number := edit_land_number.text;
+//    tp := edit_type.text;
+//    District := edit_District.text;
+//    surface := strtofloat(edit_surface.text);
+//    street := edit_street.text;
+//    num_graph := edit_num_graph.text;
+//    num_piece := edit_num_piece.text;
+//    owner_name := edit_owner_name.text;
+//    phone := edit_phone.text;
+//    elssom := edit_elssom.text;
+//    sale := edit_sale.text;
+//    lengths := edit_lengths.text;
+//    note := edit_note.text;
+//
+//
+//      frm_dm.FDQuery1.SQL.Clear;
+//      frm_dm.FDQuery1.SQL.Add('select count(*) from lands where land_number=:land_number');
+//      frm_dm.FDQuery1.ParamByName('land_number').AsWideString := land_number;
+//      frm_dm.FDQuery1.Open;
+//
+//      i := frm_dm.FDQuery1.Fields[0].AsInteger;
+//
+////      showmessage(inttostr(i));
+//
 //      if i=1 then begin
-//        text_err_msg2.Visible := true;
-//        text_err_msg2.TextSettings.FontColor := TAlphacolorRec.red;
-//        text_err_msg2.Text := 'Invalid User/pass !';
+//        Rectangle43.Stroke.Color := TAlphacolorRec.red;
+//        showmessage('رقم الوجه غير متاح، جرب رقم آخر');
 //      end else begin
 //        frm_dm.FDQuery1.SQL.Clear;
-//        frm_dm.FDQuery1.SQL.Add('INSERT INTO users values (:user,:pass,:fullName,:type)');
-//        frm_dm.FDQuery1.ParamByName('user').AsWideString := user;
-//        frm_dm.FDQuery1.ParamByName('pass').AsWideString := pass2;
-//        frm_dm.FDQuery1.ParamByName('fullName').AsWideString := fullName;
-//        frm_dm.FDQuery1.ParamByName('type').AsWideString := 'emp';
+//        frm_dm.FDQuery1.SQL.Add('INSERT INTO lands values (:land_number,:tp,:District,:surface,:street,:num_graph,:num_piece,:owner_name,:phone,:elssom,:sale,:lengths,:note)');
+//        frm_dm.FDQuery1.ParamByName('land_number').AsWideString := land_number;
+//        frm_dm.FDQuery1.ParamByName('tp').AsWideString := tp;
+//        frm_dm.FDQuery1.ParamByName('District').AsWideString := District;
+//        frm_dm.FDQuery1.ParamByName('surface').AsFloat := surface;
+//        frm_dm.FDQuery1.ParamByName('street').AsWideString := street;
+//        frm_dm.FDQuery1.ParamByName('num_graph').AsWideString := num_graph;
+//        frm_dm.FDQuery1.ParamByName('num_piece').AsWideString := num_piece;
+//        frm_dm.FDQuery1.ParamByName('owner_name').AsWideString := owner_name;
+//        frm_dm.FDQuery1.ParamByName('phone').AsWideString := phone;
+//        frm_dm.FDQuery1.ParamByName('elssom').AsWideString := elssom;
+//        frm_dm.FDQuery1.ParamByName('sale').AsCurrency := StrToCurr(sale);
+//        frm_dm.FDQuery1.ParamByName('lengths').AsWideString := lengths;
+//        frm_dm.FDQuery1.ParamByName('note').AsWideString := note;
 //        frm_dm.FDQuery1.Execute;
-//        showmessage('Successfully registered');
+////        showmessage('تم إضافة العرض بنجاح');
 //
-//        edit_user2.text := '';
-//        edit_fullName.text :='';
-//        edit_pass2.text :='';
-//        edit_pass22.text :='';
-//        tabcontrol1.TabIndex := 0;
+//        Push_Notification('تم إضافة العرض بنجاح', 'تم إضافة العرض بنجاح', 'لقد تم إضافة عرض جديد في عروض الأراضي ', now);
+//
+//
+//
+//        edit_land_number.text := '';
+//        edit_type.text := '';
+//        edit_District.text := '';
+//        edit_street.text := '';
+//        edit_num_graph.text := '';
+//        edit_num_piece.text := '';
+//        edit_owner_name.text := '';
+//        edit_phone.text := '';
+//        edit_elssom.text := '';
+//        edit_sale.text := '';
+//        edit_lengths.text := '';
+//        edit_note.text := '';
+//
+//        Rectangle28click(nil);
+//
+//
+//
+//        frm_dm.table_lands.Refresh;
 //      end;
+//  end;
 
-  end;
-
-
-
-
+    ShowNotification('My Title', 'My message', 'http://www.google.com');
 
 
 
@@ -281,6 +327,30 @@ procedure Tfrm_main.Rect_salesClick(Sender: TObject);
 begin
   current_tab.Parent := Rect_sales;
   tabcontrol1.TabIndex := 2;
+end;
+
+procedure Tfrm_main.ShowNotification(const Title, Message, Link: string);
+var
+  Info: TShellExecuteInfo;
+  Handle: THandle;
+begin
+  FillChar(Info, SizeOf(Info), 0);
+  Info.cbSize := SizeOf(Info);
+  Info.fMask := SEE_MASK_NOCLOSEPROCESS;
+  Info.Wnd := 0;
+  Info.lpVerb := nil;
+  Info.lpFile := PChar(Link);
+  Info.lpParameters := nil;
+  Info.lpDirectory := nil;
+  Info.nShow := SW_SHOW;
+  Info.hInstApp := 0;
+  if ShellExecuteEx(@Info) then
+  begin
+    Handle := Info.hProcess;
+    MessageBox(0, PChar(Message), PChar(Title), MB_OK or MB_ICONINFORMATION);
+    WaitForSingleObject(Handle, INFINITE);
+    CloseHandle(Handle);
+  end;
 end;
 
 end.
