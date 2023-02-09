@@ -1,9 +1,6 @@
 ﻿[TabControl1]
 Coordinates=426,552,74,33
 
-[print_patient_id]
-Coordinates=587,493,91,33
-
 [Rectangle21]
 Coordinates=288,416,75,33
 
@@ -117,9 +114,6 @@ Coordinates=604,416,69,33
 [Text5]
 Coordinates=251,339,41,51
 
-[add_new_patient]
-Coordinates=303,552,97,33
-
 [MenuItem4]
 Coordinates=906,493,68,33
 
@@ -229,7 +223,7 @@ Coordinates=1191,552,68,33
 Coordinates=1250,10,40,51
 
 []
-Coordinates=364,1,64,33
+Coordinates=587,493,91,33
 
 [frm_dm.table_lands]
 Coordinates=780,40,111,33

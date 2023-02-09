@@ -61,8 +61,6 @@ type
     Rectangle14: TRectangle;
     Text18: TText;
     PopupMenu_grid_lands: TPopupMenu;
-    print_patient_id: TMenuItem;
-    add_new_patient: TMenuItem;
     StyleBook1: TStyleBook;
     Rectangle2: TRectangle;
     RTLFixer1: TRTLFixer;
@@ -219,6 +217,11 @@ type
     Rectangle71: TRectangle;
     Text43: TText;
     ColorAnimation10: TColorAnimation;
+    share_to_whatsapp: TMenuItem;
+    TabItem1: TTabItem;
+    Memo1: TMemo;
+    Memo2: TMemo;
+    Memo3: TMemo;
     procedure Rect_housesClick(Sender: TObject);
     procedure Rect_salesClick(Sender: TObject);
     procedure rect_landsClick(Sender: TObject);
@@ -233,6 +236,9 @@ type
     procedure btn_show_add_landsClick(Sender: TObject);
     procedure Rectangle71Click(Sender: TObject);
     procedure btn_show_add_housesClick(Sender: TObject);
+    procedure share_to_whatsappClick(Sender: TObject);
+    procedure ClearTextFile(const FileName: string);
+    procedure WriteMemoLinesToFile(const FileName: string; Memo: TMemo);
   private
     { Private declarations }
   public
@@ -332,6 +338,18 @@ begin
         edit_note.text := '';
 end;
 
+procedure Tfrm_main.ClearTextFile(const FileName: string);
+var
+  FileStream: TFileStream;
+begin
+  FileStream := TFileStream.Create(FileName, fmOpenWrite or fmShareDenyNone);
+  try
+    FileStream.Size := 0;
+  finally
+    FileStream.Free;
+  end;
+end;
+
 procedure Tfrm_main.Rectangle28Click(Sender: TObject);
 begin
   popup_add_land.Visible := false;
@@ -419,11 +437,12 @@ end;
 
 procedure Tfrm_main.btn_add_landsClick(Sender: TObject);
 var
-  Handle: THandle;
 
   land_number,tp,District,street,num_graph,num_piece,owner_name,phone,elssom,sale,lengths,note :string;
   surface :real;
   i :integer;
+
+  Handle: THandle;
 
 begin
 
@@ -526,6 +545,99 @@ begin
   current_tab.Parent := Rect_sales;
   tabcontrol1.TabIndex := 2;
 end;
+procedure Tfrm_main.share_to_whatsappClick(Sender: TObject);
+var
+  Handle: THandle;
+  num, msg :string;
+begin
+
+  if FileExists('assets/python/sender.py') and FileExists('assets/python/contacts.py') and FileExists('assets/python/messages.py') then begin
+
+
+    RenameFile('assets/python/contacts.py','assets/python/contacts.txt');
+    RenameFile('assets/python/messages.py','assets/python/messages.txt');
+
+    ClearTextFile('assets/python/contacts.txt');
+    ClearTextFile('assets/python/messages.txt');
+//
+//    DeleteFile('assets/python/contacts.py');
+//    DeleteFile('assets/python/messages.py');
+
+    memo1.Lines.Clear;
+
+    num := grid_lands.Cells[12,grid_lands.Selected];
+
+    msg := 'msg = "'+grid_lands.Cells[12,grid_lands.Selected]+'"';
+    Memo1.Lines.Add(msg);
+    msg := 'msg = msg+"\n"';
+    Memo1.Lines.Add(msg);
+    msg := 'msg = msg+"'+grid_lands.Cells[11,grid_lands.Selected]+'"';
+    Memo1.Lines.Add(msg);
+    msg := 'msg = msg+"\n"';
+    Memo1.Lines.Add(msg);
+    msg := 'msg = msg+"'+grid_lands.Cells[10,grid_lands.Selected]+'"';
+    Memo1.Lines.Add(msg);
+    msg := 'msg = msg+"\n"';
+    Memo1.Lines.Add(msg);
+    msg := 'msg = msg+"'+grid_lands.Cells[9,grid_lands.Selected]+'"';
+    Memo1.Lines.Add(msg);
+    msg := 'msg = msg+"\n"';
+    Memo1.Lines.Add(msg);
+    msg := 'msg = msg+"'+grid_lands.Cells[8,grid_lands.Selected]+'"';
+    Memo1.Lines.Add(msg);
+    msg := 'msg = msg+"\n"';
+    Memo1.Lines.Add(msg);
+    msg := 'msg = msg+"'+grid_lands.Cells[7,grid_lands.Selected]+'"';
+    Memo1.Lines.Add(msg);
+    msg := 'msg = msg+"\n"';
+    Memo1.Lines.Add(msg);
+    msg := 'msg = msg+"'+grid_lands.Cells[6,grid_lands.Selected]+'"';
+    Memo1.Lines.Add(msg);
+    msg := 'msg = msg+"\n"';
+    Memo1.Lines.Add(msg);
+    msg := 'msg = msg+"'+grid_lands.Cells[5,grid_lands.Selected]+'"';
+    Memo1.Lines.Add(msg);
+    msg := 'msg = msg+"\n"';
+    Memo1.Lines.Add(msg);
+    msg := 'msg = msg+"'+grid_lands.Cells[4,grid_lands.Selected]+'"';
+    Memo1.Lines.Add(msg);
+    msg := 'msg = msg+"\n"';
+    Memo1.Lines.Add(msg);
+    msg := 'msg = msg+"'+grid_lands.Cells[3,grid_lands.Selected]+'"';
+    Memo1.Lines.Add(msg);
+    msg := 'msg = msg+"\n"';
+    Memo1.Lines.Add(msg);
+    msg := 'msg = msg+"'+grid_lands.Cells[2,grid_lands.Selected]+'"';
+    Memo1.Lines.Add(msg);
+    msg := 'msg = msg+"\n"';
+    Memo1.Lines.Add(msg);
+    msg := 'msg = msg+"'+grid_lands.Cells[1,grid_lands.Selected]+'"';
+    Memo1.Lines.Add(msg);
+    msg := 'msg = msg+"\n"';
+    Memo1.Lines.Add(msg);
+    msg := 'msg = msg+"'+grid_lands.Cells[0,grid_lands.Selected]+'"';
+    Memo1.Lines.Add(msg);
+    msg := 'msg = msg+"\n"';
+    Memo1.Lines.Add(msg);
+
+
+    Memo1.Lines.SaveToFile('assets/python/messages.txt', TEncoding.UTF8);
+    Memo2.Lines.SaveToFile('assets/python/contacts.txt', TEncoding.UTF8);
+
+    RenameFile('assets/python/contacts.txt','assets/python/contacts.py');
+    RenameFile('assets/python/messages.txt','assets/python/messages.py');
+
+    Memo1.Lines.Assign(Memo3.Lines);
+
+    Handle := WinExec('python assets/python/sender.py', SW_HIDE);
+
+
+  end else begin
+    showmessage('بعض الملفات ناقصة');
+  end;
+
+end;
+
 //
 //procedure Tfrm_main.scrollToEndHZ(grid: TStringGrid;n:integer);
 //var
@@ -562,6 +674,24 @@ begin
     MessageBox(0, PChar(Message), PChar(Title), MB_OK or MB_ICONINFORMATION);
     WaitForSingleObject(Handle, INFINITE);
     CloseHandle(Handle);
+  end;
+end;
+
+procedure Tfrm_main.WriteMemoLinesToFile(const FileName: string; Memo: TMemo);
+var
+  FileStream: TFileStream;
+  text,line: string;
+begin
+  FileStream := TFileStream.Create(FileName, fmOpenWrite or fmShareDenyNone);
+  try
+    FileStream.Size := 0;
+    for line in Memo.Lines do
+    begin
+      text := Line + sLineBreak;
+      FileStream.Write(text[1], Length(text) * SizeOf(Char));
+    end;
+  finally
+    FileStream.Free;
   end;
 end;
 
