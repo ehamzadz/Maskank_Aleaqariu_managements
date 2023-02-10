@@ -18,6 +18,7 @@ type
     table_lands: TFDTable;
     table_houses: TFDTable;
     table_costumer_requests: TFDTable;
+    table_expenses: TFDTable;
   private
     { Private declarations }
   public

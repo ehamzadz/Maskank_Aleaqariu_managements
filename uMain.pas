@@ -15,7 +15,8 @@ uses
   FireDAC.Stan.Option, FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS,
   FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
   Data.DB, FireDAC.Comp.DataSet, FireDAC.Comp.Client, FireDAC.UI.Intf,
-  FireDAC.FMXUI.Wait, FireDAC.Comp.UI, FireDAC.VCLUI.Wait, Vcl.Dialogs, FMX.DialogService;
+  FireDAC.FMXUI.Wait, FireDAC.Comp.UI, FireDAC.VCLUI.Wait, Vcl.Dialogs, FMX.DialogService,
+  FMX.DateTimeCtrls;
 
 type
   Tfrm_main = class(TForm)
@@ -288,6 +289,59 @@ type
     LinkGridToDataSourceBindSourceDB3: TLinkGridToDataSource;
     PopupMenu_customer_requests: TPopupMenu;
     delete_costumer_requests: TMenuItem;
+    rect_expenses: TRectangle;
+    ColorAnimation16: TColorAnimation;
+    Image2: TImage;
+    Text50: TText;
+    tab_expenses: TTabItem;
+    Rectangle79: TRectangle;
+    Rectangle88: TRectangle;
+    Rectangle94: TRectangle;
+    edit_search_expenses: TEdit;
+    btn_show_add_expenses: TRectangle;
+    ColorAnimation17: TColorAnimation;
+    Text54: TText;
+    Rectangle96: TRectangle;
+    Edit6: TEdit;
+    Rectangle97: TRectangle;
+    Rectangle98: TRectangle;
+    Rectangle99: TRectangle;
+    Text55: TText;
+    Rectangle100: TRectangle;
+    grid_expenses: TStringGrid;
+    PopupMenu_expenses: TPopupMenu;
+    delete_expenses: TMenuItem;
+    BindSourceDB4: TBindSourceDB;
+    LinkGridToDataSourceBindSourceDB4: TLinkGridToDataSource;
+    popup_add_expenses: TRectangle;
+    Rectangle102: TRectangle;
+    VertScrollBox5: TVertScrollBox;
+    Rectangle105: TRectangle;
+    edit_type4: TEdit;
+    Rectangle106: TRectangle;
+    Text57: TText;
+    edit_amount: TEdit;
+    Rectangle107: TRectangle;
+    Text58: TText;
+    Rectangle108: TRectangle;
+    edit_emp_name: TEdit;
+    Rectangle109: TRectangle;
+    Text62: TText;
+    Rectangle110: TRectangle;
+    Edit10: TEdit;
+    Rectangle111: TRectangle;
+    Text63: TText;
+    edit_invoice_num: TEdit;
+    Rectangle112: TRectangle;
+    Text64: TText;
+    Text66: TText;
+    Rectangle115: TRectangle;
+    Text67: TText;
+    ColorAnimation18: TColorAnimation;
+    Text68: TText;
+    ColorAnimation19: TColorAnimation;
+    btn_add_expenses: TRectangle;
+    DateEdit1: TDateEdit;
     procedure Rect_housesClick(Sender: TObject);
     procedure Rect_salesClick(Sender: TObject);
     procedure rect_landsClick(Sender: TObject);
@@ -320,6 +374,16 @@ type
     procedure grid_costumer_requestsEditingDone(Sender: TObject; const ACol,
       ARow: Integer);
     procedure delete_costumer_requestsClick(Sender: TObject);
+    procedure rect_expensesClick(Sender: TObject);
+    procedure edit_search_expensesTyping(Sender: TObject);
+    procedure StringGrid1EditingDone(Sender: TObject; const ACol,
+      ARow: Integer);
+    procedure btn_add_expensesClick(Sender: TObject);
+    procedure Rectangle115Click(Sender: TObject);
+    procedure btn_show_add_expensesClick(Sender: TObject);
+    procedure delete_expensesClick(Sender: TObject);
+    procedure grid_expensesEditingDone(Sender: TObject; const ACol,
+      ARow: Integer);
   private
     { Private declarations }
   public
@@ -345,6 +409,17 @@ begin
     frm_dm.table_costumer_requests.Filtered := false;
     frm_dm.table_costumer_requests.Filter := ' id_costumer like '''+edit_search_costumer_requests.Text+'%''';
     frm_dm.table_costumer_requests.Filtered := true;
+  end;
+end;
+
+procedure Tfrm_main.edit_search_expensesTyping(Sender: TObject);
+begin
+  if (trim(edit_search_expenses.text)='') then begin
+    frm_dm.table_expenses.Filtered := false;
+  end else begin
+    frm_dm.table_expenses.Filtered := false;
+    frm_dm.table_expenses.Filter := ' id_expenses like '''+edit_search_expenses.Text+'%''';
+    frm_dm.table_expenses.Filtered := true;
   end;
 end;
 
@@ -380,6 +455,12 @@ begin
   frm_dm.table_costumer_requests.Refresh;
 end;
 
+procedure Tfrm_main.grid_expensesEditingDone(Sender: TObject; const ACol,
+  ARow: Integer);
+begin
+  frm_dm.table_expenses.Refresh;
+end;
+
 procedure Tfrm_main.grid_housesEditingDone(Sender: TObject; const ACol,
   ARow: Integer);
 begin
@@ -409,6 +490,11 @@ begin
   finally
     MyNotification.Free;
   end;
+end;
+
+procedure Tfrm_main.btn_show_add_expensesClick(Sender: TObject);
+begin
+  popup_add_expenses.Visible := true;
 end;
 
 procedure Tfrm_main.btn_show_add_housesClick(Sender: TObject);
@@ -478,6 +564,29 @@ begin
 
 end;
 
+procedure Tfrm_main.delete_expensesClick(Sender: TObject);
+var
+  num :string;
+begin
+
+  num := grid_expenses.Cells[5,grid_expenses.Selected];
+
+   if MessageDlg('هل أنت متأكد من أنك تريد مسح هذا المصروف ؟',
+    mtConfirmation, [mbYes, mbNo], 0, mbYes) = mrYes then
+    begin
+      try
+        frm_dm.FDQuery1.SQL.Clear;
+        frm_dm.FDQuery1.SQL.Add('DELETE FROM expenses where id_expenses=:id_expenses');
+        frm_dm.FDQuery1.ParamByName('id_expenses').asinteger := strtoint(num);
+        frm_dm.FDQuery1.ExecSQL;
+      finally
+        frm_dm.table_expenses.Refresh;
+        Push_Notification('تم مسح المصروف بنجاح', 'تم مسح المصروف بنجاح', '', now);
+      end;
+    end;
+
+end;
+
 procedure Tfrm_main.delete_record2Click(Sender: TObject);
 var
   num :string;
@@ -526,6 +635,11 @@ end;
 procedure Tfrm_main.Rectangle101Click(Sender: TObject);
 begin
   popup_add_costumer_requests.Visible := false;
+end;
+
+procedure Tfrm_main.Rectangle115Click(Sender: TObject);
+begin
+  popup_add_expenses.Visible := false;
 end;
 
 procedure Tfrm_main.Rectangle28Click(Sender: TObject);
@@ -698,6 +812,66 @@ begin
         frm_dm.table_costumer_requests.Refresh;
       end;
   end;
+end;
+
+procedure Tfrm_main.btn_add_expensesClick(Sender: TObject);
+var
+
+  date,invoice_num,tp,amount,emp_name :string;
+
+  i,id_expenses :integer;
+
+  Handle: THandle;
+
+begin
+
+
+  if (edit_amount.text='') then begin
+    Rectangle107.Stroke.Color := TAlphacolorRec.red;
+    showmessage('حقل ضروري!');
+  end else begin
+//
+    date := dateedit1.text;
+    invoice_num := edit_invoice_num.text;
+    tp := edit_type4.text;
+    amount := edit_amount.text;
+    emp_name := edit_emp_name.text;
+
+
+      frm_dm.FDQuery1.SQL.Clear;
+      frm_dm.FDQuery1.SQL.Add('select top 1 * from expenses order by id_expenses DESC');
+      frm_dm.FDQuery1.Open;
+      id_expenses := frm_dm.FDQuery1.Fields[0].AsInteger+1;
+
+
+      if i=1 then begin
+        Rectangle43.Stroke.Color := TAlphacolorRec.red;
+        showmessage('حطأ مجهول يستوجب الإتصال بالمبرمج');
+      end else begin
+        frm_dm.FDQuery1.SQL.Clear;
+        frm_dm.FDQuery1.SQL.Add('INSERT INTO expenses values (:id_expenses,:date,:invoice_num,:tp,:amount,:emp_name)');
+        frm_dm.FDQuery1.ParamByName('id_expenses').asinteger := id_expenses;
+        frm_dm.FDQuery1.ParamByName('date').asdate := strtodate(date);
+        frm_dm.FDQuery1.ParamByName('invoice_num').AsWideString := invoice_num;
+        frm_dm.FDQuery1.ParamByName('tp').AsWideString := tp;
+        frm_dm.FDQuery1.ParamByName('amount').AsCurrency := strtocurr(amount);
+        frm_dm.FDQuery1.ParamByName('emp_name').AsWideString := emp_name;
+        frm_dm.FDQuery1.Execute;
+//        showmessage('تم إضافة العرض بنجاح');
+
+        Push_Notification('تم إضافة المصروف بنجاح', 'تم إضافة المصروف بنجاح', '', now);
+
+
+        edit_invoice_num.text := '';
+        edit_type4.text := '';
+        edit_amount.text := '';
+        edit_emp_name.text := '';
+
+        popup_add_expenses.Visible := false;
+
+        frm_dm.table_expenses.Refresh;
+      end;
+  end;
 
 end;
 
@@ -798,6 +972,12 @@ procedure Tfrm_main.rect_costumer_requestsClick(Sender: TObject);
 begin
   current_tab.Parent := Rect_costumer_requests;
   tabcontrol1.TabIndex := 4;
+end;
+
+procedure Tfrm_main.rect_expensesClick(Sender: TObject);
+begin
+  current_tab.Parent := Rect_expenses;
+  tabcontrol1.TabIndex := 5;
 end;
 
 procedure Tfrm_main.Rect_housesClick(Sender: TObject);
@@ -1062,6 +1242,12 @@ begin
     WaitForSingleObject(Handle, INFINITE);
     CloseHandle(Handle);
   end;
+end;
+
+procedure Tfrm_main.StringGrid1EditingDone(Sender: TObject; const ACol,
+  ARow: Integer);
+begin
+  frm_dm.table_expenses.Refresh;
 end;
 
 procedure Tfrm_main.WriteMemoLinesToFile(const FileName: string; Memo: TMemo);
