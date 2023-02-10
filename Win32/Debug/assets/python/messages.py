@@ -1,18 +1,20 @@
 ﻿msg = "\n"
 msg = msg+"عرض جديد ومميز"
 msg = msg+"\n"
-msg = msg+"رقم: 202"
+msg = msg+"رقم: 799-811"
 msg = msg+"\n"
 msg = msg+"\n"
-msg = msg+"النوع: سكني"
+msg = msg+"النوع: دور"
+msg = msg+" - "
+msg = msg+"حي الشفائ"
 msg = msg+"\n"
-msg = msg+"حي قفار -مخطط البيوض"
+msg = msg+"مساحة 400م"
+msg = msg+" - المسطح 500"
 msg = msg+"\n"
-msg = msg+"مساحة 320م"
-msg = msg+" - شارع عبد الحميد بن بديس"
+msg = msg+"عليها بنك عقاري 380 الف العمر 6سنوات"
 msg = msg+"\n"
-msg = msg+"\n"
-msg = msg+"البيع 3اراضي كامل"
+msg = msg+"\nصور العقار\n"
+msg = msg+"https://www.dropbox.com/sh/eaf68apj7w8l2lh/AADixr4xUrjgKI7X-Sg73Ru9a?dl=0"
 msg = msg+"\n"
 msg = msg + "\n"
 msg = msg + "\nمكتب مسكنك للعقارات"
@@ -20,5 +22,3 @@ msg = msg + "\n٠٥٣٣٥٨٦٦٠٠ / ٠٥٥٥٩٦٤٥٠٦ / ٠٥٥٢٦٧٥٦٥�
 msg = msg + "\n"
 msg = msg + "\nالكود العقاري ٣٧٢٤٠٧٩ "
 msg = msg + "\n"
-msg = msg + "\nصور العقار"
-msg = msg + "\nhttps://www.dropbox.com/sh/eaf68apj7w8l2lh/AADixr4xUrjgKI7X-Sg73Ru9a?dl=0"

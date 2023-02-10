@@ -15,7 +15,7 @@ uses
   FireDAC.Stan.Option, FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS,
   FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
   Data.DB, FireDAC.Comp.DataSet, FireDAC.Comp.Client, FireDAC.UI.Intf,
-  FireDAC.FMXUI.Wait, FireDAC.Comp.UI, FireDAC.VCLUI.Wait;
+  FireDAC.FMXUI.Wait, FireDAC.Comp.UI, FireDAC.VCLUI.Wait, Vcl.Dialogs, FMX.DialogService;
 
 type
   Tfrm_main = class(TForm)
@@ -171,7 +171,7 @@ type
     Rectangle9: TRectangle;
     VertScrollBox3: TVertScrollBox;
     Rectangle33: TRectangle;
-    edit_note2: TEdit;
+    edit_url2: TEdit;
     Rectangle51: TRectangle;
     Text28: TText;
     Rectangle52: TRectangle;
@@ -222,6 +222,14 @@ type
     Memo1: TMemo;
     Memo2: TMemo;
     Memo3: TMemo;
+    Rectangle8: TRectangle;
+    edit_note2: TEdit;
+    Rectangle67: TRectangle;
+    Text39: TText;
+    PopupMenu_grid_houses: TPopupMenu;
+    share_to_whatsapp2: TMenuItem;
+    delete_record: TMenuItem;
+    delete_record2: TMenuItem;
     procedure Rect_housesClick(Sender: TObject);
     procedure Rect_salesClick(Sender: TObject);
     procedure rect_landsClick(Sender: TObject);
@@ -239,6 +247,13 @@ type
     procedure share_to_whatsappClick(Sender: TObject);
     procedure ClearTextFile(const FileName: string);
     procedure WriteMemoLinesToFile(const FileName: string; Memo: TMemo);
+    procedure Rectangle70Click(Sender: TObject);
+    procedure share_to_whatsapp2Click(Sender: TObject);
+    procedure delete_recordClick(Sender: TObject);
+    procedure delete_record2Click(Sender: TObject);
+    procedure grid_housesEditingDone(Sender: TObject; const ACol,
+      ARow: Integer);
+    procedure grid_landsEditingDone(Sender: TObject; const ACol, ARow: Integer);
   private
     { Private declarations }
   public
@@ -260,10 +275,10 @@ procedure Tfrm_main.edit_search_housesTyping(Sender: TObject);
 begin
 
   if (trim(edit_search_houses.text)='') then begin
-    frm_dm.table_lands.Filtered := false;
+    frm_dm.table_houses.Filtered := false;
   end else begin
     frm_dm.table_houses.Filtered := false;
-    frm_dm.table_houses.Filter := ' house_num like '''+edit_search_houses.Text+'''';
+    frm_dm.table_houses.Filter := ' house_num like '''+edit_search_houses.Text+'%''';
     frm_dm.table_houses.Filtered := true;
   end;
 
@@ -279,12 +294,24 @@ begin
     frm_dm.table_lands.Filtered := false;
   end else begin
     frm_dm.table_lands.Filtered := false;
-    frm_dm.table_lands.Filter := ' land_number like '''+edit_search_lands.Text+'''';
+    frm_dm.table_lands.Filter := ' land_number like '''+edit_search_lands.Text+'%''';
     frm_dm.table_lands.Filtered := true;
   end;
 
 //  scrollToEndHZ(grid_lands,7);
 
+end;
+
+procedure Tfrm_main.grid_housesEditingDone(Sender: TObject; const ACol,
+  ARow: Integer);
+begin
+  frm_dm.table_houses.Refresh;
+end;
+
+procedure Tfrm_main.grid_landsEditingDone(Sender: TObject; const ACol,
+  ARow: Integer);
+begin
+  frm_dm.table_lands.Refresh;
 end;
 
 procedure Tfrm_main.Push_Notification(Name, Title, AlertBody: string;
@@ -350,7 +377,58 @@ begin
   end;
 end;
 
+procedure Tfrm_main.delete_record2Click(Sender: TObject);
+var
+  num :string;
+begin
+
+  num := grid_houses.Cells[11,grid_lands.Selected];
+
+   if MessageDlg('هل أنت متأكد من أنك تريد مسح هذا العرض ؟',
+    mtConfirmation, [mbYes, mbNo], 0, mbYes) = mrYes then
+    begin
+      try
+        frm_dm.FDQuery1.SQL.Clear;
+        frm_dm.FDQuery1.SQL.Add('DELETE FROM houses where house_num=:house_num');
+        frm_dm.FDQuery1.ParamByName('house_num').AsString := num;
+        frm_dm.FDQuery1.ExecSQL;
+      finally
+        frm_dm.table_houses.Refresh;
+        Push_Notification('تم مسح العرض بنجاح', 'تم مسح العرض بنجاح', 'لقد تم مسح عرض من عروض المكتب فلل وأدوار ودبلكسات', now);
+      end;
+    end;
+
+end;
+
+procedure Tfrm_main.delete_recordClick(Sender: TObject);
+var
+  num :string;
+begin
+
+  num := grid_lands.Cells[13,grid_lands.Selected];
+
+   if MessageDlg('هل أنت متأكد من أنك تريد مسح هذا العرض ؟',
+    mtConfirmation, [mbYes, mbNo], 0, mbYes) = mrYes then
+    begin
+      try
+        frm_dm.FDQuery1.SQL.Clear;
+        frm_dm.FDQuery1.SQL.Add('DELETE FROM lands where land_number=:land_number');
+        frm_dm.FDQuery1.ParamByName('land_number').AsString := num;
+        frm_dm.FDQuery1.ExecSQL;
+      finally
+        frm_dm.table_lands.Refresh;
+        Push_Notification('تم مسح العرض بنجاح', 'تم مسح العرض بنجاح', 'لقد تم مسح عرض من عروض الأراضي', now);
+      end;
+    end;
+
+end;
+
 procedure Tfrm_main.Rectangle28Click(Sender: TObject);
+begin
+  popup_add_house.Visible := false;
+end;
+
+procedure Tfrm_main.Rectangle70Click(Sender: TObject);
 begin
   popup_add_land.Visible := false;
 end;
@@ -359,8 +437,8 @@ procedure Tfrm_main.Rectangle71Click(Sender: TObject);
 var
   Handle: THandle;
 
-  house_number,tp,street,owner_name,phone,elssom,sale,flat,note,marketer :string;
-  surface :real;
+  house_number,tp,street,surface,owner_name,phone,elssom,sale,flat,note,marketer,url :string;
+
   i :integer;
 
 begin
@@ -373,7 +451,7 @@ begin
 
     house_number := edit_house_number.text;
     tp := edit_type2.text;
-    surface := strtofloat(edit_surface2.text);
+    surface := edit_surface2.text;
     street := edit_street2.text;
     owner_name := edit_owner_name2.text;
     phone := edit_phone2.text;
@@ -382,7 +460,7 @@ begin
     flat := edit_flat2.text;
     note := edit_note2.text;
     marketer := edit_marketer.text;
-
+    url := edit_url2.text;
 
       frm_dm.FDQuery1.SQL.Clear;
       frm_dm.FDQuery1.SQL.Add('select count(*) from houses where house_num=:house_num');
@@ -398,18 +476,19 @@ begin
         showmessage('رقم الوجه غير متاح، جرب رقم آخر');
       end else begin
         frm_dm.FDQuery1.SQL.Clear;
-        frm_dm.FDQuery1.SQL.Add('INSERT INTO houses values (:house_number,:tp,:street,:surface,:flat,:owner_name,:phone,:elssom,:sale,:marketer,:note)');
+        frm_dm.FDQuery1.SQL.Add('INSERT INTO houses values (:house_number,:tp,:street,:surface,:flat,:owner_name,:phone,:elssom,:sale,:marketer,:note,:url)');
         frm_dm.FDQuery1.ParamByName('house_number').AsWideString := house_number;
         frm_dm.FDQuery1.ParamByName('tp').AsWideString := tp;
         frm_dm.FDQuery1.ParamByName('street').AsWideString := street;
-        frm_dm.FDQuery1.ParamByName('surface').AsFloat := surface;
+        frm_dm.FDQuery1.ParamByName('surface').AsWideString := surface;
         frm_dm.FDQuery1.ParamByName('flat').AsWideString := flat;
         frm_dm.FDQuery1.ParamByName('owner_name').AsWideString := owner_name;
         frm_dm.FDQuery1.ParamByName('phone').AsWideString := phone;
         frm_dm.FDQuery1.ParamByName('elssom').AsWideString := elssom;
-        frm_dm.FDQuery1.ParamByName('sale').AsCurrency := StrToCurr(sale);
+        frm_dm.FDQuery1.ParamByName('sale').AsWideString := sale;
         frm_dm.FDQuery1.ParamByName('marketer').AsWideString := marketer;
         frm_dm.FDQuery1.ParamByName('note').AsWideString := note;
+        frm_dm.FDQuery1.ParamByName('url').AsWideString := url;
         frm_dm.FDQuery1.Execute;
 //        showmessage('تم إضافة العرض بنجاح');
 
@@ -438,8 +517,8 @@ end;
 procedure Tfrm_main.btn_add_landsClick(Sender: TObject);
 var
 
-  land_number,tp,District,street,num_graph,num_piece,owner_name,phone,elssom,sale,lengths,note :string;
-  surface :real;
+  land_number,tp,District,surface,street,num_graph,num_piece,owner_name,phone,elssom,sale,lengths,note :string;
+
   i :integer;
 
   Handle: THandle;
@@ -455,7 +534,7 @@ begin
     land_number := edit_land_number.text;
     tp := edit_type.text;
     District := edit_District.text;
-    surface := strtofloat(edit_surface.text);
+    surface := edit_surface.text;
     street := edit_street.text;
     num_graph := edit_num_graph.text;
     num_piece := edit_num_piece.text;
@@ -485,14 +564,14 @@ begin
         frm_dm.FDQuery1.ParamByName('land_number').AsWideString := land_number;
         frm_dm.FDQuery1.ParamByName('tp').AsWideString := tp;
         frm_dm.FDQuery1.ParamByName('District').AsWideString := District;
-        frm_dm.FDQuery1.ParamByName('surface').AsFloat := surface;
+        frm_dm.FDQuery1.ParamByName('surface').AsWideString := surface;
         frm_dm.FDQuery1.ParamByName('street').AsWideString := street;
         frm_dm.FDQuery1.ParamByName('num_graph').AsWideString := num_graph;
         frm_dm.FDQuery1.ParamByName('num_piece').AsWideString := num_piece;
         frm_dm.FDQuery1.ParamByName('owner_name').AsWideString := owner_name;
         frm_dm.FDQuery1.ParamByName('phone').AsWideString := phone;
         frm_dm.FDQuery1.ParamByName('elssom').AsWideString := elssom;
-        frm_dm.FDQuery1.ParamByName('sale').AsCurrency := StrToCurr(sale);
+        frm_dm.FDQuery1.ParamByName('sale').AsWideString := sale;
         frm_dm.FDQuery1.ParamByName('lengths').AsWideString := lengths;
         frm_dm.FDQuery1.ParamByName('note').AsWideString := note;
         frm_dm.FDQuery1.Execute;
@@ -545,6 +624,110 @@ begin
   current_tab.Parent := Rect_sales;
   tabcontrol1.TabIndex := 2;
 end;
+procedure Tfrm_main.share_to_whatsapp2Click(Sender: TObject);
+var
+  Handle: THandle;
+  num, msg :string;
+begin
+
+  if FileExists('assets/python/sender.py') and FileExists('assets/python/contacts.py') and FileExists('assets/python/messages.py') then begin
+
+
+    RenameFile('assets/python/contacts.py','assets/python/contacts.txt');
+    RenameFile('assets/python/messages.py','assets/python/messages.txt');
+
+    ClearTextFile('assets/python/contacts.txt');
+    ClearTextFile('assets/python/messages.txt');
+//
+//    DeleteFile('assets/python/contacts.py');
+//    DeleteFile('assets/python/messages.py');
+
+    memo1.Lines.Clear;
+
+    num := grid_houses.Cells[11,grid_houses.Selected];
+
+
+    msg := 'msg = "\n"';
+    Memo1.Lines.Add(msg);
+    msg := 'msg = msg+"عرض جديد ومميز"';
+    Memo1.Lines.Add(msg);
+    msg := 'msg = msg+"\n"';
+    Memo1.Lines.Add(msg);
+    msg := 'msg = msg+"رقم: '+grid_houses.Cells[11,grid_houses.Selected]+'"';
+    Memo1.Lines.Add(msg);
+    msg := 'msg = msg+"\n"';
+    Memo1.Lines.Add(msg);
+    msg := 'msg = msg+"\n"';
+    Memo1.Lines.Add(msg);
+    msg := 'msg = msg+"النوع: '+grid_houses.Cells[10,grid_houses.Selected]+'"';
+    Memo1.Lines.Add(msg);
+    msg := 'msg = msg+" - "';
+    Memo1.Lines.Add(msg);
+    msg := 'msg = msg+"حي '+grid_houses.Cells[9,grid_houses.Selected]+'"';
+    Memo1.Lines.Add(msg);
+    msg := 'msg = msg+"\n"';
+    Memo1.Lines.Add(msg);
+    msg := 'msg = msg+"مساحة '+grid_houses.Cells[8,grid_houses.Selected]+'م"';
+    Memo1.Lines.Add(msg);
+    msg := 'msg = msg+" - المسطح '+grid_houses.Cells[7,grid_houses.Selected]+'"';
+    Memo1.Lines.Add(msg);
+    msg := 'msg = msg+"\n"';
+    Memo1.Lines.Add(msg);
+    msg := 'msg = msg+"'+grid_houses.Cells[1,grid_houses.Selected]+'"';
+    Memo1.Lines.Add(msg);
+    msg := 'msg = msg+"\n"';
+//    Memo1.Lines.Add(msg);
+//    msg := 'msg = msg+"'+grid_lands.Cells[6,grid_lands.Selected]+'"';
+//    Memo1.Lines.Add(msg);
+//    msg := 'msg = msg+"\n"';
+//    Memo1.Lines.Add(msg);
+//    msg := 'msg = msg+"'+grid_lands.Cells[5,grid_lands.Selected]+'"';
+//    Memo1.Lines.Add(msg);
+//    msg := 'msg = msg+"\n"';
+//    Memo1.Lines.Add(msg);
+//    msg := 'msg = msg+"'+grid_lands.Cells[4,grid_lands.Selected]+'"';
+//    Memo1.Lines.Add(msg);
+//    msg := 'msg = msg+"\n"';
+//    Memo1.Lines.Add(msg);
+//    msg := 'msg = msg+"'+grid_lands.Cells[3,grid_lands.Selected]+'"';
+//    Memo1.Lines.Add(msg);
+//    msg := 'msg = msg+"\n"';
+//    Memo1.Lines.Add(msg);
+//    msg := 'msg = msg+"'+grid_lands.Cells[2,grid_lands.Selected]+'"';
+//    Memo1.Lines.Add(msg);
+//    msg := 'msg = msg+"\n"';
+//    Memo1.Lines.Add(msg);
+//    msg := 'msg = msg+"'+grid_lands.Cells[1,grid_lands.Selected]+'"';
+//    Memo1.Lines.Add(msg);
+    msg := 'msg = msg+"\n"';
+    Memo1.Lines.Add(msg);
+    msg := 'msg = msg+"\nصور العقار\n"';
+    Memo1.Lines.Add(msg);
+    msg := 'msg = msg+"'+grid_houses.Cells[0,grid_houses.Selected]+'"';
+    Memo1.Lines.Add(msg);
+    msg := 'msg = msg+"\n"';
+    Memo1.Lines.Add(msg);
+
+
+    Memo1.Lines.AddStrings(Memo3.Lines);
+
+    Memo1.Lines.SaveToFile('assets/python/messages.txt', TEncoding.UTF8);
+    Memo2.Lines.SaveToFile('assets/python/contacts.txt', TEncoding.UTF8);
+
+    RenameFile('assets/python/contacts.txt','assets/python/contacts.py');
+    RenameFile('assets/python/messages.txt','assets/python/messages.py');
+
+    Memo1.Lines.Assign(Memo3.Lines);
+
+    Handle := WinExec('python assets/python/sender.py', SW_HIDE);
+
+
+  end else begin
+    showmessage('بعض الملفات ناقصة');
+  end;
+
+end;
+
 procedure Tfrm_main.share_to_whatsappClick(Sender: TObject);
 var
   Handle: THandle;
@@ -574,29 +757,29 @@ begin
     Memo1.Lines.Add(msg);
     msg := 'msg = msg+"\n"';
     Memo1.Lines.Add(msg);
-    msg := 'msg = msg+"رقم: '+grid_lands.Cells[12,grid_lands.Selected]+'"';
+    msg := 'msg = msg+"رقم: '+grid_lands.Cells[13,grid_lands.Selected]+'"';
     Memo1.Lines.Add(msg);
     msg := 'msg = msg+"\n"';
     Memo1.Lines.Add(msg);
     msg := 'msg = msg+"\n"';
     Memo1.Lines.Add(msg);
-    msg := 'msg = msg+"النوع: '+grid_lands.Cells[11,grid_lands.Selected]+'"';
+    msg := 'msg = msg+"النوع: '+grid_lands.Cells[12,grid_lands.Selected]+'"';
+    Memo1.Lines.Add(msg);
+    msg := 'msg = msg+" - "';
+    Memo1.Lines.Add(msg);
+    msg := 'msg = msg+"حي '+grid_lands.Cells[11,grid_lands.Selected]+'"';
     Memo1.Lines.Add(msg);
     msg := 'msg = msg+"\n"';
     Memo1.Lines.Add(msg);
-    msg := 'msg = msg+"حي '+grid_lands.Cells[10,grid_lands.Selected]+'"';
+    msg := 'msg = msg+"مساحة '+grid_lands.Cells[10,grid_lands.Selected]+'م"';
+    Memo1.Lines.Add(msg);
+    msg := 'msg = msg+" - شارع '+grid_lands.Cells[9,grid_lands.Selected]+'"';
     Memo1.Lines.Add(msg);
     msg := 'msg = msg+"\n"';
     Memo1.Lines.Add(msg);
-    msg := 'msg = msg+"مساحة '+grid_lands.Cells[9,grid_lands.Selected]+'م"';
-    Memo1.Lines.Add(msg);
-    msg := 'msg = msg+" - شارع '+grid_lands.Cells[8,grid_lands.Selected]+'"';
+    msg := 'msg = msg+"'+grid_lands.Cells[1,grid_lands.Selected]+'"';
     Memo1.Lines.Add(msg);
     msg := 'msg = msg+"\n"';
-    Memo1.Lines.Add(msg);
-//    msg := 'msg = msg+"'+grid_lands.Cells[7,grid_lands.Selected]+'"';
-//    Memo1.Lines.Add(msg);
-//    msg := 'msg = msg+"\n"';
 //    Memo1.Lines.Add(msg);
 //    msg := 'msg = msg+"'+grid_lands.Cells[6,grid_lands.Selected]+'"';
 //    Memo1.Lines.Add(msg);
@@ -621,6 +804,8 @@ begin
 //    msg := 'msg = msg+"'+grid_lands.Cells[1,grid_lands.Selected]+'"';
 //    Memo1.Lines.Add(msg);
     msg := 'msg = msg+"\n"';
+    Memo1.Lines.Add(msg);
+    msg := 'msg = msg+"\nصور العقار\n"';
     Memo1.Lines.Add(msg);
     msg := 'msg = msg+"'+grid_lands.Cells[0,grid_lands.Selected]+'"';
     Memo1.Lines.Add(msg);
