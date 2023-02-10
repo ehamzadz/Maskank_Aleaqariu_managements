@@ -569,29 +569,55 @@ begin
 
     msg := 'msg = "'+grid_lands.Cells[12,grid_lands.Selected]+'"';
     Memo1.Lines.Add(msg);
-    msg := 'msg = "'+grid_lands.Cells[11,grid_lands.Selected]+'"';
+    msg := 'msg = msg+"\n"';
     Memo1.Lines.Add(msg);
-    msg := 'msg = "'+grid_lands.Cells[10,grid_lands.Selected]+'"';
+    msg := 'msg = msg+"'+grid_lands.Cells[11,grid_lands.Selected]+'"';
     Memo1.Lines.Add(msg);
-    msg := 'msg = "'+grid_lands.Cells[9,grid_lands.Selected]+'"';
+    msg := 'msg = msg+"\n"';
     Memo1.Lines.Add(msg);
-    msg := 'msg = "'+grid_lands.Cells[8,grid_lands.Selected]+'"';
+    msg := 'msg = msg+"'+grid_lands.Cells[10,grid_lands.Selected]+'"';
     Memo1.Lines.Add(msg);
-    msg := 'msg = "'+grid_lands.Cells[7,grid_lands.Selected]+'"';
+    msg := 'msg = msg+"\n"';
     Memo1.Lines.Add(msg);
-    msg := 'msg = "'+grid_lands.Cells[6,grid_lands.Selected]+'"';
+    msg := 'msg = msg+"'+grid_lands.Cells[9,grid_lands.Selected]+'"';
     Memo1.Lines.Add(msg);
-    msg := 'msg = "'+grid_lands.Cells[5,grid_lands.Selected]+'"';
+    msg := 'msg = msg+"\n"';
     Memo1.Lines.Add(msg);
-    msg := 'msg = "'+grid_lands.Cells[4,grid_lands.Selected]+'"';
+    msg := 'msg = msg+"'+grid_lands.Cells[8,grid_lands.Selected]+'"';
     Memo1.Lines.Add(msg);
-    msg := 'msg = "'+grid_lands.Cells[3,grid_lands.Selected]+'"';
+    msg := 'msg = msg+"\n"';
     Memo1.Lines.Add(msg);
-    msg := 'msg = "'+grid_lands.Cells[2,grid_lands.Selected]+'"';
+    msg := 'msg = msg+"'+grid_lands.Cells[7,grid_lands.Selected]+'"';
     Memo1.Lines.Add(msg);
-    msg := 'msg = "'+grid_lands.Cells[1,grid_lands.Selected]+'"';
+    msg := 'msg = msg+"\n"';
     Memo1.Lines.Add(msg);
-    msg := 'msg = "'+grid_lands.Cells[0,grid_lands.Selected]+'"';
+    msg := 'msg = msg+"'+grid_lands.Cells[6,grid_lands.Selected]+'"';
+    Memo1.Lines.Add(msg);
+    msg := 'msg = msg+"\n"';
+    Memo1.Lines.Add(msg);
+    msg := 'msg = msg+"'+grid_lands.Cells[5,grid_lands.Selected]+'"';
+    Memo1.Lines.Add(msg);
+    msg := 'msg = msg+"\n"';
+    Memo1.Lines.Add(msg);
+    msg := 'msg = msg+"'+grid_lands.Cells[4,grid_lands.Selected]+'"';
+    Memo1.Lines.Add(msg);
+    msg := 'msg = msg+"\n"';
+    Memo1.Lines.Add(msg);
+    msg := 'msg = msg+"'+grid_lands.Cells[3,grid_lands.Selected]+'"';
+    Memo1.Lines.Add(msg);
+    msg := 'msg = msg+"\n"';
+    Memo1.Lines.Add(msg);
+    msg := 'msg = msg+"'+grid_lands.Cells[2,grid_lands.Selected]+'"';
+    Memo1.Lines.Add(msg);
+    msg := 'msg = msg+"\n"';
+    Memo1.Lines.Add(msg);
+    msg := 'msg = msg+"'+grid_lands.Cells[1,grid_lands.Selected]+'"';
+    Memo1.Lines.Add(msg);
+    msg := 'msg = msg+"\n"';
+    Memo1.Lines.Add(msg);
+    msg := 'msg = msg+"'+grid_lands.Cells[0,grid_lands.Selected]+'"';
+    Memo1.Lines.Add(msg);
+    msg := 'msg = msg+"\n"';
     Memo1.Lines.Add(msg);
 
 
@@ -601,11 +627,7 @@ begin
     RenameFile('assets/python/contacts.txt','assets/python/contacts.py');
     RenameFile('assets/python/messages.txt','assets/python/messages.py');
 
-
-//    showmessage('File Exists');
-
     Memo1.Lines.Assign(Memo3.Lines);
-
 
     Handle := WinExec('python assets/python/sender.py', SW_HIDE);
 

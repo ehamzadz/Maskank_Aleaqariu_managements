@@ -2290,7 +2290,7 @@ object frm_main: Tfrm_main
             TabOrder = 0
             RowHeight = 50.000000000000000000
             RowCount = 2
-            Options = [AlternatingRowBackground, Editing, ColumnResize, ColumnMove, ColLines, RowLines, RowSelect, AlwaysShowSelection, Tabs, Header, HeaderClick, AutoDisplacement]
+            Options = [AlternatingRowBackground, Editing, ColumnResize, ColumnMove, ColLines, RowLines, RowSelect, AlwaysShowSelection, Tabs, Header, HeaderClick, CancelEditingByDefault, AutoDisplacement]
             Viewport.Width = 660.000000000000000000
             Viewport.Height = 468.000000000000000000
           end
@@ -6180,7 +6180,6 @@ object frm_main: Tfrm_main
         Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
         DataDetectorTypes = []
         Lines.Strings = (
-          'msg = ""'
           'msg = msg + "\n"'
           'msg = msg + "\n'#1605#1603#1578#1576' '#1605#1587#1603#1606#1603' '#1604#1604#1593#1602#1575#1585#1575#1578'"'
           
