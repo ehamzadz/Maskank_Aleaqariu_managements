@@ -9565,7 +9565,7 @@ object frm_main: Tfrm_main
             StyledSettings = [FontColor]
             TabOrder = 0
             RowHeight = 50.000000000000000000
-            RowCount = 1
+            RowCount = 2
             Options = [AlternatingRowBackground, Editing, ColumnResize, ColumnMove, ColLines, RowLines, RowSelect, AlwaysShowSelection, Tabs, Header, HeaderClick, AutoDisplacement]
             OnEditingDone = grid_expensesEditingDone
             Viewport.Width = 660.000000000000000000
@@ -9574,8 +9574,8 @@ object frm_main: Tfrm_main
         end
       end
       object PopupMenu_expenses: TPopupMenu
-        Left = 758
-        Top = 496
+        Left = 862
+        Top = 616
         object delete_expenses: TMenuItem
           Bitmap.PNG = {
             89504E470D0A1A0A0000000D4948445200000200000002000806000000F478D4
@@ -14353,7 +14353,7 @@ object frm_main: Tfrm_main
   end
   object NotificationCenter1: TNotificationCenter
     Left = 864
-    Top = 656
+    Top = 680
   end
   object BindSourceDB2: TBindSourceDB
     DataSet = frm_dm.table_houses
@@ -14365,7 +14365,7 @@ object frm_main: Tfrm_main
     Provider = 'Forms'
     ScreenCursor = gcrNone
     Left = 864
-    Top = 672
+    Top = 696
   end
   object BindSourceDB3: TBindSourceDB
     DataSet = frm_dm.table_costumer_requests

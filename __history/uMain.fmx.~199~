@@ -2,7 +2,7 @@ object frm_main: Tfrm_main
   Left = 0
   Top = 0
   BiDiMode = bdRightToLeft
-  ClientHeight = 726
+  ClientHeight = 847
   ClientWidth = 964
   StyleBook = StyleBook1
   WindowState = wsMaximized
@@ -15,7 +15,7 @@ object frm_main: Tfrm_main
     Fill.Color = claWhite
     Position.X = 724.000000000000000000
     Size.Width = 240.000000000000000000
-    Size.Height = 726.000000000000000000
+    Size.Height = 847.000000000000000000
     Size.PlatformDefault = False
     Stroke.Kind = None
     Stroke.Thickness = 0.000000000000000000
@@ -128,12 +128,12 @@ object frm_main: Tfrm_main
       Align = Client
       Padding.Top = 23.000000000000000000
       Size.Width = 240.000000000000000000
-      Size.Height = 625.000000000000000000
+      Size.Height = 746.000000000000000000
       Size.PlatformDefault = False
       StyleLookup = 'VertScrollBox1Style1'
       TabOrder = 0
       Viewport.Width = 240.000000000000000000
-      Viewport.Height = 625.000000000000000000
+      Viewport.Height = 746.000000000000000000
       object Rect_houses: TRectangle
         Align = Top
         Cursor = crHandPoint
@@ -2222,24 +2222,24 @@ object frm_main: Tfrm_main
   object TabControl1: TTabControl
     Align = Client
     Size.Width = 724.000000000000000000
-    Size.Height = 726.000000000000000000
+    Size.Height = 847.000000000000000000
     Size.PlatformDefault = False
     TabIndex = 5
     TabOrder = 0
     TabPosition = Dots
     Sizes = (
       724s
-      726s
+      847s
       724s
-      726s
+      847s
       724s
-      726s
+      847s
       724s
-      726s
+      847s
       724s
-      726s
+      847s
       724s
-      726s)
+      847s)
     object tab_lands: TTabItem
       CustomIcon = <
         item
@@ -2260,7 +2260,7 @@ object frm_main: Tfrm_main
         Padding.Right = 30.000000000000000000
         Padding.Bottom = 30.000000000000000000
         Size.Width = 724.000000000000000000
-        Size.Height = 726.000000000000000000
+        Size.Height = 847.000000000000000000
         Size.PlatformDefault = False
         Stroke.Kind = None
         object Rectangle3: TRectangle
@@ -2430,7 +2430,7 @@ object frm_main: Tfrm_main
           Align = Client
           Fill.Color = claWhite
           Size.Width = 664.000000000000000000
-          Size.Height = 504.000000000000000000
+          Size.Height = 625.000000000000000000
           Size.PlatformDefault = False
           Stroke.Kind = None
           XRadius = 7.000000000000000000
@@ -2442,7 +2442,7 @@ object frm_main: Tfrm_main
             DisableFocusEffect = True
             PopupMenu = PopupMenu_grid_lands
             Size.Width = 664.000000000000000000
-            Size.Height = 504.000000000000000000
+            Size.Height = 625.000000000000000000
             Size.PlatformDefault = False
             TextSettings.Font.Family = 'Tajawal'
             TextSettings.Font.Size = 14.000000000000000000
@@ -2454,13 +2454,13 @@ object frm_main: Tfrm_main
             Options = [AlternatingRowBackground, Editing, ColumnResize, ColumnMove, ColLines, RowLines, RowSelect, AlwaysShowSelection, Tabs, Header, HeaderClick, AutoDisplacement]
             OnEditingDone = grid_landsEditingDone
             Viewport.Width = 660.000000000000000000
-            Viewport.Height = 444.000000000000000000
+            Viewport.Height = 565.000000000000000000
           end
         end
       end
       object PopupMenu_grid_lands: TPopupMenu
         Left = 862
-        Top = 696
+        Top = 568
         object share_to_whatsapp: TMenuItem
           Bitmap.PNG = {
             89504E470D0A1A0A0000000D4948445200000200000002000806000000F478D4
@@ -4099,7 +4099,7 @@ object frm_main: Tfrm_main
         Padding.Right = 30.000000000000000000
         Padding.Bottom = 30.000000000000000000
         Size.Width = 724.000000000000000000
-        Size.Height = 726.000000000000000000
+        Size.Height = 847.000000000000000000
         Size.PlatformDefault = False
         Stroke.Kind = None
         object Rectangle5: TRectangle
@@ -4268,7 +4268,7 @@ object frm_main: Tfrm_main
           Align = Client
           Fill.Color = claWhite
           Size.Width = 664.000000000000000000
-          Size.Height = 504.000000000000000000
+          Size.Height = 625.000000000000000000
           Size.PlatformDefault = False
           Stroke.Kind = None
           XRadius = 7.000000000000000000
@@ -4280,7 +4280,7 @@ object frm_main: Tfrm_main
             DisableFocusEffect = True
             PopupMenu = PopupMenu_grid_houses
             Size.Width = 664.000000000000000000
-            Size.Height = 504.000000000000000000
+            Size.Height = 625.000000000000000000
             Size.PlatformDefault = False
             TextSettings.Font.Family = 'Tajawal'
             TextSettings.Font.Size = 14.000000000000000000
@@ -4292,10 +4292,10 @@ object frm_main: Tfrm_main
             Options = [AlternatingRowBackground, Editing, ColumnResize, ColumnMove, ColLines, RowLines, RowSelect, AlwaysShowSelection, Tabs, Header, HeaderClick, AutoDisplacement]
             OnEditingDone = grid_housesEditingDone
             Viewport.Width = 660.000000000000000000
-            Viewport.Height = 444.000000000000000000
+            Viewport.Height = 565.000000000000000000
             object PopupMenu_grid_houses: TPopupMenu
               Left = 862
-              Top = 712
+              Top = 584
               object share_to_whatsapp2: TMenuItem
                 Bitmap.PNG = {
                   89504E470D0A1A0A0000000D4948445200000200000002000806000000F478D4
@@ -7111,7 +7111,7 @@ object frm_main: Tfrm_main
         Padding.Right = 30.000000000000000000
         Padding.Bottom = 30.000000000000000000
         Size.Width = 724.000000000000000000
-        Size.Height = 726.000000000000000000
+        Size.Height = 847.000000000000000000
         Size.PlatformDefault = False
         Stroke.Kind = None
         object Rectangle20: TRectangle
@@ -7279,7 +7279,7 @@ object frm_main: Tfrm_main
           Align = Client
           Fill.Color = claWhite
           Size.Width = 664.000000000000000000
-          Size.Height = 504.000000000000000000
+          Size.Height = 625.000000000000000000
           Size.PlatformDefault = False
           Stroke.Kind = None
           XRadius = 7.000000000000000000
@@ -7291,7 +7291,7 @@ object frm_main: Tfrm_main
             DisableFocusEffect = True
             PopupMenu = PopupMenu2
             Size.Width = 664.000000000000000000
-            Size.Height = 504.000000000000000000
+            Size.Height = 625.000000000000000000
             Size.PlatformDefault = False
             TextSettings.Font.Family = 'Tajawal'
             TextSettings.Font.Size = 14.000000000000000000
@@ -7301,7 +7301,7 @@ object frm_main: Tfrm_main
             RowCount = 300
             Options = [AlternatingRowBackground, ColumnResize, ColumnMove, ColLines, RowLines, RowSelect, AlwaysShowSelection, Tabs, Header, HeaderClick, AutoDisplacement]
             Viewport.Width = 660.000000000000000000
-            Viewport.Height = 460.000000000000000000
+            Viewport.Height = 581.000000000000000000
           end
         end
       end
@@ -8523,11 +8523,11 @@ object frm_main: Tfrm_main
           'msg = msg + "\n"')
         Align = Left
         Size.Width = 355.000000000000000000
-        Size.Height = 520.000000000000000000
+        Size.Height = 641.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 2
         Viewport.Width = 351.000000000000000000
-        Viewport.Height = 500.000000000000000000
+        Viewport.Height = 621.000000000000000000
       end
       object Memo2: TMemo
         Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
@@ -8537,11 +8537,11 @@ object frm_main: Tfrm_main
         Align = Right
         Position.X = 363.000000000000000000
         Size.Width = 361.000000000000000000
-        Size.Height = 520.000000000000000000
+        Size.Height = 641.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 0
         Viewport.Width = 357.000000000000000000
-        Viewport.Height = 516.000000000000000000
+        Viewport.Height = 637.000000000000000000
       end
       object Memo3: TMemo
         Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
@@ -8556,7 +8556,7 @@ object frm_main: Tfrm_main
           'msg = msg + "\n'#1575#1604#1603#1608#1583' '#1575#1604#1593#1602#1575#1585#1610' '#1635#1639#1634#1636#1632#1639#1641' "'
           'msg = msg + "\n"')
         Align = Bottom
-        Position.Y = 520.000000000000000000
+        Position.Y = 641.000000000000000000
         Size.Width = 724.000000000000000000
         Size.Height = 206.000000000000000000
         Size.PlatformDefault = False
@@ -8585,7 +8585,7 @@ object frm_main: Tfrm_main
         Padding.Right = 30.000000000000000000
         Padding.Bottom = 30.000000000000000000
         Size.Width = 724.000000000000000000
-        Size.Height = 726.000000000000000000
+        Size.Height = 847.000000000000000000
         Size.PlatformDefault = False
         Stroke.Kind = None
         object Rectangle69: TRectangle
@@ -8754,7 +8754,7 @@ object frm_main: Tfrm_main
           Align = Client
           Fill.Color = claWhite
           Size.Width = 664.000000000000000000
-          Size.Height = 504.000000000000000000
+          Size.Height = 625.000000000000000000
           Size.PlatformDefault = False
           Stroke.Kind = None
           XRadius = 7.000000000000000000
@@ -8766,7 +8766,7 @@ object frm_main: Tfrm_main
             DisableFocusEffect = True
             PopupMenu = PopupMenu_customer_requests
             Size.Width = 664.000000000000000000
-            Size.Height = 504.000000000000000000
+            Size.Height = 625.000000000000000000
             Size.PlatformDefault = False
             TextSettings.Font.Family = 'Tajawal'
             TextSettings.Font.Size = 14.000000000000000000
@@ -8778,13 +8778,13 @@ object frm_main: Tfrm_main
             Options = [AlternatingRowBackground, Editing, ColumnResize, ColumnMove, ColLines, RowLines, RowSelect, AlwaysShowSelection, Tabs, Header, HeaderClick, AutoDisplacement]
             OnEditingDone = grid_costumer_requestsEditingDone
             Viewport.Width = 660.000000000000000000
-            Viewport.Height = 444.000000000000000000
+            Viewport.Height = 565.000000000000000000
           end
         end
       end
       object PopupMenu_customer_requests: TPopupMenu
         Left = 862
-        Top = 728
+        Top = 600
         object delete_costumer_requests: TMenuItem
           Bitmap.PNG = {
             89504E470D0A1A0A0000000D4948445200000200000002000806000000F478D4
@@ -9377,7 +9377,7 @@ object frm_main: Tfrm_main
         Padding.Right = 30.000000000000000000
         Padding.Bottom = 30.000000000000000000
         Size.Width = 724.000000000000000000
-        Size.Height = 726.000000000000000000
+        Size.Height = 847.000000000000000000
         Size.PlatformDefault = False
         Stroke.Kind = None
         object Rectangle88: TRectangle
@@ -9437,7 +9437,7 @@ object frm_main: Tfrm_main
             Stroke.Kind = None
             XRadius = 7.000000000000000000
             YRadius = 7.000000000000000000
-            OnClick = Rectangle73Click
+            OnClick = btn_show_add_expensesClick
             object ColorAnimation17: TColorAnimation
               Duration = 0.200000002980232200
               PropertyName = 'Fill.Color'
@@ -9464,7 +9464,7 @@ object frm_main: Tfrm_main
           Align = Bottom
           Fill.Kind = None
           Position.X = 30.000000000000000000
-          Position.Y = 624.000000000000000000
+          Position.Y = 745.000000000000000000
           Size.Width = 664.000000000000000000
           Size.Height = 72.000000000000000000
           Size.PlatformDefault = False
@@ -9545,19 +9545,19 @@ object frm_main: Tfrm_main
           Align = Client
           Fill.Color = claWhite
           Size.Width = 664.000000000000000000
-          Size.Height = 432.000000000000000000
+          Size.Height = 553.000000000000000000
           Size.PlatformDefault = False
           Stroke.Kind = None
           XRadius = 7.000000000000000000
           YRadius = 7.000000000000000000
-          object StringGrid1: TStringGrid
+          object grid_expenses: TStringGrid
             Align = Client
             CanFocus = True
             ClipChildren = True
             DisableFocusEffect = True
-            PopupMenu = PopupMenu3
+            PopupMenu = PopupMenu_expenses
             Size.Width = 664.000000000000000000
-            Size.Height = 432.000000000000000000
+            Size.Height = 553.000000000000000000
             Size.PlatformDefault = False
             TextSettings.Font.Family = 'Tajawal'
             TextSettings.Font.Size = 14.000000000000000000
@@ -9567,16 +9567,16 @@ object frm_main: Tfrm_main
             RowHeight = 50.000000000000000000
             RowCount = 1
             Options = [AlternatingRowBackground, Editing, ColumnResize, ColumnMove, ColLines, RowLines, RowSelect, AlwaysShowSelection, Tabs, Header, HeaderClick, AutoDisplacement]
-            OnEditingDone = StringGrid1EditingDone
+            OnEditingDone = grid_expensesEditingDone
             Viewport.Width = 660.000000000000000000
-            Viewport.Height = 372.000000000000000000
+            Viewport.Height = 493.000000000000000000
           end
         end
       end
-      object PopupMenu3: TPopupMenu
-        Left = 862
-        Top = 728
-        object MenuItem5: TMenuItem
+      object PopupMenu_expenses: TPopupMenu
+        Left = 758
+        Top = 496
+        object delete_expenses: TMenuItem
           Bitmap.PNG = {
             89504E470D0A1A0A0000000D4948445200000200000002000806000000F478D4
             FA000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
@@ -10146,7 +10146,7 @@ object frm_main: Tfrm_main
             0000000000000000000000E485C8FF07F64236EC70EC7D790000000049454E44
             AE426082}
           Text = #1605#1587#1581' '#1575#1604#1593#1585#1590
-          OnClick = delete_costumer_requestsClick
+          OnClick = delete_expensesClick
         end
       end
     end
@@ -13721,12 +13721,12 @@ object frm_main: Tfrm_main
     Size.Height = 726.000000000000000000
     Size.PlatformDefault = False
     Stroke.Kind = None
+    Visible = False
     object Rectangle102: TRectangle
       Align = Center
-      Anchors = [akTop, akBottom]
       Fill.Color = claWhite
       Size.Width = 521.000000000000000000
-      Size.Height = 464.000000000000000000
+      Size.Height = 496.000000000000000000
       Size.PlatformDefault = False
       Stroke.Color = claWhitesmoke
       Stroke.Thickness = 0.300000011920929000
@@ -13737,21 +13737,21 @@ object frm_main: Tfrm_main
         Padding.Top = 33.000000000000000000
         Padding.Bottom = 33.000000000000000000
         Size.Width = 521.000000000000000000
-        Size.Height = 408.000000000000000000
+        Size.Height = 440.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 0
-        Viewport.Width = 510.000000000000000000
-        Viewport.Height = 408.000000000000000000
+        Viewport.Width = 521.000000000000000000
+        Viewport.Height = 440.000000000000000000
         object Rectangle105: TRectangle
           Align = Top
           Fill.Kind = None
           Margins.Top = 33.000000000000000000
           Position.Y = 219.000000000000000000
-          Size.Width = 510.000000000000000000
+          Size.Width = 521.000000000000000000
           Size.Height = 77.000000000000000000
           Size.PlatformDefault = False
           Stroke.Kind = None
-          object Edit7: TEdit
+          object edit_type4: TEdit
             Touch.InteractiveGestures = [LongTap, DoubleTap]
             TabOrder = 0
             TextSettings.Font.Family = 'Tajawal'
@@ -13792,7 +13792,7 @@ object frm_main: Tfrm_main
             TextSettings.FontColor = xFF303030
             TextSettings.HorzAlign = Trailing
           end
-          object Edit8: TEdit
+          object edit_amount: TEdit
             Touch.InteractiveGestures = [LongTap, DoubleTap]
             TabOrder = 3
             TextSettings.Font.Family = 'Tajawal'
@@ -13839,11 +13839,11 @@ object frm_main: Tfrm_main
           Fill.Kind = None
           Margins.Top = 33.000000000000000000
           Position.Y = 329.000000000000000000
-          Size.Width = 510.000000000000000000
+          Size.Width = 521.000000000000000000
           Size.Height = 77.000000000000000000
           Size.PlatformDefault = False
           Stroke.Kind = None
-          object Edit9: TEdit
+          object edit_emp_name: TEdit
             Touch.InteractiveGestures = [LongTap, DoubleTap]
             TabOrder = 0
             TextSettings.Font.Family = 'Tajawal'
@@ -13889,7 +13889,7 @@ object frm_main: Tfrm_main
           Align = Top
           Fill.Kind = None
           Position.Y = 109.000000000000000000
-          Size.Width = 510.000000000000000000
+          Size.Width = 521.000000000000000000
           Size.Height = 77.000000000000000000
           Size.PlatformDefault = False
           Stroke.Kind = None
@@ -13948,7 +13948,7 @@ object frm_main: Tfrm_main
             TextSettings.FontColor = xFF303030
             TextSettings.HorzAlign = Trailing
           end
-          object Edit11: TEdit
+          object edit_invoice_num: TEdit
             Touch.InteractiveGestures = [LongTap, DoubleTap]
             TabOrder = 3
             TextSettings.Font.Family = 'Tajawal'
@@ -13996,10 +13996,10 @@ object frm_main: Tfrm_main
           Margins.Top = -20.000000000000000000
           Margins.Bottom = 33.000000000000000000
           Position.Y = 13.000000000000000000
-          Size.Width = 510.000000000000000000
+          Size.Width = 521.000000000000000000
           Size.Height = 63.000000000000000000
           Size.PlatformDefault = False
-          Text = #1573#1590#1575#1601#1577' '#1605#1589#1575#1585#1610#1601' '#1580#1583#1610#1583#1577
+          Text = #1573#1590#1575#1601#1577' '#1605#1589#1585#1608#1601' '#1580#1583#1610#1583
           TextSettings.Font.Family = 'Tajawal'
           TextSettings.Font.Size = 24.000000000000000000
           TextSettings.Font.StyleExt = {00070000000000000004000000}
@@ -14022,7 +14022,7 @@ object frm_main: Tfrm_main
         Stroke.Kind = None
         XRadius = 14.000000000000000000
         YRadius = 14.000000000000000000
-        OnClick = Rectangle101Click
+        OnClick = Rectangle115Click
         object Text67: TText
           Align = Center
           HitTest = False
@@ -14053,7 +14053,7 @@ object frm_main: Tfrm_main
         Margins.Right = 3.000000000000000000
         Margins.Bottom = 3.000000000000000000
         Position.X = 3.000000000000000000
-        Position.Y = 411.000000000000000000
+        Position.Y = 443.000000000000000000
         Size.Width = 515.000000000000000000
         Size.Height = 50.000000000000000000
         Size.PlatformDefault = False
@@ -14323,7 +14323,7 @@ object frm_main: Tfrm_main
     object LinkGridToDataSourceBindSourceDB4: TLinkGridToDataSource
       Category = 'Quick Bindings'
       DataSource = BindSourceDB4
-      GridControl = StringGrid1
+      GridControl = grid_expenses
       Columns = <
         item
           MemberName = 'emp_name'
@@ -14353,7 +14353,7 @@ object frm_main: Tfrm_main
   end
   object NotificationCenter1: TNotificationCenter
     Left = 864
-    Top = 784
+    Top = 656
   end
   object BindSourceDB2: TBindSourceDB
     DataSet = frm_dm.table_houses
@@ -14365,7 +14365,7 @@ object frm_main: Tfrm_main
     Provider = 'Forms'
     ScreenCursor = gcrNone
     Left = 864
-    Top = 800
+    Top = 672
   end
   object BindSourceDB3: TBindSourceDB
     DataSet = frm_dm.table_costumer_requests
@@ -14376,7 +14376,7 @@ object frm_main: Tfrm_main
   object BindSourceDB4: TBindSourceDB
     DataSet = frm_dm.table_expenses
     ScopeMappings = <>
-    Left = 472
-    Top = 360
+    Left = 24
+    Top = 16
   end
 end
