@@ -42,4 +42,12 @@ object frm_dm: Tfrm_dm
     Left = 48
     Top = 216
   end
+  object table_costumer_requests: TFDTable
+    Active = True
+    IndexFieldNames = 'id_costumer'
+    Connection = FDConnection1
+    TableName = 'masknk_data.dbo.customer_requests'
+    Left = 328
+    Top = 192
+  end
 end

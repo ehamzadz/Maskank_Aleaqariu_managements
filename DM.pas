@@ -17,6 +17,7 @@ type
     table_users: TFDTable;
     table_lands: TFDTable;
     table_houses: TFDTable;
+    table_costumer_requests: TFDTable;
   private
     { Private declarations }
   public

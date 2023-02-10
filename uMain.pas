@@ -162,7 +162,6 @@ type
     ColorAnimation7: TColorAnimation;
     green: TBrushObject;
     Text27: TText;
-    ComboBox1: TComboBox;
     NotificationCenter1: TNotificationCenter;
     BindSourceDB2: TBindSourceDB;
     LinkGridToDataSourceBindSourceDB2: TLinkGridToDataSource;
@@ -194,7 +193,6 @@ type
     Text33: TText;
     edit_type2: TEdit;
     Rectangle60: TRectangle;
-    ComboBox2: TComboBox;
     Text34: TText;
     Rectangle61: TRectangle;
     edit_sale2: TEdit;
@@ -230,6 +228,66 @@ type
     share_to_whatsapp2: TMenuItem;
     delete_record: TMenuItem;
     delete_record2: TMenuItem;
+    rect_costumer_requests: TRectangle;
+    ColorAnimation12: TColorAnimation;
+    Image1: TImage;
+    Text40: TText;
+    tab_costumer_requests: TTabItem;
+    Rectangle68: TRectangle;
+    Rectangle69: TRectangle;
+    Rectangle72: TRectangle;
+    edit_search_costumer_requests: TEdit;
+    Rectangle73: TRectangle;
+    ColorAnimation13: TColorAnimation;
+    Text44: TText;
+    Rectangle74: TRectangle;
+    Edit5: TEdit;
+    Rectangle75: TRectangle;
+    Rectangle76: TRectangle;
+    Rectangle77: TRectangle;
+    Text45: TText;
+    Rectangle78: TRectangle;
+    grid_costumer_requests: TStringGrid;
+    popup_add_costumer_requests: TRectangle;
+    Rectangle80: TRectangle;
+    VertScrollBox4: TVertScrollBox;
+    Rectangle81: TRectangle;
+    edit_note3: TEdit;
+    Rectangle82: TRectangle;
+    Text46: TText;
+    Rectangle83: TRectangle;
+    edit_street3: TEdit;
+    Rectangle84: TRectangle;
+    Text47: TText;
+    edit_follow: TEdit;
+    Rectangle85: TRectangle;
+    Text48: TText;
+    Rectangle86: TRectangle;
+    edit_request: TEdit;
+    Rectangle87: TRectangle;
+    Text49: TText;
+    Rectangle89: TRectangle;
+    edit_name3: TEdit;
+    Rectangle90: TRectangle;
+    Text51: TText;
+    edit_phone3: TEdit;
+    Rectangle91: TRectangle;
+    Text52: TText;
+    Rectangle92: TRectangle;
+    edit_update: TEdit;
+    Rectangle93: TRectangle;
+    Text53: TText;
+    Text59: TText;
+    Rectangle101: TRectangle;
+    Text60: TText;
+    ColorAnimation14: TColorAnimation;
+    btn_add_customer_request: TRectangle;
+    Text61: TText;
+    ColorAnimation15: TColorAnimation;
+    BindSourceDB3: TBindSourceDB;
+    LinkGridToDataSourceBindSourceDB3: TLinkGridToDataSource;
+    PopupMenu_customer_requests: TPopupMenu;
+    delete_costumer_requests: TMenuItem;
     procedure Rect_housesClick(Sender: TObject);
     procedure Rect_salesClick(Sender: TObject);
     procedure rect_landsClick(Sender: TObject);
@@ -254,6 +312,14 @@ type
     procedure grid_housesEditingDone(Sender: TObject; const ACol,
       ARow: Integer);
     procedure grid_landsEditingDone(Sender: TObject; const ACol, ARow: Integer);
+    procedure rect_costumer_requestsClick(Sender: TObject);
+    procedure edit_search_costumer_requestsTyping(Sender: TObject);
+    procedure btn_add_customer_requestClick(Sender: TObject);
+    procedure Rectangle101Click(Sender: TObject);
+    procedure Rectangle73Click(Sender: TObject);
+    procedure grid_costumer_requestsEditingDone(Sender: TObject; const ACol,
+      ARow: Integer);
+    procedure delete_costumer_requestsClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -271,9 +337,19 @@ implementation
 uses DM;
 
 
+procedure Tfrm_main.edit_search_costumer_requestsTyping(Sender: TObject);
+begin
+  if (trim(edit_search_costumer_requests.text)='') then begin
+    frm_dm.table_costumer_requests.Filtered := false;
+  end else begin
+    frm_dm.table_costumer_requests.Filtered := false;
+    frm_dm.table_costumer_requests.Filter := ' id_costumer like '''+edit_search_costumer_requests.Text+'%''';
+    frm_dm.table_costumer_requests.Filtered := true;
+  end;
+end;
+
 procedure Tfrm_main.edit_search_housesTyping(Sender: TObject);
 begin
-
   if (trim(edit_search_houses.text)='') then begin
     frm_dm.table_houses.Filtered := false;
   end else begin
@@ -281,13 +357,9 @@ begin
     frm_dm.table_houses.Filter := ' house_num like '''+edit_search_houses.Text+'%''';
     frm_dm.table_houses.Filtered := true;
   end;
-
-//  scrollToEndHZ(grid_houses,7);
-
 end;
 
 procedure Tfrm_main.edit_search_landsTyping(Sender: TObject);
-
 begin
 
   if (trim(edit_search_lands.text)='') then begin
@@ -300,6 +372,12 @@ begin
 
 //  scrollToEndHZ(grid_lands,7);
 
+end;
+
+procedure Tfrm_main.grid_costumer_requestsEditingDone(Sender: TObject;
+  const ACol, ARow: Integer);
+begin
+  frm_dm.table_costumer_requests.Refresh;
 end;
 
 procedure Tfrm_main.grid_housesEditingDone(Sender: TObject; const ACol,
@@ -377,6 +455,29 @@ begin
   end;
 end;
 
+procedure Tfrm_main.delete_costumer_requestsClick(Sender: TObject);
+var
+  num :string;
+begin
+
+  num := grid_costumer_requests.Cells[7,grid_costumer_requests.Selected];
+
+   if MessageDlg('هل أنت متأكد من أنك تريد مسح هذا الطلب ؟',
+    mtConfirmation, [mbYes, mbNo], 0, mbYes) = mrYes then
+    begin
+      try
+        frm_dm.FDQuery1.SQL.Clear;
+        frm_dm.FDQuery1.SQL.Add('DELETE FROM customer_requests where id_costumer=:id_costumer');
+        frm_dm.FDQuery1.ParamByName('id_costumer').AsString := num;
+        frm_dm.FDQuery1.ExecSQL;
+      finally
+        frm_dm.table_costumer_requests.Refresh;
+        Push_Notification('تم مسح الطلب بنجاح', 'تم مسح الطلب بنجاح', '', now);
+      end;
+    end;
+
+end;
+
 procedure Tfrm_main.delete_record2Click(Sender: TObject);
 var
   num :string;
@@ -420,7 +521,11 @@ begin
         Push_Notification('تم مسح العرض بنجاح', 'تم مسح العرض بنجاح', 'لقد تم مسح عرض من عروض الأراضي', now);
       end;
     end;
+end;
 
+procedure Tfrm_main.Rectangle101Click(Sender: TObject);
+begin
+  popup_add_costumer_requests.Visible := false;
 end;
 
 procedure Tfrm_main.Rectangle28Click(Sender: TObject);
@@ -509,6 +614,88 @@ begin
         popup_add_house.Visible := false;
 
         frm_dm.table_houses.Refresh;
+      end;
+  end;
+
+end;
+
+procedure Tfrm_main.Rectangle73Click(Sender: TObject);
+begin
+  popup_add_costumer_requests.Visible := true;
+end;
+
+procedure Tfrm_main.btn_add_customer_requestClick(Sender: TObject);
+var
+  Handle: THandle;
+
+  fullName,phone,request,street,follow,note,update :string;
+
+  i,id_costumer :integer;
+
+begin
+
+
+  if (edit_name3.Text='') then begin
+//    Rectangle90.Stroke.Color := TAlphacolorRec.red;
+//    showmessage('رقم الوجه ضروري!');
+  end else begin
+
+    fullName := edit_name3.text;
+    phone := edit_phone3.text;
+    request := edit_request.text;
+    street := edit_street3.text;
+    follow := edit_follow.text;
+    note := edit_note3.text;
+    update := edit_update.text;
+
+      frm_dm.FDQuery1.SQL.Clear;
+      frm_dm.FDQuery1.SQL.Add('select count(*) from customer_requests where id_costumer=:id_costumer');
+      frm_dm.FDQuery1.ParamByName('id_costumer').asinteger := id_costumer;
+      frm_dm.FDQuery1.Open;
+
+      i := frm_dm.FDQuery1.Fields[0].AsInteger;
+
+//      showmessage(inttostr(i));
+
+      if i=1 then begin
+        Rectangle59.Stroke.Color := TAlphacolorRec.red;
+        showmessage('رقم الوجه غير متاح، جرب رقم آخر');
+      end else begin
+
+        frm_dm.FDQuery1.SQL.Clear;
+        frm_dm.FDQuery1.SQL.Add('select top 1 id_costumer from customer_requests order by id_costumer DESC');
+        frm_dm.FDQuery1.Open;
+
+        i := frm_dm.FDQuery1.Fields[0].AsInteger;
+
+        id_costumer := i+1;
+
+        frm_dm.FDQuery1.SQL.Clear;
+        frm_dm.FDQuery1.SQL.Add('INSERT INTO customer_requests values (:id_costumer,:fullName,:phone,:request,:street,:follow,:note,:update)');
+        frm_dm.FDQuery1.ParamByName('id_costumer').asinteger := id_costumer;
+        frm_dm.FDQuery1.ParamByName('fullName').AsWideString := fullName;
+        frm_dm.FDQuery1.ParamByName('phone').AsWideString := phone;
+        frm_dm.FDQuery1.ParamByName('request').AsWideString := request;
+        frm_dm.FDQuery1.ParamByName('street').AsWideString := street;
+        frm_dm.FDQuery1.ParamByName('follow').AsWideString := follow;
+        frm_dm.FDQuery1.ParamByName('note').AsWideString := note;
+        frm_dm.FDQuery1.ParamByName('update').AsWideString := update;
+        frm_dm.FDQuery1.Execute;
+//        showmessage('تم إضافة العرض بنجاح');
+
+        Push_Notification('تم إضافة الطلب بنجاح', 'تم إضافة الطلب بنجاح', 'تم إضافة الطلب بنجاح', now);
+
+        edit_name3.text :='';
+        edit_phone3.text :='';
+        edit_request.text :='';
+        edit_street3.text :='';
+        edit_follow.text :='';
+        edit_note3.text :='';
+        edit_update.text :='';
+
+        popup_add_costumer_requests.Visible := false;
+
+        frm_dm.table_costumer_requests.Refresh;
       end;
   end;
 
@@ -605,6 +792,12 @@ end;
 procedure Tfrm_main.Rectangle8Click(Sender: TObject);
 begin
   popup_add_land.Visible := true;
+end;
+
+procedure Tfrm_main.rect_costumer_requestsClick(Sender: TObject);
+begin
+  current_tab.Parent := Rect_costumer_requests;
+  tabcontrol1.TabIndex := 4;
 end;
 
 procedure Tfrm_main.Rect_housesClick(Sender: TObject);

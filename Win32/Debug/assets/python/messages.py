@@ -1,7 +1,7 @@
 ﻿msg = "\n"
 msg = msg+"عرض جديد ومميز"
 msg = msg+"\n"
-msg = msg+"رقم: 799-811"
+msg = msg+"رقم: 800"
 msg = msg+"\n"
 msg = msg+"\n"
 msg = msg+"النوع: دور"

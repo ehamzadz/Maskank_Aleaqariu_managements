@@ -1,5 +1,5 @@
 ﻿[table_houses]
-Coordinates=91,10,80,249
+Coordinates=91,10,80,267
 
 [table_users]
 Coordinates=181,10,71,123
@@ -12,4 +12,10 @@ Coordinates=208,71,90,33
 
 [FDQuery1]
 Coordinates=262,10,63,51
+
+[]
+Coordinates=190,152,139,51
+
+[table_costumer_requests]
+Coordinates=270,240,139,195
 
