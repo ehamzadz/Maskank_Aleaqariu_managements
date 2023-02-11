@@ -16,7 +16,7 @@ uses
   FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
   Data.DB, FireDAC.Comp.DataSet, FireDAC.Comp.Client, FireDAC.UI.Intf,
   FireDAC.FMXUI.Wait, FireDAC.Comp.UI, FireDAC.VCLUI.Wait, Vcl.Dialogs, FMX.DialogService,
-  FMX.DateTimeCtrls;
+  FMX.DateTimeCtrls, DateUtils;
 
 type
   Tfrm_main = class(TForm)
@@ -302,7 +302,7 @@ type
     ColorAnimation17: TColorAnimation;
     Text54: TText;
     Rectangle96: TRectangle;
-    Edit6: TEdit;
+    edit_total_expenses: TEdit;
     Rectangle97: TRectangle;
     Rectangle98: TRectangle;
     Rectangle99: TRectangle;
@@ -342,6 +342,8 @@ type
     ColorAnimation19: TColorAnimation;
     btn_add_expenses: TRectangle;
     DateEdit1: TDateEdit;
+    Timer1: TTimer;
+    DateEdit2: TDateEdit;
     procedure Rect_housesClick(Sender: TObject);
     procedure Rect_salesClick(Sender: TObject);
     procedure rect_landsClick(Sender: TObject);
@@ -384,6 +386,18 @@ type
     procedure delete_expensesClick(Sender: TObject);
     procedure grid_expensesEditingDone(Sender: TObject; const ACol,
       ARow: Integer);
+    procedure Timer1Timer(Sender: TObject);
+    procedure grid_expensesCellDblClick(const Column: TColumn;
+      const Row: Integer);
+    procedure grid_landsCellDblClick(const Column: TColumn; const Row: Integer);
+    procedure grid_housesCellDblClick(const Column: TColumn;
+      const Row: Integer);
+    procedure StringGrid2CellDblClick(const Column: TColumn;
+      const Row: Integer);
+    procedure grid_costumer_requestsCellDblClick(const Column: TColumn;
+      const Row: Integer);
+    procedure tab_expensesDblClick(Sender: TObject);
+    procedure DateEdit2Change(Sender: TObject);
   private
     { Private declarations }
   public
@@ -449,28 +463,56 @@ begin
 
 end;
 
+procedure Tfrm_main.grid_costumer_requestsCellDblClick(const Column: TColumn;
+  const Row: Integer);
+begin
+  timer1.Enabled := false;
+end;
+
 procedure Tfrm_main.grid_costumer_requestsEditingDone(Sender: TObject;
   const ACol, ARow: Integer);
 begin
   frm_dm.table_costumer_requests.Refresh;
+  timer1.Enabled := true;
+end;
+
+procedure Tfrm_main.grid_expensesCellDblClick(const Column: TColumn;
+  const Row: Integer);
+begin
+  timer1.Enabled := false;
 end;
 
 procedure Tfrm_main.grid_expensesEditingDone(Sender: TObject; const ACol,
   ARow: Integer);
 begin
   frm_dm.table_expenses.Refresh;
+  timer1.Enabled := true;
+end;
+
+procedure Tfrm_main.grid_housesCellDblClick(const Column: TColumn;
+  const Row: Integer);
+begin
+  timer1.Enabled := false;
 end;
 
 procedure Tfrm_main.grid_housesEditingDone(Sender: TObject; const ACol,
   ARow: Integer);
 begin
   frm_dm.table_houses.Refresh;
+  timer1.Enabled := true;
+end;
+
+procedure Tfrm_main.grid_landsCellDblClick(const Column: TColumn;
+  const Row: Integer);
+begin
+  timer1.Enabled := false;
 end;
 
 procedure Tfrm_main.grid_landsEditingDone(Sender: TObject; const ACol,
   ARow: Integer);
 begin
   frm_dm.table_lands.Refresh;
+  timer1.Enabled := true;
 end;
 
 procedure Tfrm_main.Push_Notification(Name, Title, AlertBody: string;
@@ -539,6 +581,44 @@ begin
   finally
     FileStream.Free;
   end;
+end;
+
+procedure Tfrm_main.DateEdit2Change(Sender: TObject);
+var
+  day, month, year, N :integer;
+  SUM, enddt,startdt :string;
+begin
+//  day := dayOf(dateedit2.Date);
+//
+//  month := monthof(dateedit2.Date);
+//  year := yearOf(dateedit2.Date);
+//
+//  case month of
+//    1 : N := 31;
+//    2 : N := 28;
+//    3 : N := 31;
+//    4 : N := 30;
+//    5 : N := 31;
+//    6 : N := 30;
+//    7 : N := 31;
+//    8 : N := 31;
+//    9 : N := 30;
+//    10 : N := 31;
+//    11 : N := 30;
+//    12 : N := 31;
+//  end;
+//
+//  enddt := inttostr(N)+'/' + inttostr(month)+'/'+inttostr(year);
+//  startdt := '1/'+inttostr(month)+'/'+inttostr(year);
+//
+//  showmessage(enddt+'    -   '+startdt);
+//
+//  showmessage(inttostr(day)+'/'+inttostr(month)+'/'+inttostr(year));
+////
+//  frm_DM.table_expenses.Filtered := false;
+//  frm_DM.table_expenses.Filter := 'date > '+ quotedstr(startdt);
+//  frm_DM.table_expenses.Filtered := true;
+
 end;
 
 procedure Tfrm_main.delete_costumer_requestsClick(Sender: TObject);
@@ -1248,6 +1328,70 @@ procedure Tfrm_main.StringGrid1EditingDone(Sender: TObject; const ACol,
   ARow: Integer);
 begin
   frm_dm.table_expenses.Refresh;
+end;
+
+procedure Tfrm_main.StringGrid2CellDblClick(const Column: TColumn;
+  const Row: Integer);
+begin
+  timer1.Enabled := false;
+end;
+
+procedure Tfrm_main.tab_expensesDblClick(Sender: TObject);
+begin
+  timer1.Enabled := false;
+end;
+
+procedure Tfrm_main.Timer1Timer(Sender: TObject);
+var
+  day, month, year, N :integer;
+  SUM, enddt,startdt :string;
+begin
+  frm_dm.table_users.Refresh;
+  frm_dm.table_lands.Refresh;
+  frm_dm.table_houses.Refresh;
+  frm_dm.table_costumer_requests .Refresh;
+  frm_dm.table_expenses.Refresh;
+
+  day := dayOf(dateedit2.Date);
+
+  month := monthof(now);
+  year := yearOf(now);
+
+  case month of
+    1 : N := 31;
+    2 : N := 28;
+    3 : N := 31;
+    4 : N := 30;
+    5 : N := 31;
+    6 : N := 30;
+    7 : N := 31;
+    8 : N := 31;
+    9 : N := 30;
+    10 : N := 31;
+    11 : N := 30;
+    12 : N := 31;
+  end;
+
+  enddt := inttostr(N)+'/' + inttostr(month)+'/'+inttostr(year);
+  startdt := '1/'+inttostr(month)+'/'+inttostr(year);
+
+//  showmessage(enddt+'    -   '+startdt);
+
+//  showmessage(inttostr(day)+'/'+inttostr(month)+'/'+inttostr(year));
+
+//  frm_DM.table_expenses.Filtered := false;
+//  frm_DM.table_expenses.Filter := 'date > '+ quotedstr(enddt);
+//  frm_DM.table_expenses.Filtered := true;
+
+  frm_dm.FDQuery2.SQL.Clear;
+  frm_dm.FDQuery2.SQL.Add('select SUM(amount) from expenses WHERE date > :stardate and date < :enddate ');
+  frm_dm.FDQuery2.ParamByName('stardate').asdate := strtodate(startdt);
+  frm_dm.FDQuery2.ParamByName('enddate').asdate := strtodate(enddt);
+  frm_dm.FDQuery2.Open;
+
+  edit_total_expenses.Text := 'المجموع: '+frm_dm.FDQuery2.Fields[0].asstring+ ' ر.س';
+
+
 end;
 
 procedure Tfrm_main.WriteMemoLinesToFile(const FileName: string; Memo: TMemo);

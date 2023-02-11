@@ -901,9 +901,6 @@ Coordinates=2002,1,174,33
 [Rectangle98]
 Coordinates=1873,588,75,33
 
-[Edit6]
-Coordinates=1258,10,40,51
-
 [BindSourceDB4]
 Coordinates=1330,80,116,177
 
@@ -919,4 +916,7 @@ Coordinates=621,665,68,33
 [grid_expenses]
 Coordinates=1700,90,70,159
 Visible=True
+
+[edit_total_expenses]
+Coordinates=1258,10,40,51
 

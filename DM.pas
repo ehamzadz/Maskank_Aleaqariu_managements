@@ -19,6 +19,7 @@ type
     table_houses: TFDTable;
     table_costumer_requests: TFDTable;
     table_expenses: TFDTable;
+    FDQuery2: TFDQuery;
   private
     { Private declarations }
   public

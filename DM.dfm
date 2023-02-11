@@ -58,4 +58,9 @@ object frm_dm: Tfrm_dm
     Left = 64
     Top = 328
   end
+  object FDQuery2: TFDQuery
+    Connection = FDConnection1
+    Left = 536
+    Top = 32
+  end
 end
