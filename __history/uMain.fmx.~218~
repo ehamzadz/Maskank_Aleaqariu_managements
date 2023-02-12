@@ -9598,7 +9598,7 @@ object frm_main: Tfrm_main
             StyledSettings = [FontColor]
             TabOrder = 0
             RowHeight = 50.000000000000000000
-            RowCount = 1
+            RowCount = 2
             Options = [AlternatingRowBackground, Editing, ColumnResize, ColumnMove, ColLines, RowLines, RowSelect, AlwaysShowSelection, Tabs, Header, HeaderClick, AutoDisplacement]
             OnEditingDone = grid_expensesEditingDone
             OnCellDblClick = grid_expensesCellDblClick
@@ -14361,40 +14361,34 @@ object frm_main: Tfrm_main
           Width = 150
         end>
     end
-    object LinkGridToDataSourceBindSourceDB5: TLinkGridToDataSource
+    object LinkGridToDataSourceBindSourceDB4: TLinkGridToDataSource
       Category = 'Quick Bindings'
-      DataSource = BindSourceDB5
+      DataSource = BindSourceDB4
       GridControl = grid_expenses
       Columns = <
         item
           MemberName = 'emp_name'
           Width = 150
-          Alignment = taRightJustify
         end
         item
           MemberName = 'amount'
           Width = 150
-          Alignment = taRightJustify
         end
         item
           MemberName = 'type'
           Width = 150
-          Alignment = taRightJustify
         end
         item
           MemberName = 'invoice_num'
           Width = 150
-          Alignment = taRightJustify
         end
         item
           MemberName = 'date'
           Width = 150
-          Alignment = taRightJustify
         end
         item
           MemberName = 'id_expenses'
           Width = 150
-          Alignment = taRightJustify
         end>
     end
   end
@@ -14425,11 +14419,5 @@ object frm_main: Tfrm_main
     ScopeMappings = <>
     Left = 24
     Top = 16
-  end
-  object BindSourceDB5: TBindSourceDB
-    DataSet = frm_dm.FDQuery2
-    ScopeMappings = <>
-    Left = 472
-    Top = 360
   end
 end

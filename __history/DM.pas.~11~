@@ -20,7 +20,6 @@ type
     table_costumer_requests: TFDTable;
     table_expenses: TFDTable;
     FDQuery2: TFDQuery;
-    FDQuery3: TFDQuery;
   private
     { Private declarations }
   public

@@ -312,7 +312,6 @@ type
     PopupMenu_expenses: TPopupMenu;
     delete_expenses: TMenuItem;
     BindSourceDB4: TBindSourceDB;
-    LinkGridToDataSourceBindSourceDB4: TLinkGridToDataSource;
     popup_add_expenses: TRectangle;
     Rectangle102: TRectangle;
     VertScrollBox5: TVertScrollBox;
@@ -344,6 +343,8 @@ type
     DateEdit1: TDateEdit;
     Timer1: TTimer;
     DateEdit2: TDateEdit;
+    BindSourceDB5: TBindSourceDB;
+    LinkGridToDataSourceBindSourceDB5: TLinkGridToDataSource;
     procedure Rect_housesClick(Sender: TObject);
     procedure Rect_salesClick(Sender: TObject);
     procedure rect_landsClick(Sender: TObject);
@@ -429,11 +430,11 @@ end;
 procedure Tfrm_main.edit_search_expensesTyping(Sender: TObject);
 begin
   if (trim(edit_search_expenses.text)='') then begin
-    frm_dm.table_expenses.Filtered := false;
+    frm_dm.FDQuery2.Filtered := false;
   end else begin
-    frm_dm.table_expenses.Filtered := false;
-    frm_dm.table_expenses.Filter := ' id_expenses like '''+edit_search_expenses.Text+'%''';
-    frm_dm.table_expenses.Filtered := true;
+    frm_dm.FDQuery2.Filtered := false;
+    frm_dm.FDQuery2.Filter := ' id_expenses like '''+edit_search_expenses.Text+'%''';
+    frm_dm.FDQuery2.Filtered := true;
   end;
 end;
 
@@ -589,35 +590,38 @@ var
   SUM, enddt,startdt :string;
 begin
 //  day := dayOf(dateedit2.Date);
-//
-//  month := monthof(dateedit2.Date);
-//  year := yearOf(dateedit2.Date);
-//
-//  case month of
-//    1 : N := 31;
-//    2 : N := 28;
-//    3 : N := 31;
-//    4 : N := 30;
-//    5 : N := 31;
-//    6 : N := 30;
-//    7 : N := 31;
-//    8 : N := 31;
-//    9 : N := 30;
-//    10 : N := 31;
-//    11 : N := 30;
-//    12 : N := 31;
-//  end;
-//
-//  enddt := inttostr(N)+'/' + inttostr(month)+'/'+inttostr(year);
-//  startdt := '1/'+inttostr(month)+'/'+inttostr(year);
-//
+
+  month := monthof(dateedit2.Date);
+  year := yearOf(dateedit2.Date);
+
+  case month of
+    1 : N := 31;
+    2 : N := 28;
+    3 : N := 31;
+    4 : N := 30;
+    5 : N := 31;
+    6 : N := 30;
+    7 : N := 31;
+    8 : N := 31;
+    9 : N := 30;
+    10 : N := 31;
+    11 : N := 30;
+    12 : N := 31;
+  end;
+
+  enddt := inttostr(N)+'/' + inttostr(month)+'/'+inttostr(year);
+  startdt := '1/'+inttostr(month)+'/'+inttostr(year);
+
 //  showmessage(enddt+'    -   '+startdt);
-//
 //  showmessage(inttostr(day)+'/'+inttostr(month)+'/'+inttostr(year));
-////
-//  frm_DM.table_expenses.Filtered := false;
-//  frm_DM.table_expenses.Filter := 'date > '+ quotedstr(startdt);
-//  frm_DM.table_expenses.Filtered := true;
+
+  frm_dm.FDQuery2.Active := false;
+  frm_dm.FDQuery2.sql.Clear;
+  frm_dm.FDQuery2.sql.Add('select * from expenses where (date>:startdt) and date<:enddt');
+  frm_dm.FDQuery2.ParamByName('STARTDT').asdate := strtodate(startdt);
+  frm_dm.FDQuery2.ParamByName('ENDDT').asdate := strtodate(enddt);
+  frm_dm.FDQuery2.Open;
+  frm_dm.FDQuery2.Active := true;
 
 end;
 
@@ -1349,13 +1353,13 @@ begin
   frm_dm.table_users.Refresh;
   frm_dm.table_lands.Refresh;
   frm_dm.table_houses.Refresh;
-  frm_dm.table_costumer_requests .Refresh;
+  frm_dm.table_costumer_requests.Refresh;
   frm_dm.table_expenses.Refresh;
-
+  frm_dm.FDQuery2.Refresh;
   day := dayOf(dateedit2.Date);
 
-  month := monthof(now);
-  year := yearOf(now);
+  month := monthof(dateedit2.Date);
+  year := yearOf(dateedit2.Date);
 
   case month of
     1 : N := 31;
@@ -1376,21 +1380,18 @@ begin
   startdt := '1/'+inttostr(month)+'/'+inttostr(year);
 
 //  showmessage(enddt+'    -   '+startdt);
-
 //  showmessage(inttostr(day)+'/'+inttostr(month)+'/'+inttostr(year));
-
 //  frm_DM.table_expenses.Filtered := false;
 //  frm_DM.table_expenses.Filter := 'date > '+ quotedstr(enddt);
 //  frm_DM.table_expenses.Filtered := true;
 
-  frm_dm.FDQuery2.SQL.Clear;
-  frm_dm.FDQuery2.SQL.Add('select SUM(amount) from expenses WHERE date > :stardate and date < :enddate ');
-  frm_dm.FDQuery2.ParamByName('stardate').asdate := strtodate(startdt);
-  frm_dm.FDQuery2.ParamByName('enddate').asdate := strtodate(enddt);
-  frm_dm.FDQuery2.Open;
+  frm_dm.FDQuery3.SQL.Clear;
+  frm_dm.FDQuery3.SQL.Add('select SUM(amount) from expenses WHERE date > :stardate and date < :enddate ');
+  frm_dm.FDQuery3.ParamByName('stardate').asdate := strtodate(startdt);
+  frm_dm.FDQuery3.ParamByName('enddate').asdate := strtodate(enddt);
+  frm_dm.FDQuery3.Open;
 
-  edit_total_expenses.Text := 'المجموع: '+frm_dm.FDQuery2.Fields[0].asstring+ ' ر.س';
-
+  edit_total_expenses.Text := 'المجموع: '+frm_dm.FDQuery3.Fields[0].asstring+ ' ر.س';
 
 end;
 

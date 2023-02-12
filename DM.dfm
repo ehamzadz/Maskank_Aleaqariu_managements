@@ -59,8 +59,31 @@ object frm_dm: Tfrm_dm
     Top = 328
   end
   object FDQuery2: TFDQuery
+    Active = True
     Connection = FDConnection1
+    SQL.Strings = (
+      'select * from expenses where (date>:startdt) and date<:enddt')
     Left = 536
     Top = 32
+    ParamData = <
+      item
+        Name = 'STARTDT'
+        DataType = ftDate
+        ParamType = ptInput
+        Value = 44958d
+      end
+      item
+        Name = 'ENDDT'
+        DataType = ftDate
+        ParamType = ptInput
+        Value = 44985d
+      end>
+  end
+  object FDQuery3: TFDQuery
+    Connection = FDConnection1
+    SQL.Strings = (
+      '')
+    Left = 544
+    Top = 112
   end
 end
