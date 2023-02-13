@@ -21,6 +21,7 @@ type
     table_expenses: TFDTable;
     FDQuery2: TFDQuery;
     FDQuery3: TFDQuery;
+    table_transactions: TFDTable;
   private
     { Private declarations }
   public

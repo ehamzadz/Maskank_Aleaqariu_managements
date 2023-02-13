@@ -345,6 +345,65 @@ type
     DateEdit2: TDateEdit;
     BindSourceDB5: TBindSourceDB;
     LinkGridToDataSourceBindSourceDB5: TLinkGridToDataSource;
+    rect_transactions: TRectangle;
+    ColorAnimation20: TColorAnimation;
+    Image3: TImage;
+    Text56: TText;
+    popup_add_transaction: TRectangle;
+    Rectangle103: TRectangle;
+    VertScrollBox6: TVertScrollBox;
+    Rectangle104: TRectangle;
+    edit_owner_customer: TEdit;
+    Rectangle113: TRectangle;
+    Text65: TText;
+    Edit6: TEdit;
+    Rectangle114: TRectangle;
+    Text69: TText;
+    Rectangle116: TRectangle;
+    edit_note5: TEdit;
+    Rectangle117: TRectangle;
+    Text70: TText;
+    Rectangle118: TRectangle;
+    edit_customer_name5: TEdit;
+    Rectangle119: TRectangle;
+    Text71: TText;
+    edit_offer5: TEdit;
+    Rectangle120: TRectangle;
+    Text72: TText;
+    Text73: TText;
+    Rectangle121: TRectangle;
+    Text74: TText;
+    ColorAnimation21: TColorAnimation;
+    btn_add_transaction: TRectangle;
+    Text75: TText;
+    ColorAnimation22: TColorAnimation;
+    tab_transactions: TTabItem;
+    Rectangle123: TRectangle;
+    Rectangle124: TRectangle;
+    Rectangle125: TRectangle;
+    edit_search_transactions: TEdit;
+    Rectangle126: TRectangle;
+    ColorAnimation23: TColorAnimation;
+    Text76: TText;
+    Rectangle128: TRectangle;
+    Rectangle129: TRectangle;
+    Rectangle130: TRectangle;
+    Text77: TText;
+    DateEdit4: TDateEdit;
+    Rectangle131: TRectangle;
+    grid_transactions: TStringGrid;
+    PopupMenu3: TPopupMenu;
+    MenuItem5: TMenuItem;
+    BindSourceDB6: TBindSourceDB;
+    LinkGridToDataSourceBindSourceDB6: TLinkGridToDataSource;
+    Rectangle95: TRectangle;
+    edit_owner_name5: TEdit;
+    Rectangle127: TRectangle;
+    Text78: TText;
+    edit_bank5: TEdit;
+    Rectangle132: TRectangle;
+    Text79: TText;
+    DateEdit3: TDateEdit;
     procedure Rect_housesClick(Sender: TObject);
     procedure Rect_salesClick(Sender: TObject);
     procedure rect_landsClick(Sender: TObject);
@@ -399,6 +458,15 @@ type
       const Row: Integer);
     procedure tab_expensesDblClick(Sender: TObject);
     procedure DateEdit2Change(Sender: TObject);
+    procedure Rectangle126Click(Sender: TObject);
+    procedure edit_search_transactionsTyping(Sender: TObject);
+    procedure Rectangle122Click(Sender: TObject);
+    procedure Rectangle121Click(Sender: TObject);
+    procedure btn_add_transactionClick(Sender: TObject);
+    procedure grid_transactionsCellDblClick(const Column: TColumn;
+      const Row: Integer);
+    procedure grid_transactionsEditingDone(Sender: TObject; const ACol,
+      ARow: Integer);
   private
     { Private declarations }
   public
@@ -516,10 +584,24 @@ begin
   timer1.Enabled := true;
 end;
 
+procedure Tfrm_main.grid_transactionsCellDblClick(const Column: TColumn;
+  const Row: Integer);
+begin
+  timer1.Enabled := false;
+end;
+
+procedure Tfrm_main.grid_transactionsEditingDone(Sender: TObject; const ACol,
+  ARow: Integer);
+begin
+  frm_dm.table_transactions.Refresh;
+  timer1.Enabled := true;
+end;
+
 procedure Tfrm_main.Push_Notification(Name, Title, AlertBody: string;
   FireDate: tdatetime);
 var
   MyNotification: TNotification;
+  Icon: TBitmap;
 begin
 
   MyNotification := TNotification.Create;
@@ -716,6 +798,17 @@ begin
     end;
 end;
 
+procedure Tfrm_main.edit_search_transactionsTyping(Sender: TObject);
+begin
+  if (trim(edit_search_expenses.text)='') then begin
+    frm_dm.table_transactions.Filtered := false;
+  end else begin
+    frm_dm.table_transactions.Filtered := false;
+    frm_dm.table_transactions.Filter := ' id_transactions like '''+edit_search_transactions.Text+'%''';
+    frm_dm.table_transactions.Filtered := true;
+  end;
+end;
+
 procedure Tfrm_main.Rectangle101Click(Sender: TObject);
 begin
   popup_add_costumer_requests.Visible := false;
@@ -724,6 +817,78 @@ end;
 procedure Tfrm_main.Rectangle115Click(Sender: TObject);
 begin
   popup_add_expenses.Visible := false;
+end;
+
+procedure Tfrm_main.Rectangle121Click(Sender: TObject);
+begin
+  popup_add_transaction.Visible := false;
+end;
+
+procedure Tfrm_main.Rectangle122Click(Sender: TObject);
+var
+
+  date,invoice_num,tp,amount,emp_name :string;
+
+  i,id_expenses :integer;
+
+  Handle: THandle;
+
+begin
+
+
+  if (edit_amount.text='') then begin
+    Rectangle107.Stroke.Color := TAlphacolorRec.red;
+    showmessage('حقل ضروري!');
+  end else begin
+//
+    date := dateedit1.text;
+    invoice_num := edit_invoice_num.text;
+    tp := edit_type4.text;
+    amount := edit_amount.text;
+    emp_name := edit_emp_name.text;
+
+
+      frm_dm.FDQuery1.SQL.Clear;
+      frm_dm.FDQuery1.SQL.Add('select top 1 * from expenses order by id_expenses DESC');
+      frm_dm.FDQuery1.Open;
+      id_expenses := frm_dm.FDQuery1.Fields[0].AsInteger+1;
+
+
+      if i=1 then begin
+        Rectangle43.Stroke.Color := TAlphacolorRec.red;
+        showmessage('حطأ مجهول يستوجب الإتصال بالمبرمج');
+      end else begin
+        frm_dm.FDQuery1.SQL.Clear;
+        frm_dm.FDQuery1.SQL.Add('INSERT INTO expenses values (:id_expenses,:date,:invoice_num,:tp,:amount,:emp_name)');
+        frm_dm.FDQuery1.ParamByName('id_expenses').asinteger := id_expenses;
+        frm_dm.FDQuery1.ParamByName('date').asdate := strtodate(date);
+        frm_dm.FDQuery1.ParamByName('invoice_num').AsWideString := invoice_num;
+        frm_dm.FDQuery1.ParamByName('tp').AsWideString := tp;
+        frm_dm.FDQuery1.ParamByName('amount').AsCurrency := strtocurr(amount);
+        frm_dm.FDQuery1.ParamByName('emp_name').AsWideString := emp_name;
+        frm_dm.FDQuery1.Execute;
+//        showmessage('تم إضافة العرض بنجاح');
+
+        Push_Notification('تم إضافة المصروف بنجاح', 'تم إضافة المصروف بنجاح', '', now);
+
+
+        edit_invoice_num.text := '';
+        edit_type4.text := '';
+        edit_amount.text := '';
+        edit_emp_name.text := '';
+
+        popup_add_expenses.Visible := false;
+
+        frm_dm.table_expenses.Refresh;
+      end;
+  end;
+
+
+end;
+
+procedure Tfrm_main.Rectangle126Click(Sender: TObject);
+begin
+  popup_add_transaction.Visible := true;
 end;
 
 procedure Tfrm_main.Rectangle28Click(Sender: TObject);
@@ -1052,6 +1217,69 @@ begin
 //  Handle := WinExec('python assets/python/sender.py', SW_HIDE);
 end;
 
+procedure Tfrm_main.btn_add_transactionClick(Sender: TObject);
+var
+
+  customer_name,offer,owner_name,bank,owner_customer,date_up,note :string;
+
+  id_transaction :integer;
+
+  Handle: THandle;
+
+begin
+
+
+  if (edit_customer_name5.Text='') then begin
+    Rectangle43.Stroke.Color := TAlphacolorRec.red;
+    showmessage('رقم الوجه ضروري!');
+  end else begin
+
+
+      frm_dm.FDQuery1.SQL.Clear;
+      frm_dm.FDQuery1.SQL.Add('select * from transactions order by id_transaction DESC');
+      frm_dm.FDQuery1.Open;
+
+      id_transaction := frm_dm.FDQuery1.Fields[0].AsInteger+1;
+
+
+
+     customer_name   := edit_customer_name5.text;
+     offer           := edit_offer5.text;
+     owner_name      := edit_owner_name5.text;
+     bank            := edit_bank5.text;
+     owner_customer  := edit_owner_customer.text;
+     date_up         := dateedit3.Text;
+     note            := edit_note5.text;
+
+
+      frm_dm.FDQuery1.SQL.Clear;
+      frm_dm.FDQuery1.SQL.Add('INSERT INTO transactions values (:id_transaction,:customer_name,:offer,:owner_name,:bank,:owner_customer,:date_up,:note)');
+      frm_dm.FDQuery1.ParamByName('id_transaction').asinteger := id_transaction;
+      frm_dm.FDQuery1.ParamByName('customer_name').AsWideString := customer_name;
+      frm_dm.FDQuery1.ParamByName('offer').AsWideString := offer;
+      frm_dm.FDQuery1.ParamByName('owner_name').AsWideString := owner_name;
+      frm_dm.FDQuery1.ParamByName('bank').AsWideString := bank;
+      frm_dm.FDQuery1.ParamByName('owner_customer').AsWideString := owner_customer;
+      frm_dm.FDQuery1.ParamByName('date_up').asdate := strtodate(date_up);
+      frm_dm.FDQuery1.ParamByName('note').AsWideString := note;
+      frm_dm.FDQuery1.Execute;
+
+      Push_Notification('تم', 'تم الإضافة بنجاح', '', now);
+
+      edit_customer_name5.text := '';
+      edit_offer5.text := '';
+      edit_owner_name5.text := '';
+      edit_bank5.text := '';
+      edit_owner_customer.text := '';
+      edit_note5.text := '';
+
+      popup_add_transaction.Visible := false;
+
+      frm_dm.table_transactions.Refresh;
+  end;
+
+end;
+
 procedure Tfrm_main.Rectangle8Click(Sender: TObject);
 begin
   popup_add_land.Visible := true;
@@ -1361,6 +1589,8 @@ begin
   frm_dm.table_costumer_requests.Refresh;
   frm_dm.table_expenses.Refresh;
   frm_dm.FDQuery2.Refresh;
+  frm_dm.table_transactions.Refresh;
+
   day := dayOf(dateedit2.Date);
 
   month := monthof(dateedit2.Date);

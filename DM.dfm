@@ -86,4 +86,12 @@ object frm_dm: Tfrm_dm
     Left = 544
     Top = 112
   end
+  object table_transactions: TFDTable
+    Active = True
+    IndexFieldNames = 'id_transaction'
+    Connection = FDConnection1
+    TableName = 'masknk_data.dbo.transactions'
+    Left = 64
+    Top = 384
+  end
 end
