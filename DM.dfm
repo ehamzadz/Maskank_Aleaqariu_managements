@@ -117,4 +117,12 @@ object frm_dm: Tfrm_dm
         Value = 44985d
       end>
   end
+  object qry_records: TFDQuery
+    Active = True
+    Connection = FDConnection1
+    SQL.Strings = (
+      'select top 1000 * from records order by date DESC')
+    Left = 296
+    Top = 232
+  end
 end

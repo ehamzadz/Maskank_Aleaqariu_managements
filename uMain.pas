@@ -404,6 +404,36 @@ type
     DateEdit3: TDateEdit;
     PopupMenu_transactions: TPopupMenu;
     delete_transaction: TMenuItem;
+    TabItem2: TTabItem;
+    Rectangle122: TRectangle;
+    Rectangle133: TRectangle;
+    Rectangle134: TRectangle;
+    Edit1: TEdit;
+    Rectangle135: TRectangle;
+    ColorAnimation24: TColorAnimation;
+    Text80: TText;
+    Rectangle136: TRectangle;
+    Edit7: TEdit;
+    Rectangle137: TRectangle;
+    Rectangle138: TRectangle;
+    Rectangle139: TRectangle;
+    Text81: TText;
+    Rectangle140: TRectangle;
+    grid_records: TStringGrid;
+    PopupMenu3: TPopupMenu;
+    MenuItem5: TMenuItem;
+    MenuItem6: TMenuItem;
+    BindSourceDB7: TBindSourceDB;
+    LinkGridToDataSourceBindSourceDB7: TLinkGridToDataSource;
+    rect_records: TRectangle;
+    ColorAnimation25: TColorAnimation;
+    Image4: TImage;
+    Text82: TText;
+    Text83: TText;
+    Text84: TText;
+    Rectangle141: TRectangle;
+    Text85: TText;
+    Text86: TText;
     procedure Rect_housesClick(Sender: TObject);
     procedure Rect_salesClick(Sender: TObject);
     procedure rect_landsClick(Sender: TObject);
@@ -470,11 +500,15 @@ type
     procedure DateEdit4Change(Sender: TObject);
     procedure edit_search_transactionsTyping(Sender: TObject);
     procedure delete_transactionClick(Sender: TObject);
+    procedure FormResize(Sender: TObject);
+    procedure rec(type_rc: string);
+    procedure rect_recordsClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
   private
     { Private declarations }
   public
     { Public declarations }
-    USERNAME, PASSWORD, FULLNAME, USER_TYPE :string
+    USERNAME, PASSWORD, FULLNAME, USER_TYPE :string;
   end;
 
 var
@@ -544,6 +578,113 @@ begin
     frm_dm.table_transactions.Filter := ' id_transaction like '''+edit_search_transactions.Text+'%''';
     frm_dm.table_transactions.Filtered := true;
   end;
+end;
+
+procedure Tfrm_main.FormResize(Sender: TObject);
+var
+  form_width, grid_lands_width, grid_houses_width, grid_expenses_width, grid_costumer_requests_width, grid_transactions_width, rest_width, grid_records_width: real;
+begin
+
+  // Auto Adjust Columns width for ***LANDS*** StringGrid////////////////////////////////////////////////////////
+  form_width := frm_main.Width;                                                                               ///
+  grid_lands_width := form_width - 240 - 60 - 130;                                                              ///
+  rest_width := grid_lands_width;                                                                        ///
+  LinkGridToDataSourceBindSourceDB1.Columns[13].Width := 70;
+  rest_width := rest_width - LinkGridToDataSourceBindSourceDB1.Columns[13].Width;                              ///
+  LinkGridToDataSourceBindSourceDB1.Columns[12].Width := round((8.66) * grid_lands_width / 100);            ///
+  rest_width := rest_width - LinkGridToDataSourceBindSourceDB1.Columns[12].Width;                              ///
+  LinkGridToDataSourceBindSourceDB1.Columns[11].Width := round((8.66) * grid_lands_width / 100);            ///
+  rest_width := rest_width - LinkGridToDataSourceBindSourceDB1.Columns[11].Width;                             ///
+  LinkGridToDataSourceBindSourceDB1.Columns[10].Width := round((8.66) * grid_lands_width / 100);            ///
+  rest_width := rest_width - LinkGridToDataSourceBindSourceDB1.Columns[10].Width;                             ///
+  LinkGridToDataSourceBindSourceDB1.Columns[9].Width := round((8.66) * grid_lands_width / 100);            ///
+  rest_width := rest_width - LinkGridToDataSourceBindSourceDB1.Columns[9].Width;                             ///
+  LinkGridToDataSourceBindSourceDB1.Columns[8].Width := round((8.66) * grid_lands_width / 100);            ///
+  rest_width := rest_width - LinkGridToDataSourceBindSourceDB1.Columns[8].Width;                             ///
+  LinkGridToDataSourceBindSourceDB1.Columns[7].Width := round((8.66) * grid_lands_width / 100);            ///
+  rest_width := rest_width - LinkGridToDataSourceBindSourceDB1.Columns[7].Width;                             ///
+  LinkGridToDataSourceBindSourceDB1.Columns[6].Width := round((8.66) * grid_lands_width / 100);            ///
+  rest_width := rest_width - LinkGridToDataSourceBindSourceDB1.Columns[6].Width;                             ///
+  LinkGridToDataSourceBindSourceDB1.Columns[5].Width := round((8.66) * grid_lands_width / 100);            ///
+  rest_width := rest_width - LinkGridToDataSourceBindSourceDB1.Columns[5].Width;                             ///
+  LinkGridToDataSourceBindSourceDB1.Columns[4].Width := round((8.66) * grid_lands_width / 100);            ///
+  rest_width := rest_width - LinkGridToDataSourceBindSourceDB1.Columns[4].Width;                             ///
+  LinkGridToDataSourceBindSourceDB1.Columns[3].Width := round((8.66) * grid_lands_width / 100);            ///
+  rest_width := rest_width - LinkGridToDataSourceBindSourceDB1.Columns[3].Width;                             ///
+  LinkGridToDataSourceBindSourceDB1.Columns[2].Width := round((8.66) * grid_lands_width / 100);            ///
+  rest_width := rest_width - LinkGridToDataSourceBindSourceDB1.Columns[2].Width;                             ///
+  LinkGridToDataSourceBindSourceDB1.Columns[1].Width := round((8.66) * grid_lands_width / 100);            ///
+  rest_width := rest_width - LinkGridToDataSourceBindSourceDB1.Columns[1].Width;                             ///
+  LinkGridToDataSourceBindSourceDB1.Columns[0].Width := round(rest_width);                              ///
+  ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+  // Auto Adjust Columns width for ***HOUSES*** StringGrid////////////////////////////////////////////////////////
+  form_width := frm_main.Width;                                                                               ///
+  grid_houses_width := form_width - 240 - 60 - 102;                                                              ///
+  rest_width := grid_houses_width;                                                                        ///
+  LinkGridToDataSourceBindSourceDB2.Columns[11].Width := 70;
+  rest_width := rest_width - LinkGridToDataSourceBindSourceDB2.Columns[11].Width;                              ///
+  LinkGridToDataSourceBindSourceDB2.Columns[10].Width := round((10) * grid_houses_width / 100);            ///
+  rest_width := rest_width - LinkGridToDataSourceBindSourceDB2.Columns[10].Width;                              ///
+  LinkGridToDataSourceBindSourceDB2.Columns[9].Width := round((10) * grid_houses_width / 100);            ///
+  rest_width := rest_width - LinkGridToDataSourceBindSourceDB2.Columns[9].Width;                             ///
+  LinkGridToDataSourceBindSourceDB2.Columns[8].Width := round((10) * grid_houses_width / 100);            ///
+  rest_width := rest_width - LinkGridToDataSourceBindSourceDB2.Columns[8].Width;                             ///
+  LinkGridToDataSourceBindSourceDB2.Columns[7].Width := round((10) * grid_houses_width / 100);            ///
+  rest_width := rest_width - LinkGridToDataSourceBindSourceDB2.Columns[7].Width;                             ///
+  LinkGridToDataSourceBindSourceDB2.Columns[6].Width := round((10) * grid_houses_width / 100);            ///
+  rest_width := rest_width - LinkGridToDataSourceBindSourceDB2.Columns[6].Width;                             ///
+  LinkGridToDataSourceBindSourceDB2.Columns[5].Width := round((10) * grid_houses_width / 100);            ///
+  rest_width := rest_width - LinkGridToDataSourceBindSourceDB2.Columns[5].Width;                             ///
+  LinkGridToDataSourceBindSourceDB2.Columns[4].Width := round((10) * grid_houses_width / 100);            ///
+  rest_width := rest_width - LinkGridToDataSourceBindSourceDB2.Columns[4].Width;                             ///
+  LinkGridToDataSourceBindSourceDB2.Columns[3].Width := round((10) * grid_houses_width / 100);            ///
+  rest_width := rest_width - LinkGridToDataSourceBindSourceDB2.Columns[3].Width;                             ///
+  LinkGridToDataSourceBindSourceDB2.Columns[2].Width := round((10) * grid_houses_width / 100);            ///
+  rest_width := rest_width - LinkGridToDataSourceBindSourceDB2.Columns[2].Width;                             ///
+  LinkGridToDataSourceBindSourceDB2.Columns[1].Width := round((10) * grid_houses_width / 100);            ///
+  rest_width := rest_width - LinkGridToDataSourceBindSourceDB2.Columns[1].Width;                             ///
+  LinkGridToDataSourceBindSourceDB2.Columns[0].Width := round(rest_width);                              ///
+  ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+  // Auto Adjust Columns width for ***Costumer_requests*** StringGrid////////////////////////////////////////////////////////
+  form_width := frm_main.Width;                                                                               ///
+  grid_costumer_requests_width := form_width - 240 - 60 - 33;                                                              ///
+  rest_width := grid_costumer_requests_width;                                                                        ///
+  LinkGridToDataSourceBindSourceDB3.Columns[7].Width := 70;
+  rest_width := rest_width - LinkGridToDataSourceBindSourceDB3.Columns[7].Width;                             ///
+  LinkGridToDataSourceBindSourceDB3.Columns[6].Width := round((14.28) * grid_costumer_requests_width / 100);            ///
+  rest_width := rest_width - LinkGridToDataSourceBindSourceDB3.Columns[6].Width;                             ///
+  LinkGridToDataSourceBindSourceDB3.Columns[5].Width := round((14.28) * grid_costumer_requests_width / 100);            ///
+  rest_width := rest_width - LinkGridToDataSourceBindSourceDB3.Columns[5].Width;                             ///
+  LinkGridToDataSourceBindSourceDB3.Columns[4].Width := round((14.28) * grid_costumer_requests_width / 100);            ///
+  rest_width := rest_width - LinkGridToDataSourceBindSourceDB3.Columns[4].Width;                             ///
+  LinkGridToDataSourceBindSourceDB3.Columns[3].Width := round((14.28) * grid_costumer_requests_width / 100);            ///
+  rest_width := rest_width - LinkGridToDataSourceBindSourceDB3.Columns[3].Width;                             ///
+  LinkGridToDataSourceBindSourceDB3.Columns[2].Width := round((14.28) * grid_costumer_requests_width / 100);            ///
+  rest_width := rest_width - LinkGridToDataSourceBindSourceDB3.Columns[2].Width;                             ///
+  LinkGridToDataSourceBindSourceDB3.Columns[1].Width := round((14.28) * grid_costumer_requests_width / 100);            ///
+  rest_width := rest_width - LinkGridToDataSourceBindSourceDB3.Columns[1].Width;                             ///
+  LinkGridToDataSourceBindSourceDB3.Columns[0].Width := round(rest_width);                              ///
+  ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+  // Auto Adjust Columns width for ***RECORDS*** StringGrid////////////////////////////////////////////////////////
+  form_width := frm_main.Width;                                                                               ///
+  grid_records_width := form_width - 240 - 60 - 150 - 150 - 120;                                                              ///
+  rest_width := grid_records_width;                                                                        ///
+  LinkGridToDataSourceBindSourceDB7.Columns[0].Width := 150;                                              ///
+  LinkGridToDataSourceBindSourceDB7.Columns[1].Width := 150;                                             ///
+  LinkGridToDataSourceBindSourceDB7.Columns[3].Width := 70;                                              ///
+  LinkGridToDataSourceBindSourceDB7.Columns[2].Width := round(rest_width);
+
+  end;
+
+procedure Tfrm_main.FormShow(Sender: TObject);
+begin
+  text85.Text := 'إسم المستخدم';
+  text86.Text := USERNAME;
 end;
 
 procedure Tfrm_main.grid_costumer_requestsCellDblClick(const Column: TColumn;
@@ -629,6 +770,26 @@ begin
   finally
     MyNotification.Free;
   end;
+end;
+
+procedure Tfrm_main.rec(type_rc: string);
+var
+  id_rc :integer;
+begin
+
+  frm_dm.FDQuery1.SQL.Clear;
+  frm_dm.FDQuery1.SQL.Add('select top 1 * from records order by id_rc desc');
+  frm_dm.FDQuery1.open;
+
+  id_rc := frm_dm.FDQuery1.FieldByName('id_rc').AsInteger + 1;
+
+  frm_dm.FDQuery1.SQL.Clear;
+  frm_dm.FDQuery1.SQL.Add('insert into records values(:id_rc, :type, :date, :usr)');
+  frm_dm.FDQuery1.ParamByName('id_rc').AsInteger := id_rc;
+  frm_dm.FDQuery1.ParamByName('type').AswideString := type_rc;
+  frm_dm.FDQuery1.ParamByName('date').AsDateTime := now;
+  frm_dm.FDQuery1.ParamByName('usr').AswideString := USERNAME;
+  frm_dm.FDQuery1.Execute;
 end;
 
 procedure Tfrm_main.btn_show_add_expensesClick(Sender: TObject);
@@ -749,10 +910,6 @@ begin
   enddt := inttostr(N)+'/' + inttostr(month)+'/'+inttostr(year);
   startdt := '1/'+inttostr(month)+'/'+inttostr(year);
 
-//  script := ' date_up between  '''+startdt+''' and '''+enddt+'''';
-
-//  showmessage(script);
-
   frm_dm.table_transactions.Filtered := false;
   frm_dm.table_transactions.Filter := '  MONTH(date_up) = '+inttostr(month)+' AND YEAR(date_up) = '+inttostr(year);
   frm_dm.table_transactions.Filtered := true;
@@ -776,6 +933,7 @@ begin
         frm_dm.FDQuery1.ExecSQL;
       finally
         frm_dm.table_costumer_requests.Refresh;
+        rec('تم المسح من طلبات العملاء، رقم :'+ num);
         Push_Notification('تم مسح الطلب بنجاح', 'تم مسح الطلب بنجاح', '', now);
       end;
     end;
@@ -799,6 +957,7 @@ begin
         frm_dm.FDQuery1.ExecSQL;
       finally
         frm_dm.table_expenses.Refresh;
+        rec('تم المسح من المصاريف، رقم :'+ num);
         Push_Notification('تم مسح المصروف بنجاح', 'تم مسح المصروف بنجاح', '', now);
       end;
     end;
@@ -843,8 +1002,10 @@ begin
         frm_dm.FDQuery1.SQL.Add('DELETE FROM lands where land_number=:land_number');
         frm_dm.FDQuery1.ParamByName('land_number').AsString := num;
         frm_dm.FDQuery1.ExecSQL;
+        rec('تم المسح من عروض الأراضي رقم :'+ num);
       finally
         frm_dm.table_lands.Refresh;
+        rec('تم المسح من عروض الأراضي رقم :'+ num);
         Push_Notification('تم مسح العرض بنجاح', 'تم مسح العرض بنجاح', 'لقد تم مسح عرض من عروض الأراضي', now);
       end;
     end;
@@ -868,6 +1029,7 @@ begin
         frm_dm.FDQuery1.ExecSQL;
       finally
         frm_dm.table_expenses.Refresh;
+        rec('تم المسح من المعاملات المرفوعة رقم :'+ id_transaction);
         Push_Notification('تم مسحه  بنجاح', 'تم مسحه  بنجاح', '', now);
       end;
     end;
@@ -945,6 +1107,7 @@ begin
         popup_add_expenses.Visible := false;
 
         frm_dm.table_expenses.Refresh;
+//        rec('تم الإضافة في عروض المكتب فلل أدوار ودبلكسات، رقم: '+ house_number);
       end;
   end;
 
@@ -1042,6 +1205,7 @@ begin
         popup_add_house.Visible := false;
 
         frm_dm.table_houses.Refresh;
+        rec('تم الإضافة في عروض المكتب ، رقم: '+ house_number);
       end;
   end;
 
@@ -1124,6 +1288,7 @@ begin
         popup_add_costumer_requests.Visible := false;
 
         frm_dm.table_costumer_requests.Refresh;
+        rec('تم الإضافة في طلبات العملاء، رقم: '+ inttostr(id_costumer));
       end;
   end;
 end;
@@ -1184,6 +1349,7 @@ begin
         popup_add_expenses.Visible := false;
 
         frm_dm.table_expenses.Refresh;
+        rec('تم الإضافة في المصاريف، رقم: '+ inttostr(id_expenses));
       end;
   end;
 
@@ -1276,6 +1442,7 @@ begin
         popup_add_land.Visible := false;
 
         frm_dm.table_lands.Refresh;
+        rec('تم الإضافة في عروض الأراضي، رقم: '+ land_number);
       end;
   end;
 //  getcurrentdir();
@@ -1341,6 +1508,9 @@ begin
       popup_add_transaction.Visible := false;
 
       frm_dm.table_transactions.Refresh;
+
+
+      rec('تم الإضافة في المعاملات المرفوعة، رقم: '+ inttostr(id_transaction));
   end;
 
 end;
@@ -1372,6 +1542,12 @@ procedure Tfrm_main.rect_landsClick(Sender: TObject);
 begin
   current_tab.Parent := rect_lands;
   tabcontrol1.TabIndex := 0;
+end;
+
+procedure Tfrm_main.rect_recordsClick(Sender: TObject);
+begin
+  current_tab.Parent := rect_records;
+  tabcontrol1.TabIndex := 7;
 end;
 
 procedure Tfrm_main.Rect_salesClick(Sender: TObject);
@@ -1482,6 +1658,7 @@ begin
 
     Handle := WinExec('python assets/python/sender.py', SW_HIDE);
 
+    rec( 'تم مشاركة عرض من عروض المكتب رقم:'+ num);
 
   end else begin
     showmessage('بعض الملفات ناقصة');
@@ -1586,6 +1763,8 @@ begin
 
     Handle := WinExec('python assets/python/sender.py', SW_HIDE);
 
+    msg := 'تم مشاركة عرض من عروض الأراضي رقم: '+ num;
+    rec(msg);
 
   end else begin
     showmessage('بعض الملفات ناقصة');
@@ -1661,6 +1840,7 @@ begin
   frm_dm.table_expenses.Refresh;
   frm_dm.FDQuery2.Refresh;
   frm_dm.table_transactions.Refresh;
+  frm_dm.qry_records.Refresh;
 
   day := dayOf(dateedit2.Date);
 

@@ -23,6 +23,7 @@ type
     FDQuery3: TFDQuery;
     table_transactions: TFDTable;
     FDQuery4: TFDQuery;
+    qry_records: TFDQuery;
   private
     { Private declarations }
   public

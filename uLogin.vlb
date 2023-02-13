@@ -1,3 +1,18 @@
 ﻿[frm_dm.table_lands]
 Visible=False
 
+[frm_dm.table_houses]
+Visible=False
+
+[frm_dm.table_costumer_requests]
+Visible=False
+
+[frm_dm.table_expenses]
+Visible=False
+
+[frm_dm.FDQuery2]
+Visible=False
+
+[frm_dm.table_transactions]
+Visible=False
+
