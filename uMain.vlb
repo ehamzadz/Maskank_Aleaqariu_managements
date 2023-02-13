@@ -223,7 +223,7 @@ Coordinates=1929,1030,79,36
 Coordinates=1144,592,44,58
 
 []
-Coordinates=2340,10,138,58
+Coordinates=1784,197,90,36
 
 [frm_dm.table_lands]
 Coordinates=780,40,128,36
@@ -1067,9 +1067,6 @@ Coordinates=1576,844,94,36
 [VertScrollBox6]
 Coordinates=1330,844,100,36
 
-[PopupMenu3]
-Coordinates=1784,197,90,36
-
 [Text76]
 Coordinates=644,424,54,58
 
@@ -1078,9 +1075,6 @@ Coordinates=1210,844,94,36
 
 [Rectangle116]
 Coordinates=1090,844,94,36
-
-[MenuItem5]
-Coordinates=985,844,79,36
 
 [Text65]
 Coordinates=400,424,54,58

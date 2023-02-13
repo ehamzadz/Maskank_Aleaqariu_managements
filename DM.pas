@@ -22,6 +22,7 @@ type
     FDQuery2: TFDQuery;
     FDQuery3: TFDQuery;
     table_transactions: TFDTable;
+    FDQuery4: TFDQuery;
   private
     { Private declarations }
   public

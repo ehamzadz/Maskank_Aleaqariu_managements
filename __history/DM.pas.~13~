@@ -14,7 +14,14 @@ type
   Tfrm_dm = class(TDataModule)
     FDConnection1: TFDConnection;
     FDQuery1: TFDQuery;
-    procedure FDConnection1BeforeConnect(Sender: TObject);
+    table_users: TFDTable;
+    table_lands: TFDTable;
+    table_houses: TFDTable;
+    table_costumer_requests: TFDTable;
+    table_expenses: TFDTable;
+    FDQuery2: TFDQuery;
+    FDQuery3: TFDQuery;
+    table_transactions: TFDTable;
   private
     { Private declarations }
   public
@@ -29,15 +36,5 @@ implementation
 {%CLASSGROUP 'FMX.Controls.TControl'}
 
 {$R *.dfm}
-
-procedure Tfrm_dm.FDConnection1BeforeConnect(Sender: TObject);
-begin
-    FDConnection1.Params.DriverID := 'MSSQL';
-    FDConnection1.Params.Server := 'MyServerName';
-    FDConnection1.Params.Database := 'masknk_data';
-    FDConnection1.Params.UserName := 'hamza';
-    FDConnection1.Params.Password := 'Hamza7911-/*';
-    FDConnection1.Connected := True;
-end;
 
 end.

@@ -554,7 +554,7 @@ object frm_main: Tfrm_main
         Size.Height = 55.000000000000000000
         Size.PlatformDefault = False
         Stroke.Kind = None
-        OnClick = rect_expensesClick
+        OnClick = rect_transactionsClick
         object ColorAnimation20: TColorAnimation
           Duration = 0.200000002980232200
           PropertyName = 'Fill.Color'
@@ -2299,7 +2299,7 @@ object frm_main: Tfrm_main
     Size.Width = 724.000000000000000000
     Size.Height = 720.000000000000000000
     Size.PlatformDefault = False
-    TabIndex = 6
+    TabIndex = 5
     TabOrder = 0
     TabPosition = Dots
     Sizes = (
@@ -9463,7 +9463,7 @@ object frm_main: Tfrm_main
       CustomIcon = <
         item
         end>
-      IsSelected = False
+      IsSelected = True
       Size.Width = 8.000000000000000000
       Size.Height = 8.000000000000000000
       Size.PlatformDefault = False
@@ -9619,13 +9619,12 @@ object frm_main: Tfrm_main
           XRadius = 7.000000000000000000
           YRadius = 7.000000000000000000
           object Rectangle99: TRectangle
-            Align = Right
+            Align = Client
             Cursor = crHandPoint
             Fill.Color = x0028A745
             Padding.Top = 10.000000000000000000
             Padding.Bottom = 10.000000000000000000
-            Position.Y = 11.000000000000000000
-            Size.Width = 653.000000000000000000
+            Size.Width = 642.000000000000000000
             Size.Height = 54.000000000000000000
             Size.PlatformDefault = False
             Stroke.Kind = None
@@ -9634,7 +9633,7 @@ object frm_main: Tfrm_main
             object Text55: TText
               Align = Client
               HitTest = False
-              Size.Width = 653.000000000000000000
+              Size.Width = 642.000000000000000000
               Size.Height = 34.000000000000000000
               Size.PlatformDefault = False
               Text = #1575#1604#1605#1589#1575#1585#1610#1601
@@ -10277,7 +10276,7 @@ object frm_main: Tfrm_main
       CustomIcon = <
         item
         end>
-      IsSelected = True
+      IsSelected = False
       Size.Width = 8.000000000000000000
       Size.Height = 8.000000000000000000
       Size.PlatformDefault = False
@@ -10406,13 +10405,12 @@ object frm_main: Tfrm_main
           XRadius = 7.000000000000000000
           YRadius = 7.000000000000000000
           object Rectangle130: TRectangle
-            Align = Right
+            Align = Client
             Cursor = crHandPoint
             Fill.Color = x0028A745
             Padding.Top = 10.000000000000000000
             Padding.Bottom = 10.000000000000000000
-            Position.Y = 11.000000000000000000
-            Size.Width = 653.000000000000000000
+            Size.Width = 642.000000000000000000
             Size.Height = 54.000000000000000000
             Size.PlatformDefault = False
             Stroke.Kind = None
@@ -10421,7 +10419,7 @@ object frm_main: Tfrm_main
             object Text77: TText
               Align = Client
               HitTest = False
-              Size.Width = 653.000000000000000000
+              Size.Width = 642.000000000000000000
               Size.Height = 34.000000000000000000
               Size.PlatformDefault = False
               Text = #1575#1604#1605#1593#1575#1605#1604#1575#1578' '#1575#1604#1605#1585#1601#1608#1593#1577
@@ -10472,8 +10470,8 @@ object frm_main: Tfrm_main
             RowHeight = 50.000000000000000000
             RowCount = 0
             Options = [AlternatingRowBackground, Editing, ColumnResize, ColumnMove, ColLines, RowLines, RowSelect, AlwaysShowSelection, Tabs, Header, HeaderClick, AutoDisplacement]
-            OnEditingDone = grid_expensesEditingDone
-            OnCellDblClick = grid_expensesCellDblClick
+            OnEditingDone = grid_transactionsEditingDone
+            OnCellDblClick = grid_transactionsCellDblClick
             Viewport.Width = 660.000000000000000000
             Viewport.Height = 454.000000000000000000
           end
@@ -15006,6 +15004,7 @@ object frm_main: Tfrm_main
     Size.Height = 720.000000000000000000
     Size.PlatformDefault = False
     Stroke.Kind = None
+    Visible = False
     object Rectangle103: TRectangle
       Align = Center
       Fill.Color = claWhite

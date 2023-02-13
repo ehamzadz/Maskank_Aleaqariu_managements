@@ -392,8 +392,6 @@ type
     DateEdit4: TDateEdit;
     Rectangle131: TRectangle;
     grid_transactions: TStringGrid;
-    PopupMenu3: TPopupMenu;
-    MenuItem5: TMenuItem;
     BindSourceDB6: TBindSourceDB;
     LinkGridToDataSourceBindSourceDB6: TLinkGridToDataSource;
     Rectangle95: TRectangle;
@@ -404,6 +402,8 @@ type
     Rectangle132: TRectangle;
     Text79: TText;
     DateEdit3: TDateEdit;
+    PopupMenu_transactions: TPopupMenu;
+    delete_transaction: TMenuItem;
     procedure Rect_housesClick(Sender: TObject);
     procedure Rect_salesClick(Sender: TObject);
     procedure rect_landsClick(Sender: TObject);
@@ -459,7 +459,6 @@ type
     procedure tab_expensesDblClick(Sender: TObject);
     procedure DateEdit2Change(Sender: TObject);
     procedure Rectangle126Click(Sender: TObject);
-    procedure edit_search_transactionsTyping(Sender: TObject);
     procedure Rectangle122Click(Sender: TObject);
     procedure Rectangle121Click(Sender: TObject);
     procedure btn_add_transactionClick(Sender: TObject);
@@ -467,6 +466,10 @@ type
       const Row: Integer);
     procedure grid_transactionsEditingDone(Sender: TObject; const ACol,
       ARow: Integer);
+    procedure rect_transactionsClick(Sender: TObject);
+    procedure DateEdit4Change(Sender: TObject);
+    procedure edit_search_transactionsTyping(Sender: TObject);
+    procedure delete_transactionClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -530,6 +533,17 @@ begin
 
 //  scrollToEndHZ(grid_lands,7);
 
+end;
+
+procedure Tfrm_main.edit_search_transactionsTyping(Sender: TObject);
+begin
+  if (trim(edit_search_transactions.text)='') then begin
+    frm_dm.table_transactions.Filtered := false;
+  end else begin
+    frm_dm.table_transactions.Filtered := false;
+    frm_dm.table_transactions.Filter := ' id_transaction like '''+edit_search_transactions.Text+'%''';
+    frm_dm.table_transactions.Filtered := true;
+  end;
 end;
 
 procedure Tfrm_main.grid_costumer_requestsCellDblClick(const Column: TColumn;
@@ -707,6 +721,44 @@ begin
 
 end;
 
+procedure Tfrm_main.DateEdit4Change(Sender: TObject);
+var
+  day, month, year, N :integer;
+  SUM, enddt,startdt, script:string;
+begin
+  day := dayOf(dateedit2.Date);
+//
+  month := monthof(dateedit4.Date);
+  year := yearOf(dateedit4.Date);
+
+  case month of
+    1 : N := 31;
+    2 : N := 20;
+    3 : N := 31;
+    4 : N := 30;
+    5 : N := 31;
+    6 : N := 30;
+    7 : N := 31;
+    8 : N := 31;
+    9 : N := 30;
+    10 : N := 31;
+    11 : N := 30;
+    12 : N := 31;
+  end;
+
+  enddt := inttostr(N)+'/' + inttostr(month)+'/'+inttostr(year);
+  startdt := '1/'+inttostr(month)+'/'+inttostr(year);
+
+//  script := ' date_up between  '''+startdt+''' and '''+enddt+'''';
+
+//  showmessage(script);
+
+  frm_dm.table_transactions.Filtered := false;
+  frm_dm.table_transactions.Filter := '  MONTH(date_up) = '+inttostr(month)+' AND YEAR(date_up) = '+inttostr(year);
+  frm_dm.table_transactions.Filtered := true;
+
+end;
+
 procedure Tfrm_main.delete_costumer_requestsClick(Sender: TObject);
 var
   num :string;
@@ -798,15 +850,28 @@ begin
     end;
 end;
 
-procedure Tfrm_main.edit_search_transactionsTyping(Sender: TObject);
+procedure Tfrm_main.delete_transactionClick(Sender: TObject);
+
+var
+  id_transaction :string;
 begin
-  if (trim(edit_search_expenses.text)='') then begin
-    frm_dm.table_transactions.Filtered := false;
-  end else begin
-    frm_dm.table_transactions.Filtered := false;
-    frm_dm.table_transactions.Filter := ' id_transactions like '''+edit_search_transactions.Text+'%''';
-    frm_dm.table_transactions.Filtered := true;
-  end;
+
+  id_transaction := grid_transactions.Cells[7,grid_transactions.Selected];
+
+   if MessageDlg('هل أنت متأكد من أنك تريد مسحه ؟',
+    mtConfirmation, [mbYes, mbNo], 0, mbYes) = mrYes then
+    begin
+      try
+        frm_dm.FDQuery1.SQL.Clear;
+        frm_dm.FDQuery1.SQL.Add('DELETE FROM transactions where id_transaction=:id_transaction');
+        frm_dm.FDQuery1.ParamByName('id_transaction').asinteger := strtoint(id_transaction);
+        frm_dm.FDQuery1.ExecSQL;
+      finally
+        frm_dm.table_expenses.Refresh;
+        Push_Notification('تم مسحه  بنجاح', 'تم مسحه  بنجاح', '', now);
+      end;
+    end;
+
 end;
 
 procedure Tfrm_main.Rectangle101Click(Sender: TObject);
@@ -1314,6 +1379,12 @@ begin
   current_tab.Parent := Rect_sales;
   tabcontrol1.TabIndex := 2;
 end;
+procedure Tfrm_main.rect_transactionsClick(Sender: TObject);
+begin
+  current_tab.Parent := Rect_transactions;
+  tabcontrol1.TabIndex := 6;
+end;
+
 procedure Tfrm_main.share_to_whatsapp2Click(Sender: TObject);
 var
   Handle: THandle;

@@ -58,4 +58,63 @@ object frm_dm: Tfrm_dm
     Left = 64
     Top = 328
   end
+  object FDQuery2: TFDQuery
+    Active = True
+    Connection = FDConnection1
+    SQL.Strings = (
+      'select * from expenses where (date>:startdt) and date<:enddt')
+    Left = 536
+    Top = 32
+    ParamData = <
+      item
+        Name = 'STARTDT'
+        DataType = ftDate
+        ParamType = ptInput
+        Value = 44958d
+      end
+      item
+        Name = 'ENDDT'
+        DataType = ftDate
+        ParamType = ptInput
+        Value = 44985d
+      end>
+  end
+  object FDQuery3: TFDQuery
+    Connection = FDConnection1
+    SQL.Strings = (
+      '')
+    Left = 544
+    Top = 112
+  end
+  object table_transactions: TFDTable
+    Active = True
+    IndexFieldNames = 'id_transaction'
+    Connection = FDConnection1
+    TableName = 'masknk_data.dbo.transactions'
+    Left = 64
+    Top = 384
+  end
+  object FDQuery4: TFDQuery
+    Active = True
+    Connection = FDConnection1
+    SQL.Strings = (
+      
+        'select * from transactions where (date_up>:startdt) and date_up<' +
+        ':enddt')
+    Left = 536
+    Top = 216
+    ParamData = <
+      item
+        Name = 'STARTDT'
+        DataType = ftDate
+        ParamType = ptInput
+        Value = 44958d
+      end
+      item
+        Name = 'ENDDT'
+        DataType = ftDate
+        ParamType = ptInput
+        Value = 44985d
+      end>
+  end
 end
