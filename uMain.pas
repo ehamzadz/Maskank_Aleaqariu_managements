@@ -728,12 +728,12 @@ end;
 
 procedure Tfrm_main.Rectangle28Click(Sender: TObject);
 begin
-  popup_add_house.Visible := false;
+  popup_add_land.Visible := false;
 end;
 
 procedure Tfrm_main.Rectangle70Click(Sender: TObject);
 begin
-  popup_add_land.Visible := false;
+  popup_add_house.Visible := false;
 end;
 
 procedure Tfrm_main.Rectangle71Click(Sender: TObject);
@@ -998,14 +998,14 @@ begin
 
       i := frm_dm.FDQuery1.Fields[0].AsInteger;
 
-//      showmessage(inttostr(i));
+      showmessage(inttostr(1));
 
       if i=1 then begin
         Rectangle43.Stroke.Color := TAlphacolorRec.red;
         showmessage('رقم الوجه غير متاح، جرب رقم آخر');
       end else begin
         frm_dm.FDQuery1.SQL.Clear;
-        frm_dm.FDQuery1.SQL.Add('INSERT INTO lands values (:land_number,:tp,:District,:surface,:street,:num_graph,:num_piece,:owner_name,:phone,:elssom,:sale,:lengths,:note)');
+        frm_dm.FDQuery1.SQL.Add('INSERT INTO lands values (:land_number,:tp,:District,:surface,:street,:num_graph,:num_piece,:owner_name,:phone,:elssom,:sale,:lengths,:note,:url)');
         frm_dm.FDQuery1.ParamByName('land_number').AsWideString := land_number;
         frm_dm.FDQuery1.ParamByName('tp').AsWideString := tp;
         frm_dm.FDQuery1.ParamByName('District').AsWideString := District;
@@ -1019,11 +1019,16 @@ begin
         frm_dm.FDQuery1.ParamByName('sale').AsWideString := sale;
         frm_dm.FDQuery1.ParamByName('lengths').AsWideString := lengths;
         frm_dm.FDQuery1.ParamByName('note').AsWideString := note;
+        frm_dm.FDQuery1.ParamByName('url').AsWideString := '';
+        showmessage(inttostr(11));
+
         frm_dm.FDQuery1.Execute;
 //        showmessage('تم إضافة العرض بنجاح');
 
         Push_Notification('تم إضافة العرض بنجاح', 'تم إضافة العرض بنجاح', 'لقد تم إضافة عرض جديد في عروض الأراضي ', now);
 
+
+      showmessage(inttostr(2));
 
         edit_land_number.text := '';
         edit_type.text := '';
