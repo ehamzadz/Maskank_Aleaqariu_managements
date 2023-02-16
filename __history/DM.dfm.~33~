@@ -1,0 +1,126 @@
+object frm_dm: Tfrm_dm
+  Height = 480
+  Width = 640
+  object FDConnection1: TFDConnection
+    Params.Strings = (
+      'Database=masknk_data'
+      'User_Name=hamza'
+      'Server=192.168.1.36,1433'
+      'Password=Hamza7911-/*'
+      'DriverID=MSSQL')
+    Connected = True
+    LoginPrompt = False
+    Left = 64
+    Top = 24
+  end
+  object FDQuery1: TFDQuery
+    Connection = FDConnection1
+    Left = 144
+    Top = 24
+  end
+  object table_users: TFDTable
+    Active = True
+    IndexFieldNames = 'user'
+    Connection = FDConnection1
+    TableName = 'masknk_data.dbo.users'
+    Left = 64
+    Top = 104
+  end
+  object table_lands: TFDTable
+    Active = True
+    IndexFieldNames = 'land_number'
+    Connection = FDConnection1
+    TableName = 'masknk_data.dbo.lands'
+    Left = 64
+    Top = 160
+  end
+  object table_houses: TFDTable
+    Active = True
+    IndexFieldNames = 'house_num'
+    Connection = FDConnection1
+    TableName = 'houses'
+    Left = 64
+    Top = 216
+  end
+  object table_costumer_requests: TFDTable
+    Active = True
+    IndexFieldNames = 'id_costumer'
+    Connection = FDConnection1
+    TableName = 'masknk_data.dbo.customer_requests'
+    Left = 64
+    Top = 272
+  end
+  object table_expenses: TFDTable
+    Active = True
+    IndexFieldNames = 'id_expenses'
+    Connection = FDConnection1
+    TableName = 'expenses'
+    Left = 64
+    Top = 328
+  end
+  object FDQuery2: TFDQuery
+    Connection = FDConnection1
+    SQL.Strings = (
+      'select * from expenses where (date>:startdt) and date<:enddt')
+    Left = 536
+    Top = 32
+    ParamData = <
+      item
+        Name = 'STARTDT'
+        DataType = ftDate
+        ParamType = ptInput
+        Value = 44958d
+      end
+      item
+        Name = 'ENDDT'
+        DataType = ftDate
+        ParamType = ptInput
+        Value = 44985d
+      end>
+  end
+  object FDQuery3: TFDQuery
+    Connection = FDConnection1
+    SQL.Strings = (
+      '')
+    Left = 544
+    Top = 112
+  end
+  object table_transactions: TFDTable
+    Active = True
+    IndexFieldNames = 'id_transaction'
+    Connection = FDConnection1
+    TableName = 'masknk_data.dbo.transactions'
+    Left = 64
+    Top = 384
+  end
+  object FDQuery4: TFDQuery
+    Connection = FDConnection1
+    SQL.Strings = (
+      
+        'select * from transactions where (date_up>:startdt) and date_up<' +
+        ':enddt')
+    Left = 536
+    Top = 216
+    ParamData = <
+      item
+        Name = 'STARTDT'
+        DataType = ftDate
+        ParamType = ptInput
+        Value = 44958d
+      end
+      item
+        Name = 'ENDDT'
+        DataType = ftDate
+        ParamType = ptInput
+        Value = 44985d
+      end>
+  end
+  object qry_records: TFDQuery
+    Active = True
+    Connection = FDConnection1
+    SQL.Strings = (
+      'select top 1000 * from records order by date DESC')
+    Left = 296
+    Top = 232
+  end
+end

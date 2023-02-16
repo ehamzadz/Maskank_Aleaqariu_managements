@@ -5,7 +5,7 @@ object frm_dm: Tfrm_dm
     Params.Strings = (
       'Database=masknk_data'
       'User_Name=hamza'
-      'Server=localhost'
+      'Server=192.168.1.36,1433'
       'Password=Hamza7911-/*'
       'DriverID=MSSQL')
     Connected = True
@@ -15,8 +15,8 @@ object frm_dm: Tfrm_dm
   end
   object FDQuery1: TFDQuery
     Connection = FDConnection1
-    Left = 144
-    Top = 24
+    Left = 568
+    Top = 16
   end
   object table_users: TFDTable
     Active = True
@@ -63,8 +63,8 @@ object frm_dm: Tfrm_dm
     Connection = FDConnection1
     SQL.Strings = (
       'select * from expenses where (date>:startdt) and date<:enddt')
-    Left = 536
-    Top = 32
+    Left = 200
+    Top = 160
     ParamData = <
       item
         Name = 'STARTDT'
@@ -83,8 +83,8 @@ object frm_dm: Tfrm_dm
     Connection = FDConnection1
     SQL.Strings = (
       '')
-    Left = 544
-    Top = 112
+    Left = 568
+    Top = 72
   end
   object table_transactions: TFDTable
     Active = True
@@ -101,7 +101,7 @@ object frm_dm: Tfrm_dm
       
         'select * from transactions where (date_up>:startdt) and date_up<' +
         ':enddt')
-    Left = 536
+    Left = 200
     Top = 216
     ParamData = <
       item
@@ -122,7 +122,7 @@ object frm_dm: Tfrm_dm
     Connection = FDConnection1
     SQL.Strings = (
       'select top 1000 * from records order by date DESC')
-    Left = 296
-    Top = 232
+    Left = 200
+    Top = 104
   end
 end

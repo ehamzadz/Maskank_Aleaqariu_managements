@@ -404,7 +404,7 @@ type
     DateEdit3: TDateEdit;
     PopupMenu_transactions: TPopupMenu;
     delete_transaction: TMenuItem;
-    TabItem2: TTabItem;
+    tab_records: TTabItem;
     Rectangle122: TRectangle;
     Rectangle133: TRectangle;
     Rectangle134: TRectangle;
@@ -434,6 +434,63 @@ type
     Rectangle141: TRectangle;
     Text85: TText;
     Text86: TText;
+    tab_stats: TTabItem;
+    rect_stats: TRectangle;
+    ColorAnimation26: TColorAnimation;
+    Image5: TImage;
+    Text87: TText;
+    Rectangle143: TRectangle;
+    Rectangle144: TRectangle;
+    Rectangle145: TRectangle;
+    Rectangle146: TRectangle;
+    Text88: TText;
+    Rectangle149: TRectangle;
+    Text89: TText;
+    Image6: TImage;
+    Text90: TText;
+    Text91: TText;
+    FlowLayout1: TFlowLayout;
+    Image9: TImage;
+    Rectangle147: TRectangle;
+    Rectangle148: TRectangle;
+    Image7: TImage;
+    Rectangle150: TRectangle;
+    Text92: TText;
+    Text93: TText;
+    Text94: TText;
+    Rectangle151: TRectangle;
+    Rectangle152: TRectangle;
+    Image8: TImage;
+    Rectangle153: TRectangle;
+    Text95: TText;
+    Text96: TText;
+    Text97: TText;
+    Rectangle154: TRectangle;
+    Rectangle155: TRectangle;
+    Image10: TImage;
+    Rectangle156: TRectangle;
+    Text98: TText;
+    Text99: TText;
+    Text100: TText;
+    Rectangle157: TRectangle;
+    Rectangle158: TRectangle;
+    Image11: TImage;
+    Rectangle159: TRectangle;
+    Text101: TText;
+    Text102: TText;
+    Text103: TText;
+    FloatAnimation1: TFloatAnimation;
+    FloatAnimation3: TFloatAnimation;
+    FloatAnimation4: TFloatAnimation;
+    FloatAnimation5: TFloatAnimation;
+    FloatAnimation6: TFloatAnimation;
+    ColorAnimation27: TColorAnimation;
+    ColorAnimation28: TColorAnimation;
+    ColorAnimation29: TColorAnimation;
+    ColorAnimation30: TColorAnimation;
+    ColorAnimation31: TColorAnimation;
+    Image12: TImage;
+    Img_dark_mode: TImage;
     procedure Rect_housesClick(Sender: TObject);
     procedure Rect_salesClick(Sender: TObject);
     procedure rect_landsClick(Sender: TObject);
@@ -504,6 +561,7 @@ type
     procedure rec(type_rc: string);
     procedure rect_recordsClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure rect_statsClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -1117,6 +1175,12 @@ end;
 procedure Tfrm_main.Rectangle126Click(Sender: TObject);
 begin
   popup_add_transaction.Visible := true;
+end;
+
+procedure Tfrm_main.rect_statsClick(Sender: TObject);
+begin
+  current_tab.Parent := rect_stats;
+  tabcontrol1.TabIndex := 8;
 end;
 
 procedure Tfrm_main.Rectangle28Click(Sender: TObject);

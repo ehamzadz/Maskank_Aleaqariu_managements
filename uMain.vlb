@@ -1248,9 +1248,6 @@ Coordinates=1264,362,80,33
 [Rectangle137]
 Coordinates=1001,852,80,33
 
-[TabItem2]
-Coordinates=1417,356,59,33
-
 [Rectangle140]
 Coordinates=1653,206,80,33
 
@@ -1269,4 +1266,7 @@ Coordinates=818,273,98,141
 [grid_records]
 Coordinates=1070,280,70,123
 Visible=True
+
+[tab_records]
+Coordinates=1417,356,59,33
 
